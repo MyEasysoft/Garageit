@@ -1,0 +1,176 @@
+
+
+.container{
+    position:relative;
+    float: left;
+    width: 95%;
+    padding: 2.5%;
+
+}
+.H1{
+    font-size: 26px;
+}
+
+.btn_1{
+    padding: 10px 15px;
+    background-color: rgb(65, 17, 110);
+}
+
+.mobile{
+    display: none;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .mobile{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 90%;
+      margin: 5%;
+      padding: 0px;
+      text-align: center;
+      margin-top: 50px;
+      text-align: center;
+
+      
+    }
+
+    .mobile p{
+      margin: 30px;
+      color: gray;
+      text-align: center;
+    }
+
+    .mobile{
+      border-radius: 20px;
+    }
+
+  .desktop{
+    display: none;
+  }
+   
+  
+.resize{
+  width: 90%;
+  margin: 5%;
+  height: auto;
+  border-radius: 30px;
+}
+
+.login_btn{
+  margin: 0px;
+  padding: 20px 20px;
+}
+
+.login_btn:hover{
+  border-style: solid;
+  background-color: transparent;
+}
+     
+   
+
+  }
+   
+   @media only screen and (max-width: 412px) {
+    
+    .mobile{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 90%;
+      margin: 5%;
+      padding: 0px;
+      text-align: center;
+      margin-top: 50px;
+      text-align: center;
+
+      
+    }
+
+    .mobile p{
+      margin: 30px;
+      color: gray;
+      text-align: center;
+    }
+
+    .mobile{
+      border-radius: 20px;
+    }
+
+  .desktop{
+    display: none;
+  }
+   
+  
+.resize{
+  width: 90%;
+  margin: 5%;
+  height: auto;
+  border-radius: 30px;
+}
+
+.login_btn{
+  margin: 0px;
+  padding: 20px 20px;
+}
+
+.login_btn:hover{
+  border-style: solid;
+  background-color: transparent;
+}
+     
+   
+
+   
+   }
+   
+   
+   @media only screen and (max-width: 360px) {
+    .mobile{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 90%;
+      margin: 5%;
+      padding: 0px;
+      text-align: center;
+      margin-top: 50px;
+      text-align: center;
+
+      
+    }
+
+    .mobile p{
+      margin: 30px;
+      color: gray;
+      text-align: center;
+    }
+
+    .mobile{
+      border-radius: 20px;
+    }
+
+  .desktop{
+    display: none;
+  }
+   
+  
+.resize{
+  width: 90%;
+  margin: 5%;
+  height: auto;
+  border-radius: 30px;
+}
+
+.login_btn{
+  margin: 0px;
+  padding: 20px 20px;
+}
+
+.login_btn:hover{
+  border-style: solid;
+  background-color: transparent;
+}
+     
+   
+   }
