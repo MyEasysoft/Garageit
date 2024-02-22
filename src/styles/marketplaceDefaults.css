@@ -175,8 +175,17 @@
  * NOTE: components use CSS Modules for styles.
  */
 
+ @font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("OpenSans"),
+    url("../../public/fonts/OpenSans-VariableFont_wdth,wght.ttf");
+  
+  }
+
 body {
-  font-family: var(--fontFamily);
+  font-family: 'OpenSans';
 
   /* A non-standard feature: https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth */
   -webkit-font-smoothing: antialiased;
