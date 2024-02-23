@@ -2,9 +2,6 @@ import React from 'react';
 import css from './Home.module.css';
 
 import banner from '../../assets/img1.PNG';
-import w1 from '../../assets/cover1.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMessage, faHeart, faSignIn, faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import classNames from 'classnames';
 import NamedLink from '../NamedLink/NamedLink';
 
