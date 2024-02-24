@@ -29,6 +29,8 @@ import TopbarMobileMenu from './TopbarMobileMenu/TopbarMobileMenu';
 import TopbarDesktop from './TopbarDesktop/TopbarDesktop';
 
 import css from './Topbar.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
 
 const MAX_MOBILE_SCREEN_WIDTH = 1024;
 
@@ -234,7 +236,8 @@ class TopbarComponent extends Component {
             onClick={this.handleMobileSearchOpen}
             title={intl.formatMessage({ id: 'Topbar.searchIcon' })}
           >
-            <SearchIcon className={css.searchMenuIcon} />
+           
+            <FontAwesomeIcon icon={faBell}/>
           </Button>
         </div>
         <div className={css.desktop}>

@@ -19,6 +19,9 @@ import {
 import TopbarSearchForm from '../TopbarSearchForm/TopbarSearchForm';
 
 import css from './TopbarDesktop.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell, faHeart, faUser } from '@fortawesome/free-regular-svg-icons';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 const TopbarDesktop = props => {
   const {
@@ -137,24 +140,48 @@ const TopbarDesktop = props => {
     </NamedLink>
   );
 
+  const activeClassName = 'my-active-class';
+    
+    const landingPageProps = {
+        name: 'LandingPage',
+        activeClassName,
+        match: { url: '/' },
+      };
+
   return (
-    <nav className={classes}>
-      <LinkedLogo
-        className={css.logoLink}
-        layout="desktop"
-        alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
-      />
-      {search}
-      <NamedLink className={css.createListingLink} name="NewListingPage">
-        <span className={css.createListing}>
-          <FormattedMessage id="TopbarDesktop.createListing" />
-        </span>
-      </NamedLink>
-      {inboxLink}
-      {profileMenu}
-      {signupLink}
-      {loginLink}
-    </nav>
+          <div className={css.navs}>
+            <nav className={classNames(classes, css.top_nav)}>
+                  
+                    <div> <NamedLink {...landingPageProps} className={css.btn_1}>Need storage?</NamedLink></div>
+                    <div><NamedLink {...landingPageProps} className={css.btn_1}>List my items</NamedLink></div>
+              
+                  
+            </nav>
+            <nav className={classes}>
+            
+                  <div>
+                      <LinkedLogo
+                        className={css.logoLink}
+                        format="desktop"
+                        alt={intl.formatMessage({ id: 'TopbarDesktop.logo' }, { marketplaceName })}
+                      />
+                        
+                  </div>
+                  
+                  <div className={css.nav_links}>
+                      <NamedLink {...landingPageProps} className={css.btn_1}>Home</NamedLink>
+                      <NamedLink {...landingPageProps} className={css.btn_1}>Listings</NamedLink>
+                      <NamedLink {...landingPageProps} className={css.btn_1}>About</NamedLink>
+                      <NamedLink {...landingPageProps} className={css.btn_1}>Messages</NamedLink>
+                      <NamedLink {...landingPageProps} className={css.btn_1}>Contact</NamedLink>
+                      <NamedLink {...landingPageProps} className={css.btn_1}><FontAwesomeIcon icon={faBell}/></NamedLink>
+                      <NamedLink {...landingPageProps} className={css.btn_1}><FontAwesomeIcon icon={faHeart}/></NamedLink>
+                      <NamedLink {...landingPageProps} className={css.btn_1}><FontAwesomeIcon icon={faCartShopping}/></NamedLink>
+                      <NamedLink {...landingPageProps} className={css.btn_1}><FontAwesomeIcon icon={faUser}/></NamedLink>
+                  </div>
+
+            </nav>
+  </div>
   );
 };
 

@@ -1,3 +1,20 @@
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("OpenSans"),
+    url("../../../public/fonts/OpenSans-VariableFont_wdth,wght.ttf");
+  
+  }
+
+body {
+  font-family: 'OpenSans';
+}
+
+.text_left{
+  text-align: left;
+}
+
 .container{
     position: relative;
     float: left;
@@ -8,6 +25,20 @@
     text-align: center;
     width: 100%;
     margin: 0px;
+}
+
+
+
+.container_card{
+  position: relative;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: fit-content;
 }
 
 
@@ -38,6 +69,153 @@
   padding: 0px;
   line-height: 20px;
 }
+
+@media only screen and (max-width: 1024px) {
+  .card{
+    box-shadow: 1px 1px 1px 1px rgb(190, 190, 190);
+    border-radius: 20px;
+  }
+  .icon_size{
+    font-size: 20px;
+  }
+    .mobile{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0px;
+      padding: 10%;
+      width: 100%;
+      text-align: center;
+     
+      height: fit-content;
+      gap: 20px;
+    }
+
+    .letter_spacing_1{
+        font-size: 16px;
+    }
+
+    .desktop{
+      display: none;
+    }
+     
+    h1{
+        font-size: 28px;
+        line-height: 30px;
+    }
+        
+    .letter_spacing_1{
+        letter-spacing: 5px;
+    }
+
+    .btn_1{
+        border-style: none;
+        background-color: #183980;
+        padding: 15px 20px;
+        border-radius: 10px;
+        color: white;
+        width: 100%;
+        margin: 0 auto;
+        font-weight: bold;
+    }
+
+    .resize{
+        width: 100%;
+        height: auto;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+      }
+
+      .mobile_banner{
+        display: flex;
+        margin-top: 30px;
+        height: fit-content;
+      }
+ 
+.flex_row h1{
+  margin: 0px;
+  padding: 0px;
+  line-height: 20px;
+}
+
+.flex_row{
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.flex_col{
+  position: relative;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 100%;
+}
+
+.circle_1{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  z-index: 100000;
+  background-color: #00A1E8;
+  color:white;
+  top:20px;
+  right: 20px;
+
+  &:hover{
+    box-shadow: 1px 1px 10px 1px rgb(128, 128, 128);
+    transform: scale(1.2);
+    transition: .2s;
+  }
+
+}
+
+.abs_posi{
+  position: relative;
+}
+
+
+
+.price_con{
+  position:absolute;
+  background-color: rgb(255, 255, 255);
+  width: fit-content;
+  height: fit-content;
+  padding: 5px 8px;
+  font-weight: bold;
+  border-radius: 5px;
+  bottom: 20px;
+  right: 20px;
+}
+
+
+
+.new_{
+  font-size: 25px;
+}
+
+
+.p_3{
+  padding: 30px;
+}
+
+
+.p_2{
+  padding:0px 20px 20px 20px;
+}
+
+
+
+
+  }
 
 @media only screen and (max-width: 768px) {
   .card{
@@ -91,11 +269,13 @@
     .resize{
         width: 100%;
         height: auto;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
       }
 
       .mobile_banner{
         display: flex;
-        margin-top: -50px;
+        margin-top: 30px;
         height: fit-content;
       }
  
@@ -110,8 +290,11 @@
   flex-direction: row;
   height: fit-content;
   justify-content: space-between;
+  margin-top: 20px;
 }
 .flex_col{
+  position: relative;
+  float: left;
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -119,7 +302,7 @@
 }
 
 .circle_1{
-        
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,10 +313,9 @@
   border-radius: 50%;
   z-index: 100000;
   background-color: #00A1E8;
-  margin-bottom: -100px;
-  margin-left: 75%;
-  margin-top: 50px;
   color:white;
+  top:20px;
+  right: 20px;
 
   &:hover{
     box-shadow: 1px 1px 10px 1px rgb(128, 128, 128);
@@ -143,19 +325,22 @@
 
 }
 
+.abs_posi{
+  position: relative;
+}
+
 
 
 .price_con{
-  position:relative;
-  float: left;
-  top: -100px;
+  position:absolute;
   background-color: rgb(255, 255, 255);
   width: fit-content;
   height: fit-content;
   padding: 5px 8px;
-  left: 70%;
   font-weight: bold;
   border-radius: 5px;
+  bottom: 20px;
+  right: 20px;
 }
 
 
@@ -231,7 +416,7 @@
 
       .mobile_banner{
         display: flex;
-        margin-top: -50px;
+        margin-top: 30px;
         height: fit-content;
       }
 
@@ -245,8 +430,11 @@
         flex-direction: row;
         height: fit-content;
         justify-content: space-between;
+        margin-top: 20px;
       }
       .flex_col{
+        position: relative;
+        float: left;
         display: flex;
         flex-direction: column;
         height: fit-content;
@@ -270,14 +458,13 @@
 
 
       .price_con{
-        position:relative;
+        position:absolute;
         float: left;
-        top: -100px;
         background-color: rgb(255, 255, 255);
         width: fit-content;
         height: fit-content;
         padding: 5px 8px;
-        left: 70%;
+       
         font-weight: bold;
         border-radius: 5px;
       }
@@ -354,6 +541,8 @@
       }
 
       .flex_col{
+        position: relative;
+        float: left;
         display: flex;
         flex-direction: column;
         height: fit-content;
@@ -365,6 +554,7 @@
         flex-direction: row;
         height: fit-content;
         justify-content: space-between;
+        margin-top: 20px;
       }
 
       .header{
@@ -395,14 +585,13 @@
 
 
 .price_con{
-  position:relative;
+  position:absolute;
   float: left;
-  top: -50px;
   background-color: rgb(255, 255, 255);
   width: fit-content;
   height: fit-content;
   padding: 5px 8px;
-  left: 70%;
+  
   font-weight: bold;
   border-radius: 5px;
 }
