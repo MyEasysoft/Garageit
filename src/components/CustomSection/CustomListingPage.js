@@ -23,9 +23,11 @@ import classNames from 'classnames';
 import NamedLink from '../NamedLink/NamedLink';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faShare } from '@fortawesome/free-solid-svg-icons';
+import ReviewRating from '../ReviewRating/ReviewRating';
 
 
 const CustomListingComponent = props =>{
+  
     const activeClassName = 'my-active-class';
     
     const landingPageProps = {
@@ -603,6 +605,106 @@ const CustomListingComponent = props =>{
 
 
                     </div>
+
+
+
+            </div>
+
+            <div className={classNames(css.desktop)}>
+
+                <div className={css.header}>
+                    <h2>What our clients say</h2>
+                    
+                </div>
+
+                <div className={css.card_rows}>
+                    <div className={classNames(css.flex_col,css.card_2)}>
+                            <div className={classNames(css.flex_col,css.card,css.no_shadow)}>
+                                <div className={css.profile_icon_con}>
+                                    <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
+                                    <div>
+                                        <h3>John Carter</h3>
+                                        <p>Head of Marketing at Facebook</p>
+                                    </div>
+                                    
+                                </div>
+                            
+
+                            </div>
+                            <hr className={css.hr}/>
+                            <div>
+                                        <h4>“Totally recommended”</h4>
+                                        <p>
+                                        Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam 
+                                        diam dui tempor nisi risus bibendum cursus ac non tortor posuere fringilla 
+                                        donec enim congue morbi netus sit non quis.
+                                        </p>
+                                        <ReviewRating
+                                           rating={4}
+                                            /* Available Props */
+                                        />
+                            </div>
+                    </div>
+                    <div className={classNames(css.flex_col,css.card_2)}>
+                            <div className={classNames(css.flex_col,css.card,css.no_shadow)}>
+                                <div className={css.profile_icon_con}>
+                                    <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
+                                    <div>
+                                        <h3>Sophie Moore</h3>
+                                        <p>Head of Design at Google</p>
+                                    </div>
+                                    
+                                </div>
+                            
+
+                            </div>
+                            <hr className={css.hr}/>
+                            <div>
+                                        <h4>“Totally recommended”</h4>
+                                        <p>
+                                        Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam 
+                                        diam dui tempor nisi risus bibendum cursus ac non tortor posuere fringilla 
+                                        donec enim congue morbi netus sit non quis.
+                                        </p>
+                                        <ReviewRating
+                                           rating={4}
+                                            /* Available Props */
+                                        />
+                                       
+                            </div>
+                    </div>
+                    <div className={classNames(css.flex_col,css.card_2)}>
+                            <div className={classNames(css.flex_col,css.card,css.no_shadow)}>
+                                <div className={css.profile_icon_con}>
+                                    <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
+                                    <div>
+                                        <h3>Andy Smith</h3>
+                                        <p>Head of Development at YouTube</p>
+                                    </div>
+                                    
+                                </div>
+                            
+
+                            </div>
+                            <hr className={css.hr}/>
+                            <div>
+                                        <h4>“Totally recommended”</h4>
+                                        <p>
+                                        Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam 
+                                        diam dui tempor nisi risus bibendum cursus ac non tortor posuere fringilla 
+                                        donec enim congue morbi netus sit non quis.
+                                        </p>
+                                        <ReviewRating
+                                           rating={5}
+                                           className={css.ratng}
+                                            /* Available Props */
+                                        />
+                            </div>
+                    </div>
+
+
+
+                </div>
 
 
 

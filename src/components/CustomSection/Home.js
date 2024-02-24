@@ -5,6 +5,7 @@ import banner from '../../assets/img1.PNG';
 import banner_big from '../../assets/bg1.png'
 import classNames from 'classnames';
 import NamedLink from '../NamedLink/NamedLink';
+import CustomFooterComponent from './CustomFooter';
 
 
 const HomeComponent1 = props =>{
@@ -20,7 +21,7 @@ const HomeComponent1 = props =>{
 
     const view = blocks.length !== 0?
     
-                        "Footer"
+                       <CustomFooterComponent/>
                     
                     : 
                     <>
