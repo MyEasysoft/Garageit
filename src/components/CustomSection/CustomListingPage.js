@@ -13,6 +13,11 @@ import l7 from '../../assets/l7.png';
 import l8 from '../../assets/l8.png';
 import l9 from '../../assets/l9.png';
 
+
+import f1 from '../../assets/f1.png';
+import f2 from '../../assets/f2.png';
+import f3 from '../../assets/f3.png';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames';
 import NamedLink from '../NamedLink/NamedLink';
@@ -502,6 +507,103 @@ const CustomListingComponent = props =>{
 
                     </div>
 
+                    <div className={css.show_more}>
+                        <NamedLink {...landingPageProps}>
+                            Show more
+                        </NamedLink>
+                    </div>
+
+            </div>
+
+            <div className={classNames(css.desktop)}>
+
+                    <div className={css.header}>
+                        <h2>Flexibility and options to suit your lifestyle.</h2>
+                        <p>
+                            You need it? We got it. We make finding your next home easy, comfortable, and simple. 
+                            From our happiness guarantee<br/> to our selective roommate finder option. 
+                            We provide you the flexibility that you most desire.
+                        </p>
+                    </div>
+
+                    <div className={css.card_rows}>
+                        <div className={classNames(css.flex_col,css.card)}>
+                            <div className={classNames(css.flex_col,css.card)}>
+                                    <div className={css.container_card}>
+                                        <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
+                                        
+                                    </div>
+                                  
+
+                                </div>
+
+                                <div  className={css.overlay_col_2}>
+                                    <div>
+                                        <h3 className={css.text_left}>Looking for Delivery?</h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam</p>
+                                        <NamedLink {...landingPageProps}>
+                                            Learn more
+                                        </NamedLink>
+                                    </div>
+                                
+                                   
+                                </div>
+
+
+                        </div>
+                        <div className={classNames(css.flex_col,css.card)}>
+                            <div className={classNames(css.flex_col,css.card)}>
+                                    <div className={css.container_card}>
+                                        <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f2}/>
+                                        
+                                    </div>
+                                  
+
+                                </div>
+
+                                <div  className={css.overlay_col_2}>
+                                    <div>
+                                        <h3 className={css.text_left}>Want list your item?</h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam</p>
+                                        <NamedLink {...landingPageProps}>
+                                            Learn more
+                                        </NamedLink>
+                                    </div>
+                                
+                                   
+                                </div>
+
+
+                        </div>
+                        <div className={classNames(css.flex_col,css.card)}>
+                            <div className={classNames(css.flex_col,css.card)}>
+                                    <div className={css.container_card}>
+                                        <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f3}/>
+                                        
+                                    </div>
+                                  
+
+                                </div>
+
+                                <div  className={css.overlay_col_2}>
+                                    <div>
+                                        <h3 className={css.text_left}>Looking for storage?</h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam</p>
+                                        <NamedLink {...landingPageProps}>
+                                            Learn more
+                                        </NamedLink>
+                                    </div>
+                                
+                                   
+                                </div>
+
+
+                        </div>
+
+
+
+                    </div>
+
 
 
             </div>
@@ -544,6 +646,7 @@ const CustomListingComponent = props =>{
                     </div>
 
             </div>
+
     </>
     
     
