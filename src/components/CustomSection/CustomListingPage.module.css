@@ -201,7 +201,7 @@ padding:0px 20px 20px 20px;
   flex-direction: row;
   justify-content: space-around;
   gap: 20px;
-  margin: 30px 5% 5% 5%;
+  margin: 30px 5% 1px 5%;
 }
 .header h2{
   text-align: center;
@@ -287,16 +287,20 @@ padding:0px 20px 20px 20px;
   
 }
 
-.p{
-  margin-top: 0px;
+p{
+  margin-top: 4px;
   margin-bottom: 0px;
+  color: gray;
 }
-
+.card{
+  box-shadow: .5px .5px .5px .5px rgb(231, 231, 231);
+  border-radius: 20px;
+}
 
 
 @media only screen and (max-width: 1024px) {
   .card{
-    box-shadow: 1px 1px 1px 1px rgb(190, 190, 190);
+    box-shadow: .5px .5px .5px .5px rgb(231, 231, 231);
     border-radius: 20px;
   }
   .icon_size{
