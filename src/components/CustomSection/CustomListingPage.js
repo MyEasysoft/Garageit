@@ -58,6 +58,9 @@ const CustomListingComponent = props =>{
                                 <div className={css.container_card}>
                                     <img className={classNames(css.resize,css.abs_posi)} src={l1}/>
                                     <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                                    <div className={classNames(css.price_con,css.mobi)}>
+                                        <span className={css.price}>$20.00/Hr</span>
+                                    </div>
                                 
                                 </div>
 
@@ -67,17 +70,20 @@ const CustomListingComponent = props =>{
                                         <div>
                                             <h1 className={css.text_left}>Heat Presser</h1>
                                             <p>Lorem ipsum dolor sit amet</p>
+                                            
                                         </div>
-                                    
                                         <div>
                                             <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
                                         </div>
+                                    
+                                        
 
                                     </div>
-                                    <div className={css.price_con}>
+                                    <div className={classNames(css.price_con,css.desk)}>
                                         <span className={css.price}>$20.00 / Hr</span>
                                     </div>
                                 </div>
+                                <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
 
                             </div>
 
@@ -103,6 +109,9 @@ const CustomListingComponent = props =>{
                                 <div className={css.container_card}>
                                     <img className={classNames(css.resize,css.abs_posi)} src={l2}/>
                                     <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                                    <div className={classNames(css.price_con,css.mobi)}>
+                                        <span className={css.price}>$20.00/Hr</span>
+                                    </div>
                                 
                                 </div>
 
@@ -112,17 +121,20 @@ const CustomListingComponent = props =>{
                                         <div>
                                             <h1 className={css.text_left}>Dough Mixer</h1>
                                             <p>Lorem ipsum dolor sit amet</p>
+                                            
                                         </div>
-                                    
                                         <div>
                                             <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
                                         </div>
+                                    
+                                        
 
                                     </div>
-                                    <div className={css.price_con}>
+                                    <div className={classNames(css.price_con,css.desk)}>
                                         <span className={css.price}>$20.00 / Hr</span>
                                     </div>
                                 </div>
+                                <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
 
                             </div>
 
@@ -143,132 +155,150 @@ const CustomListingComponent = props =>{
 
                     <div className={classNames(css.flex_col,css.card)}>
 
-                        <div className={classNames(css.flex_col,css.card)}>
-                                <div className={css.container_card}>
-                                    <img className={classNames(css.resize,css.abs_posi)} src={l3}/>
-                                    <div className={css.circle_1}><span className={css.new_}>New</span></div>
-                                
-                                </div>
-
-                                <div className={classNames(css.flex_col,css.p_2)}>
-
-                                    <div className={classNames(css.flex_row)}>
-                                        <div>
-                                            <h1 className={css.text_left}>Wedding Sandals</h1>
-                                            <p>Lorem ipsum dolor sit amet</p>
+                            <div className={classNames(css.flex_col,css.card)}>
+                                    <div className={css.container_card}>
+                                        <img className={classNames(css.resize,css.abs_posi)} src={l3}/>
+                                        <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                                        <div className={classNames(css.price_con,css.mobi)}>
+                                            <span className={css.price}>$20.00/Hr</span>
                                         </div>
                                     
-                                        <div>
-                                            <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
+                                    </div>
+
+                                    <div className={classNames(css.flex_col,css.p_2)}>
+
+                                        <div className={classNames(css.flex_row)}>
+                                            <div>
+                                                <h1 className={css.text_left}>Wedding Sandals</h1>
+                                                <p>Lorem ipsum dolor sit amet</p>
+                                                
+                                            </div>
+                                            <div>
+                                                <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
+                                            </div>
+                                        
+                                            
+
                                         </div>
+                                        <div className={classNames(css.price_con,css.desk)}>
+                                            <span className={css.price}>$20.00 / Hr</span>
+                                        </div>
+                                    </div>
+                                    <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
 
-                                    </div>
-                                    <div className={css.price_con}>
-                                        <span className={css.price}>$20.00 / Hr</span>
-                                    </div>
                                 </div>
 
-                            </div>
-
-                            <div  className={css.overlay_col}>
-                                <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
-                                <div className={css.overlay}>
-                                    <NamedLink {...landingPageProps}>
-                                        <FontAwesomeIcon icon={faShare}/>Share
-                                    </NamedLink>
-                                    <NamedLink {...landingPageProps}>
-                                        <FontAwesomeIcon icon={faHeart}/>Like
-                                    </NamedLink>
+                                <div  className={css.overlay_col}>
+                                    <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
+                                    <div className={css.overlay}>
+                                        <NamedLink {...landingPageProps}>
+                                            <FontAwesomeIcon icon={faShare}/>Share
+                                        </NamedLink>
+                                        <NamedLink {...landingPageProps}>
+                                            <FontAwesomeIcon icon={faHeart}/>Like
+                                        </NamedLink>
+                                    </div>
                                 </div>
-                            </div>
 
 
                     </div>
 
                     <div className={classNames(css.flex_col,css.card)}>
 
-                        <div className={classNames(css.flex_col,css.card)}>
-                                <div className={css.container_card}>
-                                    <img className={classNames(css.resize,css.abs_posi)} src={l3}/>
-                                    <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                    <div className={classNames(css.flex_col,css.card)}>
+                            <div className={css.container_card}>
+                                <img className={classNames(css.resize,css.abs_posi)} src={l3}/>
+                                <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                                <div className={classNames(css.price_con,css.mobi)}>
+                                    <span className={css.price}>$20.00/Hr</span>
+                                </div>
+                            
+                            </div>
+
+                            <div className={classNames(css.flex_col,css.p_2)}>
+
+                                <div className={classNames(css.flex_row)}>
+                                    <div>
+                                        <h1 className={css.text_left}>Wedding Sandals</h1>
+                                        <p>Lorem ipsum dolor sit amet</p>
+                                        
+                                    </div>
+                                    <div>
+                                        <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
+                                    </div>
                                 
-                                </div>
-
-                                <div className={classNames(css.flex_col,css.p_2)}>
-
-                                    <div className={classNames(css.flex_row)}>
-                                        <div>
-                                            <h1 className={css.text_left}>Wood Cutter</h1>
-                                            <p>Lorem ipsum dolor sit amet</p>
-                                        </div>
                                     
-                                        <div>
-                                            <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
-                                        </div>
 
-                                    </div>
-                                    <div className={css.price_con}>
-                                        <span className={css.price}>$20.00 / Hr</span>
-                                    </div>
                                 </div>
-
-                            </div>
-
-                            <div  className={css.overlay_col}>
-                                <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
-                                <div className={css.overlay}>
-                                    <NamedLink {...landingPageProps}>
-                                        <FontAwesomeIcon icon={faShare}/>Share
-                                    </NamedLink>
-                                    <NamedLink {...landingPageProps}>
-                                        <FontAwesomeIcon icon={faHeart}/>Like
-                                    </NamedLink>
+                                <div className={classNames(css.price_con,css.desk)}>
+                                    <span className={css.price}>$20.00 / Hr</span>
                                 </div>
                             </div>
+                            <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
+
+                        </div>
+
+                        <div  className={css.overlay_col}>
+                            <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
+                            <div className={css.overlay}>
+                                <NamedLink {...landingPageProps}>
+                                    <FontAwesomeIcon icon={faShare}/>Share
+                                </NamedLink>
+                                <NamedLink {...landingPageProps}>
+                                    <FontAwesomeIcon icon={faHeart}/>Like
+                                </NamedLink>
+                            </div>
+                        </div>
 
 
                     </div>
 
                     <div className={classNames(css.flex_col,css.card)}>
 
-                        <div className={classNames(css.flex_col,css.card)}>
-                                <div className={css.container_card}>
-                                    <img className={classNames(css.resize,css.abs_posi)} src={l4}/>
-                                    <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                    <div className={classNames(css.flex_col,css.card)}>
+                            <div className={css.container_card}>
+                                <img className={classNames(css.resize,css.abs_posi)} src={l4}/>
+                                <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                                <div className={classNames(css.price_con,css.mobi)}>
+                                    <span className={css.price}>$20.00/Hr</span>
+                                </div>
+                            
+                            </div>
+
+                            <div className={classNames(css.flex_col,css.p_2)}>
+
+                                <div className={classNames(css.flex_row)}>
+                                    <div>
+                                        <h1 className={css.text_left}>Wood Cutter</h1>
+                                        <p>Lorem ipsum dolor sit amet</p>
+                                        
+                                    </div>
+                                    <div>
+                                        <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
+                                    </div>
                                 
-                                </div>
-
-                                <div className={classNames(css.flex_col,css.p_2)}>
-
-                                    <div className={classNames(css.flex_row)}>
-                                        <div>
-                                            <h1 className={css.text_left}>Heat Presser</h1>
-                                            <p>Lorem ipsum dolor sit amet</p>
-                                        </div>
                                     
-                                        <div>
-                                            <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
-                                        </div>
 
-                                    </div>
-                                    <div className={css.price_con}>
-                                        <span className={css.price}>$20.00 / Hr</span>
-                                    </div>
                                 </div>
-
-                            </div>
-
-                            <div  className={css.overlay_col}>
-                                <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
-                                <div className={css.overlay}>
-                                    <NamedLink {...landingPageProps}>
-                                        <FontAwesomeIcon icon={faShare}/>Share
-                                    </NamedLink>
-                                    <NamedLink {...landingPageProps}>
-                                        <FontAwesomeIcon icon={faHeart}/>Like
-                                    </NamedLink>
+                                <div className={classNames(css.price_con,css.desk)}>
+                                    <span className={css.price}>$20.00 / Hr</span>
                                 </div>
                             </div>
+                            <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
+
+                        </div>
+
+                        <div  className={css.overlay_col}>
+                            <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
+                            <div className={css.overlay}>
+                                <NamedLink {...landingPageProps}>
+                                    <FontAwesomeIcon icon={faShare}/>Share
+                                </NamedLink>
+                                <NamedLink {...landingPageProps}>
+                                    <FontAwesomeIcon icon={faHeart}/>Like
+                                </NamedLink>
+                            </div>
+                        </div>
 
 
                     </div>
@@ -282,7 +312,7 @@ const CustomListingComponent = props =>{
             </div>
 
             <div className={classNames(css.desktop)}>
-                    <div className={css.card_rows}>
+            <div className={css.card_rows}>
 
                         <div className={classNames(css.flex_col,css.card)}>
 
@@ -290,6 +320,9 @@ const CustomListingComponent = props =>{
                                     <div className={css.container_card}>
                                         <img className={classNames(css.resize,css.abs_posi)} src={l5}/>
                                         <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                                        <div className={classNames(css.price_con,css.mobi)}>
+                                            <span className={css.price}>$20.00/Hr</span>
+                                        </div>
                                     
                                     </div>
 
@@ -297,19 +330,22 @@ const CustomListingComponent = props =>{
 
                                         <div className={classNames(css.flex_row)}>
                                             <div>
-                                                <h1 className={css.text_left}>Heat Presser</h1>
+                                                <h1 className={css.text_left}>Wedding Dress</h1>
                                                 <p>Lorem ipsum dolor sit amet</p>
+                                                
                                             </div>
-                                        
                                             <div>
                                                 <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
                                             </div>
+                                        
+                                            
 
                                         </div>
-                                        <div className={css.price_con}>
+                                        <div className={classNames(css.price_con,css.desk)}>
                                             <span className={css.price}>$20.00 / Hr</span>
                                         </div>
                                     </div>
+                                    <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
 
                                 </div>
 
@@ -335,6 +371,9 @@ const CustomListingComponent = props =>{
                                     <div className={css.container_card}>
                                         <img className={classNames(css.resize,css.abs_posi)} src={l6}/>
                                         <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                                        <div className={classNames(css.price_con,css.mobi)}>
+                                            <span className={css.price}>$20.00/Hr</span>
+                                        </div>
                                     
                                     </div>
 
@@ -342,19 +381,22 @@ const CustomListingComponent = props =>{
 
                                         <div className={classNames(css.flex_row)}>
                                             <div>
-                                                <h1 className={css.text_left}>Heat Presser</h1>
+                                                <h1 className={css.text_left}>Buffing Machine</h1>
                                                 <p>Lorem ipsum dolor sit amet</p>
+                                                
                                             </div>
-                                        
                                             <div>
                                                 <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
                                             </div>
+                                        
+                                            
 
                                         </div>
-                                        <div className={css.price_con}>
+                                        <div className={classNames(css.price_con,css.desk)}>
                                             <span className={css.price}>$20.00 / Hr</span>
                                         </div>
                                     </div>
+                                    <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
 
                                 </div>
 
@@ -375,139 +417,157 @@ const CustomListingComponent = props =>{
 
                         <div className={classNames(css.flex_col,css.card)}>
 
-                            <div className={classNames(css.flex_col,css.card)}>
-                                    <div className={css.container_card}>
-                                        <img className={classNames(css.resize,css.abs_posi)} src={l7}/>
-                                        <div className={css.circle_1}><span className={css.new_}>New</span></div>
-                                    
-                                    </div>
-
-                                    <div className={classNames(css.flex_col,css.p_2)}>
-
-                                        <div className={classNames(css.flex_row)}>
-                                            <div>
-                                                <h1 className={css.text_left}>Heat Presser</h1>
-                                                <p>Lorem ipsum dolor sit amet</p>
+                                <div className={classNames(css.flex_col,css.card)}>
+                                        <div className={css.container_card}>
+                                            <img className={classNames(css.resize,css.abs_posi)} src={l7}/>
+                                            <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                                            <div className={classNames(css.price_con,css.mobi)}>
+                                                <span className={css.price}>$20.00/Hr</span>
                                             </div>
                                         
-                                            <div>
-                                                <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
+                                        </div>
+
+                                        <div className={classNames(css.flex_col,css.p_2)}>
+
+                                            <div className={classNames(css.flex_row)}>
+                                                <div>
+                                                    <h1 className={css.text_left}>Car touching wires</h1>
+                                                    <p>Lorem ipsum dolor sit amet</p>
+                                                    
+                                                </div>
+                                                <div>
+                                                    <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
+                                                </div>
+                                            
+                                                
+
                                             </div>
+                                            <div className={classNames(css.price_con,css.desk)}>
+                                                <span className={css.price}>$20.00 / Hr</span>
+                                            </div>
+                                        </div>
+                                        <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
 
-                                        </div>
-                                        <div className={css.price_con}>
-                                            <span className={css.price}>$20.00 / Hr</span>
-                                        </div>
                                     </div>
 
-                                </div>
-
-                                <div  className={css.overlay_col}>
-                                    <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
-                                    <div className={css.overlay}>
-                                        <NamedLink {...landingPageProps}>
-                                            <FontAwesomeIcon icon={faShare}/>Share
-                                        </NamedLink>
-                                        <NamedLink {...landingPageProps}>
-                                            <FontAwesomeIcon icon={faHeart}/>Like
-                                        </NamedLink>
+                                    <div  className={css.overlay_col}>
+                                        <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
+                                        <div className={css.overlay}>
+                                            <NamedLink {...landingPageProps}>
+                                                <FontAwesomeIcon icon={faShare}/>Share
+                                            </NamedLink>
+                                            <NamedLink {...landingPageProps}>
+                                                <FontAwesomeIcon icon={faHeart}/>Like
+                                            </NamedLink>
+                                        </div>
                                     </div>
-                                </div>
 
 
                         </div>
 
                         <div className={classNames(css.flex_col,css.card)}>
 
-                            <div className={classNames(css.flex_col,css.card)}>
-                                    <div className={css.container_card}>
-                                        <img className={classNames(css.resize,css.abs_posi)} src={l8}/>
-                                        <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                        <div className={classNames(css.flex_col,css.card)}>
+                                <div className={css.container_card}>
+                                    <img className={classNames(css.resize,css.abs_posi)} src={l8}/>
+                                    <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                                    <div className={classNames(css.price_con,css.mobi)}>
+                                        <span className={css.price}>$20.00/Hr</span>
+                                    </div>
+                                
+                                </div>
+
+                                <div className={classNames(css.flex_col,css.p_2)}>
+
+                                    <div className={classNames(css.flex_row)}>
+                                        <div>
+                                            <h1 className={css.text_left}>Foldable Chairs</h1>
+                                            <p>Lorem ipsum dolor sit amet</p>
+                                            
+                                        </div>
+                                        <div>
+                                            <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
+                                        </div>
                                     
-                                    </div>
-
-                                    <div className={classNames(css.flex_col,css.p_2)}>
-
-                                        <div className={classNames(css.flex_row)}>
-                                            <div>
-                                                <h1 className={css.text_left}>Heat Presser</h1>
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                            </div>
                                         
-                                            <div>
-                                                <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
-                                            </div>
 
-                                        </div>
-                                        <div className={css.price_con}>
-                                            <span className={css.price}>$20.00 / Hr</span>
-                                        </div>
                                     </div>
-
-                                </div>
-
-                                <div  className={css.overlay_col}>
-                                    <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
-                                    <div className={css.overlay}>
-                                        <NamedLink {...landingPageProps}>
-                                            <FontAwesomeIcon icon={faShare}/>Share
-                                        </NamedLink>
-                                        <NamedLink {...landingPageProps}>
-                                            <FontAwesomeIcon icon={faHeart}/>Like
-                                        </NamedLink>
+                                    <div className={classNames(css.price_con,css.desk)}>
+                                        <span className={css.price}>$20.00 / Hr</span>
                                     </div>
                                 </div>
+                                <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
+
+                            </div>
+
+                            <div  className={css.overlay_col}>
+                                <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
+                                <div className={css.overlay}>
+                                    <NamedLink {...landingPageProps}>
+                                        <FontAwesomeIcon icon={faShare}/>Share
+                                    </NamedLink>
+                                    <NamedLink {...landingPageProps}>
+                                        <FontAwesomeIcon icon={faHeart}/>Like
+                                    </NamedLink>
+                                </div>
+                            </div>
 
 
                         </div>
 
                         <div className={classNames(css.flex_col,css.card)}>
 
-                            <div className={classNames(css.flex_col,css.card)}>
-                                    <div className={css.container_card}>
-                                        <img className={classNames(css.resize,css.abs_posi)} src={l9}/>
-                                        <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                        <div className={classNames(css.flex_col,css.card)}>
+                                <div className={css.container_card}>
+                                    <img className={classNames(css.resize,css.abs_posi)} src={l9}/>
+                                    <div className={css.circle_1}><span className={css.new_}>New</span></div>
+                                    <div className={classNames(css.price_con,css.mobi)}>
+                                        <span className={css.price}>$20.00/Hr</span>
+                                    </div>
+                                
+                                </div>
+
+                                <div className={classNames(css.flex_col,css.p_2)}>
+
+                                    <div className={classNames(css.flex_row)}>
+                                        <div>
+                                            <h1 className={css.text_left}>Wood Cutter</h1>
+                                            <p>Lorem ipsum dolor sit amet</p>
+                                            
+                                        </div>
+                                        <div>
+                                            <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
+                                        </div>
                                     
-                                    </div>
-
-                                    <div className={classNames(css.flex_col,css.p_2)}>
-
-                                        <div className={classNames(css.flex_row)}>
-                                            <div>
-                                                <h1 className={css.text_left}>Heat Presser</h1>
-                                                <p>Lorem ipsum dolor sit amet</p>
-                                            </div>
                                         
-                                            <div>
-                                                <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
-                                            </div>
 
-                                        </div>
-                                        <div className={css.price_con}>
-                                            <span className={css.price}>$20.00 / Hr</span>
-                                        </div>
                                     </div>
-
-                                </div>
-
-                                <div  className={css.overlay_col}>
-                                    <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
-                                    <div className={css.overlay}>
-                                        <NamedLink {...landingPageProps}>
-                                            <FontAwesomeIcon icon={faShare}/>Share
-                                        </NamedLink>
-                                        <NamedLink {...landingPageProps}>
-                                            <FontAwesomeIcon icon={faHeart}/>Like
-                                        </NamedLink>
+                                    <div className={classNames(css.price_con,css.desk)}>
+                                        <span className={css.price}>$20.00 / Hr</span>
                                     </div>
                                 </div>
+                                <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
 
+                            </div>
 
-                        </div>
+                            <div  className={css.overlay_col}>
+                                <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
+                                <div className={css.overlay}>
+                                    <NamedLink {...landingPageProps}>
+                                        <FontAwesomeIcon icon={faShare}/>Share
+                                    </NamedLink>
+                                    <NamedLink {...landingPageProps}>
+                                        <FontAwesomeIcon icon={faHeart}/>Like
+                                    </NamedLink>
+                                </div>
+                            </div>
 
-                    
 
                     </div>
+
+
+
+            </div>
 
                     <div className={css.show_more}>
                         <NamedLink {...landingPageProps}>
@@ -707,45 +767,6 @@ const CustomListingComponent = props =>{
                 </div>
 
 
-
-            </div>
-
-            <div className={classNames(css.mobile)}>
-
-                    <div className={css.header}>
-                        <h2>Ready for Rental</h2>
-                    </div>
-
-                    <div className={classNames(css.flex_col,css.card)}>
-
-
-                        <div className={css.container_card}>
-                            <img className={classNames(css.resize,css.abs_posi)} src={banner}/>
-                            <div className={css.circle_1}><span className={css.new_}>New</span></div>
-                            <div className={css.price_con}>
-                                <span className={css.price}>$20.00/Hr</span>
-                            </div>
-                        </div>
-
-                        <div className={classNames(css.flex_col,css.p_2)}>
-
-                            <div className={classNames(css.flex_row)}>
-                                <div>
-                                    <h1 className={css.text_left}>Heat Presser</h1>
-                                    <p>Lorem ipsum dolor sit amet</p>
-                                </div>
-                                <div>
-                                    <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
-                                </div>
-                                
-
-                            </div>
-                            
-                            <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
-
-                        </div>
-
-                    </div>
 
             </div>
 

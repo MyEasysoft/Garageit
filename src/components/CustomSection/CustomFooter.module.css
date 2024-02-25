@@ -92,3 +92,36 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+@media only screen and (max-width: 1024px) {
+    .footer_form_con{
+            display: none;
+    }
+    .row_2{
+        display: none;
+    }
+
+    .ref{
+        display: none;
+    }
+
+    .footer_main{
+        text-align: center;
+    }
+
+    .row_1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .social_list{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+   
+
+
+}

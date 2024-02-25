@@ -56,7 +56,7 @@ function CustomFooterComponent(){
                     <NamedLink  {...landingPageProps}>Messages</NamedLink>
                     <NamedLink  {...landingPageProps}>FAQs</NamedLink>
                 </div>
-                <p>Design Made By McKie Consultants</p>
+                <p className={css.ref}>Design Made By McKie Consultants</p>
             </div>
         </footer>
 
