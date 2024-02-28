@@ -182,10 +182,24 @@
   src: local("OpenSans"),
     url("../../public/fonts/OpenSans-VariableFont_wdth,wght.ttf");
   
-  }
+  }    
+
+
+
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 1000;
+    src: local("Poppins"),
+      url("../../public/fonts/Poppins-Bold.woff");
+    
+    }    
+
+
+  
 
 body {
-  font-family: 'OpenSans';
+  font-family: 'Poppins';
 
   /* A non-standard feature: https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth */
   -webkit-font-smoothing: antialiased;
@@ -770,7 +784,7 @@ textarea {
 }
 
 .textSmall {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 18px;
   font-weight: var(--fontWeightMedium);
   letter-spacing: -0.1px;

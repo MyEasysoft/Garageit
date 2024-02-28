@@ -33,6 +33,7 @@ import {
   ResponsiveBackgroundImageContainer,
   Modal,
   LayoutSingleColumn,
+  NamedLink,
 } from '../../components';
 
 import TopbarContainer from '../../containers/TopbarContainer/TopbarContainer';
@@ -54,6 +55,7 @@ import { TOS_ASSET_NAME, PRIVACY_POLICY_ASSET_NAME } from './AuthenticationPage.
 
 import css from './AuthenticationPage.module.css';
 import { FacebookLogo, GoogleLogo } from './socialLoginLogos';
+import formBg from '../../assets/garage.jpg';
 
 // Social login buttons are needed by AuthenticationForms
 export const SocialLoginButtonsMaybe = props => {
@@ -210,18 +212,22 @@ export const AuthenticationForms = props => {
 
   return (
     <div className={css.content}>
+     
       <LinkTabNavHorizontal className={css.tabs} tabs={tabs} />
       {loginOrSignupError}
 
       {isLogin ? (
         <LoginForm className={css.loginForm} onSubmit={submitLogin} inProgress={authInProgress} />
       ) : (
-        <SignupForm
-          className={css.signupForm}
-          onSubmit={handleSubmitSignup}
-          inProgress={authInProgress}
-          termsAndConditions={termsAndConditions}
-        />
+        <div>
+                <SignupForm
+                  className={css.signupForm}
+                  onSubmit={handleSubmitSignup}
+                  inProgress={authInProgress}
+                  termsAndConditions={termsAndConditions}
+                />
+        </div>
+        
       )}
 
       <SocialLoginButtonsMaybe
@@ -453,19 +459,36 @@ export const AuthenticationPageComponent = props => {
         description: schemaDescription,
       }}
     >
+      
       <LayoutSingleColumn
         mainColumnClassName={css.layoutWrapperMain}
         topbar={<TopbarContainer className={topbarClasses} />}
         footer={<FooterContainer />}
       >
-        <ResponsiveBackgroundImageContainer
-          className={css.root}
-          childrenWrapperClassName={css.contentContainer}
-          as="section"
-          image={config.branding.brandImage}
-          sizes="100%"
-          useOverlay
-        >
+
+        
+         <div className={css.bg_img}>
+          <img src={formBg}/>
+            <div className={css.overlay_con}>
+              <div className={css.overlay_header}>
+                  <h1>Create Account</h1>
+                  <p>Home &gt; Create Account </p>
+                 
+                  
+              </div>
+          </div>
+        </div>
+        <div className={css.personal_details}>
+          <h2>Personal Details</h2>
+          <div className={css.social}>
+           <button className={css.social_btn}>Signup with Google</button>
+           <button className={css.social_btn}>Signup with Facebook</button>
+          </div>
+          <div className={css.rule_con}>
+            <hr className={css.rule}/>OR <hr className={css.rule}/>
+          </div>
+        </div>
+       
           {showEmailVerification ? (
             <EmailVerificationInfo
               name={user.attributes.profile.firstName}
@@ -498,7 +521,7 @@ export const AuthenticationPageComponent = props => {
               }
             />
           )}
-        </ResponsiveBackgroundImageContainer>
+       
       </LayoutSingleColumn>
       <Modal
         id="AuthenticationPage.tos"

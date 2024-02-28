@@ -22,6 +22,7 @@ import css from './TopbarDesktop.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faHeart, faUser } from '@fortawesome/free-regular-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 const TopbarDesktop = props => {
   const {
@@ -62,14 +63,14 @@ const TopbarDesktop = props => {
 
   const notificationDot = notificationCount > 0 ? <div className={css.notificationDot} /> : null;
 
-  const inboxLink = authenticatedOnClientSide ? (
+  const messages = authenticatedOnClientSide ? (
     <NamedLink
       className={css.inboxLink}
       name="InboxPage"
       params={{ tab: currentUserHasListings ? 'sales' : 'orders' }}
     >
       <span className={css.inbox}>
-        <FormattedMessage id="TopbarDesktop.inbox" />
+        Messages
         {notificationDot}
       </span>
     </NamedLink>
@@ -148,6 +149,36 @@ const TopbarDesktop = props => {
         match: { url: '/' },
       };
 
+
+      const location = useLocation();
+      const path = location.pathname;
+    
+     // const listingText = role === "Seller"?"TopbarDesktop.createJob":"TopbarDesktop.createGig";
+    //(path==="/" || path==="/login" || path==="/account/seller-instruction" || path==="/signup" || path==="/s")?"":
+      const newListLink = 
+        <NamedLink className={css.createListingLink} name="NewListingPage">
+          <span className={css.createListing}>
+           Listings
+          </span>
+        </NamedLink>
+      ;
+
+      const inboxLink = authenticatedOnClientSide ? (
+        <NamedLink
+          className={css.inboxLink}
+          name="InboxPage"
+          params={{ tab: currentUserHasListings ? 'sales' : 'orders' }}
+        >
+          <span className={css.inbox}>
+            <FormattedMessage id="TopbarDesktop.inbox" />
+            {notificationDot}
+          </span>
+        </NamedLink>
+      ) : null;
+    
+
+
+
   return (
           <div className={css.navs}>
             <nav className={classNames(classes, css.top_nav)}>
@@ -169,15 +200,20 @@ const TopbarDesktop = props => {
                   </div>
                   
                   <div className={css.nav_links}>
+
                       <NamedLink {...landingPageProps} className={css.btn_1}>Home</NamedLink>
-                      <NamedLink {...landingPageProps} className={css.btn_1}>Listings</NamedLink>
+                      {newListLink}
                       <NamedLink {...landingPageProps} className={css.btn_1}>About</NamedLink>
-                      <NamedLink {...landingPageProps} className={css.btn_1}>Messages</NamedLink>
+                      {messages}
                       <NamedLink {...landingPageProps} className={css.btn_1}>Contact</NamedLink>
+                      {loginLink}
                       <NamedLink {...landingPageProps} className={css.btn_1}><FontAwesomeIcon icon={faBell}/></NamedLink>
                       <NamedLink {...landingPageProps} className={css.btn_1}><FontAwesomeIcon icon={faHeart}/></NamedLink>
                       <NamedLink {...landingPageProps} className={css.btn_1}><FontAwesomeIcon icon={faCartShopping}/></NamedLink>
                       <NamedLink {...landingPageProps} className={css.btn_1}><FontAwesomeIcon icon={faUser}/></NamedLink>
+                      {profileMenu}
+                      
+     
                   </div>
 
             </nav>

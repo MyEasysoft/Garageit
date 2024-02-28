@@ -2,6 +2,7 @@
 
 /* Desktop */
 .root {
+  z-index: 100000;
   /* Size */
   width: 100%;
   height: var(--topbarHeightDesktop);
