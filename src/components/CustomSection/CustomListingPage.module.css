@@ -350,7 +350,7 @@ padding:0px 20px 20px 20px;
   }
 }
 
-.overlay_col_2 p, a, h3{
+.overlay_col_2 p, a{
   color: white;
 }
 
@@ -438,7 +438,7 @@ p{
 }
 
 .ratng{
-  color: yellow;
+  color: rgb(228, 190, 25);
 }
 
 .desk{

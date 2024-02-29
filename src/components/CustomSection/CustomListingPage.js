@@ -701,6 +701,7 @@ const CustomListingComponent = props =>{
                                         </p>
                                         <ReviewRating
                                            rating={4}
+                                           className={css.ratng}
                                             /* Available Props */
                                         />
                             </div>
@@ -728,6 +729,7 @@ const CustomListingComponent = props =>{
                                         </p>
                                         <ReviewRating
                                            rating={4}
+                                           className={css.ratng}
                                             /* Available Props */
                                         />
                                        

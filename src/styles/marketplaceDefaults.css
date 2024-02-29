@@ -1044,7 +1044,7 @@ textarea {
 
   /* Button colors */
   /* Primary button uses success color */
-  background-color: var(--colorSuccess);
+  background-color: #183980;
   color: var(--colorWhite);
 
   @media (--viewportMedium) {
@@ -1055,8 +1055,7 @@ textarea {
 .buttonPrimary:hover {
   outline: none;
   box-shadow: var(--boxShadowButton);
-  background-color: var(--colorSuccessDark);
-  color: var(--colorWhite);
+  
 }
 .buttonPrimary:hover {
   text-decoration: none;
@@ -1064,8 +1063,9 @@ textarea {
 .buttonPrimary:disabled {
   box-shadow: none;
   cursor: not-allowed;
-  background-color: var(--colorGrey100);
-  color: var(--colorGrey700);
+  width: fit-content;
+  padding: 0px 60px;
+  border-radius: 10px;
 }
 
 /**
@@ -1271,6 +1271,11 @@ textarea {
   background-color: var(--colorWhite);
   border-radius: var(--borderRadius);
   border-bottom: none;
+  margin: 10% 10%;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 20px;
+  border-color: rgb(204, 204, 204);
 
   @media (--viewportMedium) {
     flex-basis: 480px;
@@ -1279,7 +1284,7 @@ textarea {
     padding: var(--modalPaddingMedium);
     margin-top: 12.5vh;
     margin-bottom: 12.5vh;
-    border-bottom: 8px solid var(--marketplaceColor);
+    
   }
 }
 
@@ -1336,12 +1341,21 @@ textarea {
 
 /* Bottom wrapper for the modal */
 .marketplaceModalBottomWrapper {
-  text-align: center;
-  margin-top: 60px;
-  align-self: stretch;
+    text-align: center;
+    margin-top: 60px;
+    align-self: stretch;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: end;
+    align-items: end;
+  
 
   @media (--viewportMedium) {
-    margin-top: 96px;
+    
+      margin-top: 0px;
+    
   }
 }
 

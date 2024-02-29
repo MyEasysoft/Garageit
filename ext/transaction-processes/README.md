@@ -11,7 +11,7 @@ Console or
 [using Flex CLI](https://www.sharetribe.com/docs/how-to/edit-transaction-process-with-flex-cli/)
 
 If you don't have these processes visible on Console, you need to add them there using Flex CLI.
-[Tutorial: create a new transaction process](https://flex-docs-git-feat-docs-biketribe-sharetribe.vercel.app/tutorial/create-transaction-process/)
+[Tutorial: create a new transaction process](https://flex-docs-git-feat-docs-Garageit-sharetribe.vercel.app/tutorial/create-transaction-process/)
 
 Pricing in these processes use privileged transitions and the
 [privileged-set-line-items](https://www.sharetribe.com/docs/references/transaction-process-actions/#actionprivileged-set-line-items)

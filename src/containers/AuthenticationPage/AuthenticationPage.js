@@ -56,6 +56,8 @@ import { TOS_ASSET_NAME, PRIVACY_POLICY_ASSET_NAME } from './AuthenticationPage.
 import css from './AuthenticationPage.module.css';
 import { FacebookLogo, GoogleLogo } from './socialLoginLogos';
 import formBg from '../../assets/garage.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 // Social login buttons are needed by AuthenticationForms
 export const SocialLoginButtonsMaybe = props => {
@@ -481,8 +483,12 @@ export const AuthenticationPageComponent = props => {
         <div className={css.personal_details}>
           <h2>Personal Details</h2>
           <div className={css.social}>
-           <button className={css.social_btn}>Signup with Google</button>
-           <button className={css.social_btn}>Signup with Facebook</button>
+           <button className={css.social_btn}>
+              <FontAwesomeIcon className={css.mag_R_20} icon={faGoogle} />
+              Signup with Google</button>
+           <button className={css.social_btn}>
+            <FontAwesomeIcon className={css.mag_R_20} icon={faFacebook} />
+              Signup with Facebook</button>
           </div>
           <div className={css.rule_con}>
             <hr className={css.rule}/>OR <hr className={css.rule}/>

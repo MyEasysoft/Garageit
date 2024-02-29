@@ -2,7 +2,7 @@ import React from 'react';
 import css from './CustomFooter.module.css';
 import NamedLink from '../NamedLink/NamedLink';
 import logo from '../../../src/assets/logo.png'
-import logo2 from '../../../src/assets/logo2.png'
+import logo2 from '../../../src/assets/logo_white.png'
 import s1 from '../../../src/assets/s1.png'
 import s2 from '../../../src/assets/s2.png'
 import s3 from '../../../src/assets/s3.png'

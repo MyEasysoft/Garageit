@@ -21,11 +21,11 @@
 }
 
 .firstNameRoot {
-  width: calc(34% - 9px);
+  width: calc(50% - 9px);
 }
 
 .lastNameRoot {
-  width: calc(66% - 9px);
+  width: calc(50% - 9px);
 }
 
 .password {
@@ -34,4 +34,53 @@
 
 .bottomWrapper {
   composes: marketplaceModalBottomWrapper from global;
+}
+
+.radioContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.mag_B_30{
+  margin-bottom: 30px;
+}
+
+.buttom_flex{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.cancel_btn{
+  background-color: transparent;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 10px;
+  border-color: #183980;
+  color:#183980;
+
+  &:hover{
+    background-color: #183980;
+    border-color: #183980;
+    color: white;
+    border-radius: 10px;
+  }
+}
+
+
+.submit_btn{
+  background-color: #183980;
+  border-color: #183980;
+  color: white;
+  border-radius: 10px;
+
+  &:hover{
+    background-color: transparent;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
+    border-color: #183980;
+    color:#183980;
+  }
 }

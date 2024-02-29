@@ -67,7 +67,7 @@ This also prepares the codebase for future configuration possibilities:
   email templates [#307](https://github.com/sharetribe/web-template/pull/307)
 - [change] Add environment variable REACT_APP_MARKETPLACE_NAME and add code-comments to built-in
   configs about hosted configs, which might overwrite them. Check that the line doesn't use
-  'Biketribe' if you take update from the upstream!
+  'Garageit' if you take update from the upstream!
   [#305](https://github.com/sharetribe/web-template/pull/305)
 - [change] Updated a small patch of outdated libraries: express, body-parser, moment,
   moment-timezone, helmet, nodemon, decimal.js, concurrently, classnames, jose, passport
@@ -250,7 +250,7 @@ This is a major version release. Mainly due to a new process and big changes to 
 - [add] This PR adds a 3rd process (default-inquiry) to the template.
 
   - As a consequence, CheckoutPage has been refactored heavily
-  - This removes en.json file (Biketribe-themed translations) and
+  - This removes en.json file (Garageit-themed translations) and
   - This renames defaultMicrocopy.json (with generic copy-texts) to be the new en.json file
   - This PR branch evolved to be v3 development branch. It included the following PRs too.
   - Read more about the changes from PR:
@@ -271,7 +271,7 @@ This is a major version release. Mainly due to a new process and big changes to 
   [#201](https://github.com/sharetribe/web-template/pull/201)
 - [fix] Add default sort options to en.json (microcopy)
   [#204](https://github.com/sharetribe/web-template/pull/204)
-- [delete] Remove en.json file (Biketribe-themed translations) and rename defaultMicrocopy.json to
+- [delete] Remove en.json file (Garageit-themed translations) and rename defaultMicrocopy.json to
   be the new en.json file. [#203](https://github.com/sharetribe/web-template/pull/203)
 - [change] Updates to the copy texts in the defaultMicrocopy.json file.
   [#199](https://github.com/sharetribe/web-template/pull/199)
@@ -371,7 +371,7 @@ This major release takes configurations from hosted assets.
 - Show `MaintenanceMode` component if mandatory configs are not found from hosted assets
 - Add `SectionFooter` to PageBuilder and use it from `FooterContainer`.
 - Delete the old Footer component
-- Add defaultMicrocopy.json. It talks about _listings_ instead of Biketribe _bikes_.
+- Add defaultMicrocopy.json. It talks about _listings_ instead of Garageit _bikes_.
   - The _**en.json**_ is a good themed starting point to be copied for a _translation.json_ aka
     Console > Content > Microcopy
   - If translation.json is not set, _**defaultMicrocopy.json**_ is used instead.
@@ -600,7 +600,7 @@ and the Docs will be updated to reflect the fact that this is the new default Te
   [#73](https://github.com/sharetribe/web-template/pull/73)
 - [fix] When time zone changes, exceptions should be fetch again. (Query boundaries change.)
   [#87](https://github.com/sharetribe/web-template/pull/87)
-- [add] Update translations (en.json). We'll change these later, as these follow biketribe theme.
+- [add] Update translations (en.json). We'll change these later, as these follow Garageit theme.
   [#86](https://github.com/sharetribe/web-template/pull/86)
 - [add] Add BookingLocationMaybe section into the TransactionPage.js
   [#85](https://github.com/sharetribe/web-template/pull/85)
@@ -672,7 +672,7 @@ and the Docs will be updated to reflect the fact that this is the new default Te
 
   - Reorder actions that decline or cancel booking in reference booking process
   - Add update-protected-data action to enquiry and payment transitions
-  - This also adds couple of updated translations for biketribe
+  - This also adds couple of updated translations for Garageit
 
   [#60](https://github.com/sharetribe/web-template/pull/60)
 
@@ -700,7 +700,7 @@ and the Docs will be updated to reflect the fact that this is the new default Te
   [#53](https://github.com/sharetribe/web-template/pull/53)
 - [fix] ListingImageGallery didn't get variantPrefix due to buggy mergeConfig.
   [#51](https://github.com/sharetribe/web-template/pull/51)
-- [fix] Update configListing.js to more closely match Biketribe configs. Also fix label in
+- [fix] Update configListing.js to more closely match Garageit configs. Also fix label in
   ListingPage/SectionDetailsMaybe and add grid for secondary filter panel.
   [#50](https://github.com/sharetribe/web-template/pull/50)
 - [fix] TransactionPage/enquiry: timeSlot query was missing extra parameter
@@ -727,9 +727,9 @@ and the Docs will be updated to reflect the fact that this is the new default Te
 
   [#44](https://github.com/sharetribe/web-template/pull/44)
 
-- [change] Biketribe theming: update links in footer and add social media sharing images.
+- [change] Garageit theming: update links in footer and add social media sharing images.
   [#43](https://github.com/sharetribe/web-template/pull/43)
-- [change] Biketribe theming: lots of UI related changes, but also some refactoring of components.
+- [change] Garageit theming: lots of UI related changes, but also some refactoring of components.
   [#42](https://github.com/sharetribe/web-template/pull/42)
 - [change] Refactor configurations:
 
