@@ -425,13 +425,17 @@ legend {
 }
 
 label {
-  font-weight: var(--fontWeightSemiBold);
-  font-size: 13px;
-  line-height: 18px;
-  display: block;
-  margin-top: 0;
-  margin-bottom: 6px;
-
+  
+  display: none;
+ 
+  @media (--viewportMedium) {
+    font-weight: var(--fontWeightSemiBold);
+    font-size: 13px;
+    line-height: 18px;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 6px;
+  }
   @media (--viewportMedium) {
     font-weight: var(--fontWeightSemiBold);
     line-height: 16px;
@@ -473,7 +477,7 @@ select {
   /* Transition */
   transition: all ease-in-out 100ms;
 
-  padding: 6px 24px 4px 12px;
+  padding: 15px 24px 15px 12px;
   box-shadow: 0 2px 3px 0 rgba(216, 220, 230, 0.7);
 
   /* Unset user agent styles */
@@ -486,6 +490,10 @@ select {
 
   &::placeholder {
     color: var(--colorGrey300);
+  }
+
+  @media (--viewportLarge) {
+   
   }
 
   @media (--viewportMedium) {
@@ -522,7 +530,7 @@ textarea {
   margin: 0;
 
   /* 6 + 24 + 4 + borders are divisible by 6 */
-  padding: 6px 12px 4px 12px;
+  padding: 15px 12px 15px 12px;
   background-color: #fff;
 
   /* Borders */
@@ -1063,9 +1071,25 @@ textarea {
 .buttonPrimary:disabled {
   box-shadow: none;
   cursor: not-allowed;
-  width: fit-content;
+  width: 100%;
   padding: 0px 60px;
   border-radius: 10px;
+
+
+  @media (--viewportLarge) {
+    box-shadow: none;
+    cursor: not-allowed;
+    width: fit-content;
+    padding: 0px 60px;
+    border-radius: 10px;
+  }
+  @media (--viewportMedium) {
+    box-shadow: none;
+    cursor: not-allowed;
+    width: fit-content;
+    padding: 0px 60px;
+    border-radius: 10px;
+  }
 }
 
 /**
@@ -1271,10 +1295,7 @@ textarea {
   background-color: var(--colorWhite);
   border-radius: var(--borderRadius);
   border-bottom: none;
-  margin: 10% 10%;
-  border-style: solid;
-  border-width: thin;
-  border-radius: 20px;
+  
   border-color: rgb(204, 204, 204);
 
   @media (--viewportMedium) {
@@ -1284,6 +1305,9 @@ textarea {
     padding: var(--modalPaddingMedium);
     margin-top: 12.5vh;
     margin-bottom: 12.5vh;
+    padding: 0px;
+    border-style: none;
+    margin: 10% 20px;
     
   }
 }
@@ -1341,6 +1365,19 @@ textarea {
 
 /* Bottom wrapper for the modal */
 .marketplaceModalBottomWrapper {
+  text-align: center;
+  margin-top: 60px;
+  align-self: stretch;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  
+
+  @media (--viewportLarge) {
+    
     text-align: center;
     margin-top: 60px;
     align-self: stretch;
@@ -1350,12 +1387,12 @@ textarea {
     justify-content: flex-end;
     align-content: end;
     align-items: end;
-  
+    
+  }
 
   @media (--viewportMedium) {
     
-      margin-top: 0px;
-    
+    margin-top: 0px;
   }
 }
 
@@ -1510,4 +1547,33 @@ textarea {
   @media (--viewportMedium) {
     margin-top: 32px;
   }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+.label{
+  display: none;
+}
+
+}
+ 
+ @media only screen and (max-width: 412px) {
+  
+.label{
+  display: none;
+}
+
+ 
+ }
+ 
+ 
+ @media only screen and (max-width: 360px) {
+
+
+  .label{
+    display: none;
+  }
+  
 }
