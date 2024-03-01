@@ -23,8 +23,6 @@ import {
 import { login, authenticationInProgress, signup, signupWithIdp } from '../../ducks/auth.duck';
 import { isScrollingDisabled, manageDisableScrolling } from '../../ducks/ui.duck';
 import { sendVerificationEmail } from '../../ducks/user.duck';
-import { types as sdkTypes } from '../../util/sdkLoader';
-const { LatLng } = sdkTypes;
 
 import {
   Page,
@@ -61,7 +59,6 @@ import { FacebookLogo, GoogleLogo } from './socialLoginLogos';
 import formBg from '../../assets/garage.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import LocationPicker from 'react-location-picker';
 
 // Social login buttons are needed by AuthenticationForms
 export const SocialLoginButtonsMaybe = props => {
@@ -454,20 +451,6 @@ export const AuthenticationPageComponent = props => {
     [css.hideOnMobile]: showEmailVerification,
   });
 
-  /* Default position */
-  const defaultPosition = {
-    lat: 27.9878,
-    lng: 86.9250
-  };
-
-  
-  const handleLocationChange  = () => {
-
-    // Set new location
-    //this.setState({ position, address });
-  }
-
-  
   return (
     <Page
       title={schemaTitle}
@@ -485,6 +468,7 @@ export const AuthenticationPageComponent = props => {
         topbar={<TopbarContainer className={topbarClasses} />}
         footer={<FooterContainer />}
       >
+
         
          <div className={css.bg_img}>
           <img src={formBg}/>
@@ -492,6 +476,8 @@ export const AuthenticationPageComponent = props => {
               <div className={css.overlay_header}>
                   <h1>Create Account</h1>
                   <p>Home &gt; Create Account </p>
+                 
+                  
               </div>
           </div>
         </div>
@@ -510,19 +496,7 @@ export const AuthenticationPageComponent = props => {
           </div>
         </div>
 
-        <div className={css.location_Modal}>
-            <div className={css.location_form}>
-              <div>
-                <LocationPicker
-                  containerElement={ <div style={ {height: '100%'} } /> }
-                  mapElement={ <div style={ {height: '400px'} } /> }
-                  defaultPosition={defaultPosition}
-                  onChange={handleLocationChange}
-                />
-              </div>
-            </div>
-
-        </div>
+       
        
           {showEmailVerification ? (
             <EmailVerificationInfo
