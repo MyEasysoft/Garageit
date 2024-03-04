@@ -35,6 +35,7 @@ import {
   LayoutSingleColumn,
   NamedLink,
   FieldTextInput,
+  PrimaryButton,
 } from '../../components';
 
 import TopbarContainer from '../../containers/TopbarContainer/TopbarContainer';
@@ -59,6 +60,9 @@ import { FacebookLogo, GoogleLogo } from './socialLoginLogos';
 import formBg from '../../assets/garage.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import img1 from '../../assets/gift.png';
+import map from '../../assets/map.png';
+import { faCancel, faClose } from '@fortawesome/free-solid-svg-icons';
 
 // Social login buttons are needed by AuthenticationForms
 export const SocialLoginButtonsMaybe = props => {
@@ -135,6 +139,8 @@ export const SocialLoginButtonsMaybe = props => {
 
 // Tabs for SignupForm and LoginForm
 export const AuthenticationForms = props => {
+  const [showLocationControl, setShowLocationControl] = useState(false);
+  const [showSubmitBtn, setShowSubmitBtn] = useState(false);
   const {
     isLogin,
     showFacebookLogin,
@@ -147,7 +153,10 @@ export const AuthenticationForms = props => {
     authInProgress,
     submitSignup,
     termsAndConditions,
+    
   } = props;
+
+
   const fromState = { state: from ? { from } : null };
   const tabs = [
     {
@@ -182,6 +191,10 @@ export const AuthenticationForms = props => {
     submitSignup(params);
   };
 
+  const hideLocationControl = ()=>{
+    setShowLocationControl(!showLocationControl);
+  }
+
   const loginErrorMessage = (
     <div className={css.error}>
       <FormattedMessage id="AuthenticationPage.loginFailed" />
@@ -213,33 +226,75 @@ export const AuthenticationForms = props => {
       ? signupErrorMessage
       : null;
 
+  const activeClassName = 'my-active-class';
+
+  const landingPageProps = {
+    name: 'LandingPage',
+    activeClassName,
+    match: { url: '/' },
+  };
+
+  const handleClose = ()=>{
+    setShowLocationControl(!showLocationControl);
+  }
+
+  const handleShowSubmitBtn = ()=>{
+    setShowSubmitBtn(!showSubmitBtn);
+    setShowLocationControl(!showLocationControl);
+  }
+
+  const locationControl = showLocationControl?
+        <div className={css.location_Modal}>
+          <div className={css.location_form}>
+            <div className={css.cancel}>
+              <button className={css.close_btn} onClick={handleClose}><FontAwesomeIcon icon={faClose} /></button>
+            </div>
+            <h2>
+              Good News! We Deliver to your location!
+            </h2>
+            <img src={img1} />
+            <p>
+              Set Your Location, Sit Back, and Await Your Delivery!
+            </p>
+            <img src={map}/>
+            <input className={css.zip} type='text' placeholder='Enter your zip code'/>
+            <button onClick={handleShowSubmitBtn} className={css.submit_btn}>
+              Save my delivery location
+            </button>
+            <NamedLink {...landingPageProps}>Skip for now</NamedLink>
+          </div>
+        </div>:"";
   return (
-    <div className={css.content}>
-     
-      <LinkTabNavHorizontal className={css.tabs} tabs={tabs} />
-      {loginOrSignupError}
+    <>
+      {locationControl}
+      <div className={css.content}>
+        <LinkTabNavHorizontal className={css.tabs} tabs={tabs} />
+        {loginOrSignupError}
 
-      {isLogin ? (
-        <LoginForm className={css.loginForm} onSubmit={submitLogin} inProgress={authInProgress} />
-      ) : (
-        <div>
-                <SignupForm
-                  className={css.signupForm}
-                  onSubmit={handleSubmitSignup}
-                  inProgress={authInProgress}
-                  termsAndConditions={termsAndConditions}
-                />
-        </div>
-        
-      )}
+        {isLogin ? (
+          <LoginForm className={css.loginForm} onSubmit={submitLogin} inProgress={authInProgress} />
+        ) : (
+          <div>
+                  <SignupForm
+                    className={css.signupForm}
+                    onSubmit={handleSubmitSignup}
+                    inProgress={authInProgress}
+                    termsAndConditions={termsAndConditions}
+                    hideLocationControl={hideLocationControl}
+                    showSubmitBtn={showSubmitBtn}
+                  />
+          </div>
+        )}
 
-      <SocialLoginButtonsMaybe
-        isLogin={isLogin}
-        showFacebookLogin={showFacebookLogin}
-        showGoogleLogin={showGoogleLogin}
-        from={from}
-      />
-    </div>
+        <SocialLoginButtonsMaybe
+          isLogin={isLogin}
+          showFacebookLogin={showFacebookLogin}
+          showGoogleLogin={showGoogleLogin}
+          from={from}
+        />
+      </div>
+    </>
+   
   );
 };
 
@@ -355,6 +410,7 @@ const getAuthInfoFromCookies = () => {
     ? JSON.parse(Cookies.get('st-authinfo').replace('j:', ''))
     : null;
 };
+
 const getAuthErrorFromCookies = () => {
   return Cookies.get('st-autherror')
     ? JSON.parse(Cookies.get('st-autherror').replace('j:', ''))
@@ -462,25 +518,23 @@ export const AuthenticationPageComponent = props => {
         description: schemaDescription,
       }}
     >
-      
+
       <LayoutSingleColumn
         mainColumnClassName={css.layoutWrapperMain}
         topbar={<TopbarContainer className={topbarClasses} />}
         footer={<FooterContainer />}
       >
 
-        
          <div className={css.bg_img}>
           <img src={formBg}/>
             <div className={css.overlay_con}>
               <div className={css.overlay_header}>
                   <h1>Create Account</h1>
                   <p>Home &gt; Create Account </p>
-                 
-                  
               </div>
           </div>
         </div>
+
         <div className={css.personal_details}>
           <h2>Personal Details</h2>
           <div className={css.social}>
@@ -496,8 +550,6 @@ export const AuthenticationPageComponent = props => {
           </div>
         </div>
 
-       
-       
           {showEmailVerification ? (
             <EmailVerificationInfo
               name={user.attributes.profile.firstName}

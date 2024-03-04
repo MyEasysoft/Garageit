@@ -12,6 +12,7 @@ import { Form, PrimaryButton, FieldTextInput, FieldRadioButton, FieldSelect } fr
 import css from './SignupForm.module.css';
 
 const SignupFormComponent = props => (
+  
   <FinalForm
     {...props}
     mutators={{ ...arrayMutators }}
@@ -25,10 +26,12 @@ const SignupFormComponent = props => (
         invalid,
         intl,
         termsAndConditions,
+        hideLocationControl,
+        showSubmitBtn,
       } = fieldRenderProps;
 
-
       const [show,setShow] = useState(true);
+      const [showLocationBtn,setShowLocationBtn] = useState(true);
 
       const HandleChange = (event)=>{
           if(event.target.value==="Influencer"){
@@ -90,6 +93,15 @@ const SignupFormComponent = props => (
       const submitDisabled = invalid || submitInProgress;
       const showAsRequired = invalid || submitInProgress;
 
+      const handleSetLocation = ()=>{
+        hideLocationControl();
+      }
+
+      const submitBtn = showSubmitBtn? <PrimaryButton  className={css.submit_btn} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
+                                        <FormattedMessage id="SignupForm.signUp" />
+                                    </PrimaryButton>:<button onClick={handleSetLocation} type="button" className={css.next_btn} inProgress={submitInProgress} disabled={submitDisabled}>Next</button>;
+
+     
       return (
         <Form className={classes} onSubmit={handleSubmit}>
           <div>
@@ -193,8 +205,8 @@ const SignupFormComponent = props => (
             />
 
             <FieldSelect 
-            id="Country" 
-            name="Country" 
+            id="Country"
+            name="Country"
             label="Country/Region" 
             className={classNames(css.mag_B_30)}
             >
@@ -604,7 +616,7 @@ const SignupFormComponent = props => (
               )}
             />
 
-             <FieldTextInput
+            <FieldTextInput
               className={css.password}
               type="password"
               id={formId ? `${formId}.password` : 'password'}
@@ -618,21 +630,18 @@ const SignupFormComponent = props => (
               })}
               validate={passwordValidators}
             />
+
           </div>
 
           <div className={classNames(css.bottomWrapper,css.buttom_flex)}>
-           
+
             <PrimaryButton className={css.cancel_btn} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
              Cancel
             </PrimaryButton>
 
-            <PrimaryButton className={css.submit_btn} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
-              <FormattedMessage id="SignupForm.signUp" />
-            </PrimaryButton>
-          </div>
-
+            {submitBtn}
             
-
+          </div>
 
         </Form>
       );

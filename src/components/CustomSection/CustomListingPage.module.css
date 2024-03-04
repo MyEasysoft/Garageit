@@ -17,6 +17,10 @@ body {
   font-family: 'Poppins';
 }
 
+a{
+  text-decoration: none;
+}
+
 .text_left{
   text-align: left;
 }
@@ -116,7 +120,7 @@ body {
       padding: 15px 20px;
       border-radius: 10px;
       color: white;
-      width: 100%;
+      
       margin: 0 auto;
       font-weight: bold;
       text-align: center;
@@ -441,6 +445,10 @@ p{
   color: rgb(228, 190, 25);
 }
 
+.ratng_blue{
+  color:#00A1E8;
+}
+
 .desk{
   display: block;
 }
@@ -452,8 +460,23 @@ p{
   display: none;
 }
 
+.logedinControl{
+  display: none;
+}
+
+.no_bg{
+  background-color: transparent;
+  color: #183980;
+  border-color: #183980;
+  border-width: thin;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
 
 @media only screen and (max-width: 1024px) {
+  
   .desk{
     display: none;
   }
@@ -497,13 +520,14 @@ p{
     }
 
     .btn_1{
+        display: block;
         border-style: none;
         background-color: #183980;
         padding: 15px 20px;
         border-radius: 10px;
         color: white;
-        width: 90%;
-        margin:  5%;
+       
+        margin:  20px;
         font-weight: bold;
     }
 
@@ -608,6 +632,26 @@ p{
   margin: 30px 5% 1px 5%;
 }
 
+.logedinControl{
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  font-size: 15px;
+  align-items: center;
+  align-content: center;
+}
+
+.no_bg{
+  background-color: transparent;
+  color: #183980;
+  border-color: #183980;
+  border-width: thin;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  border-style: solid;
+  margin: 0px 25px 25px 25px;
+}
 
   }
 
@@ -654,13 +698,14 @@ p{
     }
 
     .btn_1{
+        display: block;
         border-style: none;
         background-color: #183980;
         padding: 15px 20px;
         border-radius: 10px;
         color: white;
-        width: 90%;
-        margin:  5%;
+       
+        margin:  20px;
         font-weight: bold;
     }
 
@@ -757,12 +802,36 @@ p{
   padding:0px 20px 20px 20px;
 }
 
+.logedinControl{
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  font-size: 15px;
+  align-items: center;
+  align-content: center;
 
+}
 
+.no_bg{
+  background-color: transparent;
+  color: #183980;
+  border-color: #183980;
+  border-width: thin;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  border-style: solid;
+  margin: 0px 20px 20px 20px;
+  font-weight: bold;
+  &:hover{
+    background-color: #183980;
+    color: #ffffff;
+  }
+}
 
   }
    
-   @media only screen and (max-width: 412px) {
+@media only screen and (max-width: 412px) {
     .desk{
       display: none;
     }
@@ -801,13 +870,14 @@ p{
       }
   
       .btn_1{
+          display: block;
           border-style: none;
           background-color: #183980;
           padding: 15px 20px;
           border-radius: 10px;
           color: white;
-          width: 90%;
-          margin:  5%;
+         
+          margin:  20px;
           font-weight: bold;
           margin: 0 auto;
       }
@@ -881,12 +951,24 @@ p{
   padding: 20px;
 }
 
-
+.no_bg{
+  background-color: transparent;
+  color: #183980;
+  border-color: #183980;
+  border-width: thin;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  border-style: solid;
+  margin: 0px 20px 20px 20px;
+  font-weight: bold;
+}
 
    }
    
    
    @media only screen and (max-width: 360px) {
+    
     .desk{
       display: none;
     }
@@ -926,12 +1008,12 @@ p{
       }
   
       .btn_1{
+          display: block;
           border-style: none;
           background-color: #183980;
           padding: 8px 20px;
           border-radius: 10px;
-          width: 90%;
-          margin:  5%;
+          margin:  20px;
           color: white;
          
           font-weight: bold;
@@ -1005,6 +1087,20 @@ p{
 
 .p_2{
   padding: 0px 20px 20px 20px;
+}
+
+
+.no_bg{
+  background-color: transparent;
+  color: #183980;
+  border-color: #183980;
+  border-width: thin;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+  border-style: solid;
+  margin: 0px 20px 20px 20px;
+  font-weight: bold;
 }
 
 }

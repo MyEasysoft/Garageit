@@ -28,15 +28,13 @@ import ReviewRating from '../ReviewRating/ReviewRating';
 
 const CustomListingComponent = props =>{
   
-    const activeClassName = 'my-active-class';
+    const activeClassName = '';
     
     const landingPageProps = {
         name: 'LandingPage',
         activeClassName,
         match: { url: '/' },
       };
-
-   
 
   return (
     
@@ -53,7 +51,6 @@ const CustomListingComponent = props =>{
                 <div className={css.card_rows}>
 
                     <div className={classNames(css.flex_col,css.card)}>
-
                         <div className={classNames(css.flex_col,css.card)}>
                                 <div className={css.container_card}>
                                     <img className={classNames(css.resize,css.abs_posi)} src={l1}/>
@@ -61,30 +58,33 @@ const CustomListingComponent = props =>{
                                     <div className={classNames(css.price_con,css.mobi)}>
                                         <span className={css.price}>$20.00/Hr</span>
                                     </div>
-                                
                                 </div>
-
                                 <div className={classNames(css.flex_col,css.p_2)}>
-
                                     <div className={classNames(css.flex_row)}>
                                         <div>
                                             <h1 className={css.text_left}>Heat Presser</h1>
                                             <p>Lorem ipsum dolor sit amet</p>
-                                            
+                                                <div className={css.logedinControl}>
+                                                    <ReviewRating
+                                                        rating={4}
+                                                        className={css.ratng_blue}
+                                                    />
+                                                    <i>12 reviews</i>
+                                                </div>
                                         </div>
                                         <div>
                                             <FontAwesomeIcon className={css.icon_size} icon={faHeart}/>
                                         </div>
-                                    
-                                        
-
                                     </div>
                                     <div className={classNames(css.price_con,css.desk)}>
                                         <span className={css.price}>$20.00 / Hr</span>
                                     </div>
                                 </div>
-                                <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
-
+                               
+                                    <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
+                                    <NamedLink {...landingPageProps} className={classNames(css.no_bg)}>Ask a question</NamedLink>
+                               
+                                
                             </div>
 
                             <div  className={css.overlay_col}>
@@ -98,10 +98,7 @@ const CustomListingComponent = props =>{
                                     </NamedLink>
                                 </div>
                             </div>
-
-
                     </div>
-
 
                     <div className={classNames(css.flex_col,css.card)}>
 
@@ -688,8 +685,6 @@ const CustomListingComponent = props =>{
                                     </div>
                                     
                                 </div>
-                            
-
                             </div>
                             <hr className={css.hr}/>
                             <div>
@@ -702,7 +697,6 @@ const CustomListingComponent = props =>{
                                         <ReviewRating
                                            rating={4}
                                            className={css.ratng}
-                                            /* Available Props */
                                         />
                             </div>
                     </div>

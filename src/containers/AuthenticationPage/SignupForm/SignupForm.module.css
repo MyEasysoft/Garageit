@@ -126,6 +126,15 @@
     display: none;
   }
 
+  .next_btn{
+    padding: 10px;
+    width: 100%;
+    background-color: #183980;
+    color: white;
+    border-radius: 10px;
+    border-style: none;
+  }
+
 }
  
  @media only screen and (max-width: 412px) {
