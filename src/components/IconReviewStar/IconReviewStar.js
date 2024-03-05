@@ -11,9 +11,9 @@ const IconReviewStar = props => {
 
   return (
     <svg
-      className={classes}
-      width="23"
-      height="23"
+      className={classNames(classes,css.mag)}
+      width="15"
+      height="15"
       viewBox="0 0 23 23"
       xmlns="http://www.w3.org/2000/svg"
     >

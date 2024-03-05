@@ -63,6 +63,8 @@ import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import img1 from '../../assets/gift.png';
 import map from '../../assets/map.png';
 import { faCancel, faClose } from '@fortawesome/free-solid-svg-icons';
+import DynamicMapboxMap from '../../components/Map/DynamicMapboxMap';
+import SearchMap from '../SearchPage/SearchMap/SearchMap';
 
 // Social login buttons are needed by AuthenticationForms
 export const SocialLoginButtonsMaybe = props => {
@@ -139,7 +141,7 @@ export const SocialLoginButtonsMaybe = props => {
 
 // Tabs for SignupForm and LoginForm
 export const AuthenticationForms = props => {
-  const [showLocationControl, setShowLocationControl] = useState(false);
+  const [showLocationControl, setShowLocationControl] = useState(false);////////change this back to false
   const [showSubmitBtn, setShowSubmitBtn] = useState(false);
   const {
     isLogin,
@@ -242,7 +244,7 @@ export const AuthenticationForms = props => {
     setShowSubmitBtn(!showSubmitBtn);
     setShowLocationControl(!showLocationControl);
   }
-
+  
   const locationControl = showLocationControl?
         <div className={css.location_Modal}>
           <div className={css.location_form}>
@@ -256,7 +258,12 @@ export const AuthenticationForms = props => {
             <p>
               Set Your Location, Sit Back, and Await Your Delivery!
             </p>
-            <img src={map}/>
+
+            
+            <div style={{ height: 400 }}>
+            <SearchMap/>
+          </div>
+           
             <input className={css.zip} type='text' placeholder='Enter your zip code'/>
             <button onClick={handleShowSubmitBtn} className={css.submit_btn}>
               Save my delivery location
