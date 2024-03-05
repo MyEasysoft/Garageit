@@ -19,6 +19,13 @@ import {
 } from '../../../../components';
 
 import css from './TopbarMobileMenu.module.css';
+import home_icon from '../../../../assets/icons/home_icon.png';
+import msg_icon from '../../../../assets/icons/msg_icon.png';
+import favourite_icon from '../../../../assets/icons/favorite_icon.png';
+import refer_icon from '../../../../assets/icons/refer_icon.png';
+import reward_icon from '../../../../assets/icons/reward_icon.png';
+import logout_icon from '../../../../assets/icons/logout_icon.png';
+
 
 const TopbarMobileMenu = props => {
   const {
@@ -60,11 +67,7 @@ const TopbarMobileMenu = props => {
             />
           </div>
         </div>
-        <div className={css.footer}>
-          <NamedLink className={css.createNewListingLink} name="NewListingPage">
-            <FormattedMessage id="TopbarMobileMenu.newListingLink" />
-          </NamedLink>
-        </div>
+       
       </div>
     );
   }
@@ -83,47 +86,70 @@ const TopbarMobileMenu = props => {
 
   return (
     <div className={css.root}>
-      <AvatarLarge className={css.avatar} user={currentUser} />
+      <div className={css.profile}>
+        <AvatarLarge className={css.avatar} user={currentUser} />
+        <div className={css.profile_text}>
+          <h3 className={css.header}>Ashfak Sayem</h3>
+          <p className={css.header}>ashfaksayem@gmail.com</p>
+        </div>
+      </div>
+      
       <div className={css.content}>
-        <span className={css.greeting}>
-          <FormattedMessage id="TopbarMobileMenu.greeting" values={{ displayName }} />
-        </span>
-        <InlineTextButton rootClassName={css.logoutButton} onClick={onLogout}>
-          <FormattedMessage id="TopbarMobileMenu.logoutLink" />
-        </InlineTextButton>
+       <hr className={css.rule}/>
+       
+        <NamedLink
+          className={classNames(css.inbox, currentPageClass('LandingPage'))}
+          name="LandingPage"
+          params={{ tab: currentUserHasListings ? 'sales' : 'orders' }}
+        >
+          <img className={css.icons} src={home_icon} />
+          Home
+        </NamedLink>
         <NamedLink
           className={classNames(css.inbox, currentPageClass('InboxPage'))}
           name="InboxPage"
           params={{ tab: currentUserHasListings ? 'sales' : 'orders' }}
         >
-          <FormattedMessage id="TopbarMobileMenu.inboxLink" />
+          <img className={css.icons} src={msg_icon} />
+          Message
           {notificationCountBadge}
         </NamedLink>
         <NamedLink
           className={classNames(css.navigationLink, currentPageClass('ManageListingsPage'))}
           name="ManageListingsPage"
         >
-          <FormattedMessage id="TopbarMobileMenu.yourListingsLink" />
+          <img className={css.icons} src={favourite_icon} />
+          Favourite
         </NamedLink>
         <NamedLink
           className={classNames(css.navigationLink, currentPageClass('ProfileSettingsPage'))}
           name="ProfileSettingsPage"
         >
-          <FormattedMessage id="TopbarMobileMenu.profileSettingsLink" />
+          <img className={css.icons} src={refer_icon} />
+          Refer a friend
         </NamedLink>
         <NamedLink
           className={classNames(css.navigationLink, currentPageClass('AccountSettingsPage'))}
           name="AccountSettingsPage"
         >
-          <FormattedMessage id="TopbarMobileMenu.accountSettingsLink" />
+          <img className={css.icons} src={reward_icon} />
+          Rewards
         </NamedLink>
         <div className={css.spacer} />
       </div>
-      <div className={css.footer}>
-        <NamedLink className={css.createNewListingLink} name="NewListingPage">
-          <FormattedMessage id="TopbarMobileMenu.newListingLink" />
-        </NamedLink>
+
+      <div className={css.logout_div}>
+      <hr className={css.rule}/>
+     
+
+        <InlineTextButton rootClassName={css.logoutButton} onClick={onLogout}>
+          <img className={css.icons} src={logout_icon} />
+          <FormattedMessage id="TopbarMobileMenu.logoutLink" />
+        </InlineTextButton>
       </div>
+
+
+     
     </div>
   );
 };

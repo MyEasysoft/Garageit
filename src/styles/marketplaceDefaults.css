@@ -1294,18 +1294,14 @@ textarea {
 
 .marketplaceModalInMobileBaseStyles {
   flex-grow: 1;
-
-  /* Create context so the close button can be positioned within it */
   position: relative;
-
-  /* Display and dimensions */
   display: flex;
   flex-direction: column;
   height: 100vh;
   padding: 0;
-
-  background-color: var(--colorWhite);
+  background-color: #183980;
   border-radius: var(--borderRadius);
+  color: white;
 
   @media (--viewportMedium) {
     flex-basis: 480px;
@@ -1422,8 +1418,7 @@ textarea {
 
 .marketplaceModalCloseStyles {
   /* Position inside modal */
-  position: fixed;
-  top: 0;
+  position: absolute;
   right: 0;
 
   /* Some content (like map) is positioning itself on top of close button without z-index handling */
@@ -1446,7 +1441,7 @@ textarea {
 
   /* Colors */
   background-color: transparent;
-  color: var(--colorGrey700);
+  color: white;
 
   cursor: pointer;
 }

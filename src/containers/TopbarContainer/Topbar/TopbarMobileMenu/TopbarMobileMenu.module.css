@@ -16,8 +16,14 @@
   align-items: flex-start;
 }
 
+.content a{
+  font-weight: normal;
+  color: white;
+  font-size: 16px;
+}
+
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100vw;
@@ -29,7 +35,7 @@
 .avatar {
   /* Layout */
   flex-shrink: 0;
-  margin: var(--TopbarMobileMenu_topMargin) 0 0 0;
+  margin: 0 0 0 0;
 }
 
 .greeting {
@@ -173,4 +179,41 @@
 .spacer {
   width: 100%;
   height: 124px;
+}
+
+.rule{
+  width: 100%;
+  color:rgba(255, 255, 255, 0.521);
+  margin:20px 0px 20px 0px;
+}
+
+.logout_div{
+  position: absolute;
+  bottom: 0;
+  padding: 50px 0px;
+  width: 88%;
+}
+
+.icons{
+  margin-right: 10px;
+}
+
+.profile{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.profile_text h3,p{
+  
+  text-align: left;
+  color: white;
+}
+.header{
+  text-align: left;
+  color: white;
+
 }

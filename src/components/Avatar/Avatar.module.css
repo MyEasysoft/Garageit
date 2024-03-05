@@ -76,8 +76,8 @@
   padding: 0;
 
   /* Fixed dimensions */
-  width: 96px;
-  height: 96px;
+  width: 60px;
+  height: 60px;
 
   @media (--viewportMedium) {
     padding: 0;
