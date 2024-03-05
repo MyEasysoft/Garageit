@@ -207,13 +207,15 @@
   align-content: center;
 }
 
-.profile_text h3,p{
+.profile_text h3{
   
   text-align: left;
   color: white;
 }
-.header{
+
+
+.profile_text header{
+  
   text-align: left;
   color: white;
-
 }
