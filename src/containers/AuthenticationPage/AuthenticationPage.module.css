@@ -378,13 +378,43 @@
   border-radius: 20px;
 }
 
+.radio_btn{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  border-style: solid;
+  border-width: thin;
+  padding: 15px;
+  border-radius: 10px;
+  border-color: rgba(177, 177, 177, 0.658);
+  margin: 10px;
+}
+
+.radio{
+  width: 15px;
+}
+.header{
+  display: none;
+}
+
+.mobile{
+  display: none;
+}
+
 @media only screen and (max-width: 768px) {
+  
+.mobile{
+  display: block;
+ 
+}
+
+
 .location_Modal{
   display: block;
-  position: absolute;
+  position: fixed;
   background-color: rgba(128, 128, 128, 0.5);
   width: 100%;
-  height: 300%;
+  height: 100%;
   padding: 5%;
   z-index: 1000;
 }
@@ -483,6 +513,31 @@
   border-style: none;
  }
 
+ .map_img{
+  height: 200px;
+ }
+
+.modal_div{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.575);
+}
+
+.option_con{
+  border-radius: 10px;
+  margin: 20px;
+  border-style: solid;
+  border-width: thin;
+  border-color: rgba(170, 170, 170, 0.527);
+  padding-top: 20px;
+}
+
+.header{
+  margin-top: 40px;
+  display: block;
+}
+
 }
  
  @media only screen and (max-width: 412px) {
@@ -551,10 +606,11 @@
   
 .location_Modal{
 
-  position: absolute;
+  display: block;
+  position: fixed;
   background-color: rgba(128, 128, 128, 0.5);
   width: 100%;
-  height: 600%;
+  height: 100%;
   padding: 5%;
   z-index: 1000;
  

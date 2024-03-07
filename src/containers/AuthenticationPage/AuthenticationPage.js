@@ -143,6 +143,7 @@ export const SocialLoginButtonsMaybe = props => {
 export const AuthenticationForms = props => {
   const [showLocationControl, setShowLocationControl] = useState(false);////////change this back to false
   const [showSubmitBtn, setShowSubmitBtn] = useState(false);
+  const [showLogiSignupForm, setShowLogiSignupForm] = useState(false);
   const {
     isLogin,
     showFacebookLogin,
@@ -254,13 +255,13 @@ export const AuthenticationForms = props => {
             <h2>
               Good News! We Deliver to your location!
             </h2>
-            <img src={img1} />
+            <img className={css.map_img} src={img1} />
             <p>
               Set Your Location, Sit Back, and Await Your Delivery!
             </p>
 
             
-            <div style={{ height: 400 }}>
+            <div style={{ height: 200 }}>
             <SearchMap/>
           </div>
            
@@ -271,36 +272,48 @@ export const AuthenticationForms = props => {
             <NamedLink {...landingPageProps}>Skip for now</NamedLink>
           </div>
         </div>:"";
+
+  const login_signup_form = showLogiSignupForm?
+  <div className={css.login_signup}>
+  {locationControl}
+  <div className={css.content}>
+    <LinkTabNavHorizontal className={css.tabs} tabs={tabs} />
+    {loginOrSignupError}
+
+    {isLogin ? (
+      <LoginForm className={css.loginForm} onSubmit={submitLogin} inProgress={authInProgress} />
+    ) : (
+      <div>
+              <SignupForm
+                className={css.signupForm}
+                onSubmit={handleSubmitSignup}
+                inProgress={authInProgress}
+                termsAndConditions={termsAndConditions}
+                hideLocationControl={hideLocationControl}
+                showSubmitBtn={showSubmitBtn}
+              />
+      </div>
+    )}
+
+    <SocialLoginButtonsMaybe
+      isLogin={isLogin}
+      showFacebookLogin={showFacebookLogin}
+      showGoogleLogin={showGoogleLogin}
+      from={from}
+    />
+  </div>
+</div>:"";
+
+
+console.log(window.innerWidth);
+
+  
   return (
     <>
-      {locationControl}
-      <div className={css.content}>
-        <LinkTabNavHorizontal className={css.tabs} tabs={tabs} />
-        {loginOrSignupError}
-
-        {isLogin ? (
-          <LoginForm className={css.loginForm} onSubmit={submitLogin} inProgress={authInProgress} />
-        ) : (
-          <div>
-                  <SignupForm
-                    className={css.signupForm}
-                    onSubmit={handleSubmitSignup}
-                    inProgress={authInProgress}
-                    termsAndConditions={termsAndConditions}
-                    hideLocationControl={hideLocationControl}
-                    showSubmitBtn={showSubmitBtn}
-                  />
-          </div>
-        )}
-
-        <SocialLoginButtonsMaybe
-          isLogin={isLogin}
-          showFacebookLogin={showFacebookLogin}
-          showGoogleLogin={showGoogleLogin}
-          from={from}
-        />
-      </div>
+    {login_signup_form}
     </>
+   
+    
    
   );
 };
@@ -430,7 +443,9 @@ export const AuthenticationPageComponent = props => {
   const [authInfo, setAuthInfo] = useState(getAuthInfoFromCookies());
   const [authError, setAuthError] = useState(getAuthErrorFromCookies());
   const config = useConfiguration();
-
+  const [showRadioFormOptions, setShowRadioFormOptions] = useState(true);
+  const [showSocialBtn, setShowSocialBtn] = useState(false);
+  
   useEffect(() => {
     // Remove the autherror cookie once the content is saved to state
     // because we don't want to show the error message e.g. after page refresh
@@ -514,6 +529,65 @@ export const AuthenticationPageComponent = props => {
     [css.hideOnMobile]: showEmailVerification,
   });
 
+  const HandleChange = ()=>{
+
+  }
+
+  const radioFormOptions = showRadioFormOptions?
+
+  <form>
+    <div className={css.mobile}>
+        <h2 className={css.header}>
+        Create account
+      </h2>
+      <div className={css.option_con}>
+          <div>
+            <h3>
+              Choose how you plan to utilize Garageit!
+            </h3>
+            <p>
+              Select all options that apply
+            </p>
+          </div>
+
+
+          <div  onChange={HandleChange} className={css.radioContainer}>
+
+            <div className={css.radio_btn}>
+              <input className={css.radio} type='radio' name='role'/><span>I want to list my items</span>
+            </div>
+            <div className={css.radio_btn}>
+              <input className={css.radio} type='radio' name='role'/><span>I want to rent item</span>
+            </div>
+            <div className={css.radio_btn}>
+              <input className={css.radio} type='radio' name='role'/><span>I want to store my item</span>
+            </div>
+                    
+        </div>
+      </div>
+    </div>
+   
+   
+  </form>
+  :"";
+
+  const socialBtn = showSocialBtn?
+  
+        <div className={css.personal_details}>
+          <h2>Personal Details</h2>
+          <div className={css.social}>
+          <button className={css.social_btn}>
+              <FontAwesomeIcon className={css.mag_R_20} icon={faGoogle} />
+              Signup with Google</button>
+          <button className={css.social_btn}>
+            <FontAwesomeIcon className={css.mag_R_20} icon={faFacebook} />
+              Signup with Facebook</button>
+          </div>
+          <div className={css.rule_con}>
+            <hr className={css.rule}/>OR <hr className={css.rule}/>
+          </div>
+        </div>:"";
+
   return (
     <Page
       title={schemaTitle}
@@ -542,21 +616,10 @@ export const AuthenticationPageComponent = props => {
           </div>
         </div>
 
-        <div className={css.personal_details}>
-          <h2>Personal Details</h2>
-          <div className={css.social}>
-           <button className={css.social_btn}>
-              <FontAwesomeIcon className={css.mag_R_20} icon={faGoogle} />
-              Signup with Google</button>
-           <button className={css.social_btn}>
-            <FontAwesomeIcon className={css.mag_R_20} icon={faFacebook} />
-              Signup with Facebook</button>
-          </div>
-          <div className={css.rule_con}>
-            <hr className={css.rule}/>OR <hr className={css.rule}/>
-          </div>
-        </div>
 
+        {radioFormOptions}
+
+        {socialBtn}
           {showEmailVerification ? (
             <EmailVerificationInfo
               name={user.attributes.profile.firstName}
