@@ -458,8 +458,6 @@ const CustomListingComponent = props =>{
                                             </NamedLink>
                                         </div>
                                     </div>
-
-
                         </div>
 
                         <div className={classNames(css.flex_col,css.card)}>

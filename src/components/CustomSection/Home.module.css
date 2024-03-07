@@ -23,7 +23,6 @@ body{
     margin: 0px;
 }
 
-
 .mobile , .mobile_banner{
     display: none;
 }
@@ -91,6 +90,18 @@ body{
   }
 }
 
+.btn_create{
+  display: block;
+  border-style: none;
+  background-color: #183980;
+  padding: 15px 20px;
+  border-radius: 10px;
+  color: white;
+  width: 180px;
+  margin: 0 auto;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
 
 @media only screen and (max-width: 1024px) {
   .mobile{
@@ -132,6 +143,19 @@ body{
       width: 180px;
       margin: 0 auto;
       font-weight: bold;
+      margin-bottom: 50px;
+  }
+  .btn_create{
+    display: block;
+    border-style: none;
+    background-color: #183980;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: white;
+    width: 180px;
+    margin: 0 auto;
+    font-weight: bold;
+    margin-bottom: 50px;
   }
 
   .resize{
@@ -194,6 +218,19 @@ p,h1,h2,h3{
         width: 180px;
         margin: 0 auto;
         font-weight: bold;
+        margin-bottom: 50px;
+    }
+    .btn_create{
+      display: none;
+      border-style: none;
+      background-color: #183980;
+      padding: 15px 20px;
+      border-radius: 10px;
+      color: white;
+      width: 180px;
+      margin: 0 auto;
+      font-weight: bold;
+      margin-bottom: 50px;
     }
 
     .resize{
@@ -256,6 +293,7 @@ p,h1,h2,h3{
           width: 180px;
           font-weight: bold;
           margin: 0 auto;
+          margin-bottom: 40px;
       }
 
       .resize{
@@ -318,6 +356,7 @@ p,h1,h2,h3{
           width: 180px;
           margin: 0 auto;
           font-weight: bold;
+          margin-bottom: 40px;
       }
 
       .resize{

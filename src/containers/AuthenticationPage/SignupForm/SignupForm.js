@@ -639,7 +639,11 @@ const SignupFormComponent = props => (
              Cancel
             </PrimaryButton>
 
+            <PrimaryButton  className={css.submit_btn_desk} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
+                <FormattedMessage id="SignupForm.signUp" />
+            </PrimaryButton>
             {submitBtn}
+
             
           </div>
 
