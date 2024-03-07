@@ -74,6 +74,10 @@ a{
   margin-bottom: 30px;
 }
 
+.mb_2{
+  margin-bottom: 20px;
+}
+
 .flex_row h1{
   margin: 0px;
   padding: 0px;
@@ -318,7 +322,7 @@ padding:0px 20px 20px 20px;
   height: fit-content;
   transition: 1s;
   bottom: 0px;
-  background-color: #4873d1bd;
+  background-color: #1839807A;
   color: white;
 
   &:hover{
@@ -471,6 +475,10 @@ p{
   border-width: thin;
   border-radius: 10px;
   text-align: center;
+}
+
+.color_white{
+  color:white;
 }
 
 

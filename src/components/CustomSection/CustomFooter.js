@@ -38,7 +38,7 @@ function CustomFooterComponent(){
                 <div className={css.footer_form_con}>
                     <div className={css.footer_form}>
                         <h3>Stay in the loop</h3>
-                        <p>Join our mailing list to stay in the loop with our newest feature releases, NFT drops, and tips and tricks for navigating NFTs.</p>
+                        <p>Don't miss out! Opt-in for reminders to stay up to date and in the know of new items, and deals in your area</p>
                         <div className={css.form_input_con}>
                             <input className={css.text_input} type='email' placeholder='Enter your email address..'/>
                             <input className={css.submit_btn} type='submit' value='Submit'/>

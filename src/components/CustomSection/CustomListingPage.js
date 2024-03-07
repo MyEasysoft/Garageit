@@ -598,7 +598,7 @@ const CustomListingComponent = props =>{
 
                                 <div  className={css.overlay_col_2}>
                                     <div>
-                                        <h3 className={css.text_left}>Looking for Delivery?</h3>
+                                        <h3 className={classNames(css.text_left,css.color_white)}>Looking for Delivery?</h3>
                                         <p>Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam</p>
                                         <NamedLink {...landingPageProps}>
                                             Learn more
@@ -622,7 +622,7 @@ const CustomListingComponent = props =>{
 
                                 <div  className={css.overlay_col_2}>
                                     <div>
-                                        <h3 className={css.text_left}>Want list your item?</h3>
+                                        <h3 className={classNames(css.text_left,css.color_white)}>Want list your item?</h3>
                                         <p>Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam</p>
                                         <NamedLink {...landingPageProps}>
                                             Learn more
@@ -646,7 +646,7 @@ const CustomListingComponent = props =>{
 
                                 <div  className={css.overlay_col_2}>
                                     <div>
-                                        <h3 className={css.text_left}>Looking for storage?</h3>
+                                        <h3 className={classNames(css.text_left,css.color_white)}>Looking for storage?</h3>
                                         <p>Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam</p>
                                         <NamedLink {...landingPageProps}>
                                             Learn more
@@ -688,8 +688,8 @@ const CustomListingComponent = props =>{
                             </div>
                             <hr className={css.hr}/>
                             <div>
-                                        <h4>“Totally recommended”</h4>
-                                        <p>
+                                        <h4 className={css.mb_2}>“Totally recommended”</h4>
+                                        <p className={css.mb_2}>
                                         Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam 
                                         diam dui tempor nisi risus bibendum cursus ac non tortor posuere fringilla 
                                         donec enim congue morbi netus sit non quis.
@@ -715,8 +715,8 @@ const CustomListingComponent = props =>{
                             </div>
                             <hr className={css.hr}/>
                             <div>
-                                        <h4>“Totally recommended”</h4>
-                                        <p>
+                                        <h4 className={css.mb_2}>“Totally recommended”</h4>
+                                        <p className={css.mb_2}>
                                         Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam 
                                         diam dui tempor nisi risus bibendum cursus ac non tortor posuere fringilla 
                                         donec enim congue morbi netus sit non quis.
@@ -744,8 +744,8 @@ const CustomListingComponent = props =>{
                             </div>
                             <hr className={css.hr}/>
                             <div>
-                                        <h4>“Totally recommended”</h4>
-                                        <p>
+                                        <h4 className={css.mb_2}>“Totally recommended”</h4>
+                                        <p className={css.mb_2}>
                                         Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam 
                                         diam dui tempor nisi risus bibendum cursus ac non tortor posuere fringilla 
                                         donec enim congue morbi netus sit non quis.

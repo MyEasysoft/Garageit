@@ -25,6 +25,7 @@ import favourite_icon from '../../../../assets/icons/favorite_icon.png';
 import refer_icon from '../../../../assets/icons/refer_icon.png';
 import reward_icon from '../../../../assets/icons/reward_icon.png';
 import logout_icon from '../../../../assets/icons/logout_icon.png';
+import signup_icon from '../../../../assets/icons/signup_icon.png';
 
 
 const TopbarMobileMenu = props => {
@@ -42,12 +43,14 @@ const TopbarMobileMenu = props => {
   if (!isAuthenticated) {
     const signup = (
       <NamedLink name="SignupPage" className={css.signupLink}>
+        <img className={css.icons} src={signup_icon} />
         <FormattedMessage id="TopbarMobileMenu.signupLink" />
       </NamedLink>
     );
 
     const login = (
       <NamedLink name="LoginPage" className={css.loginLink}>
+        <img className={css.icons} src={logout_icon} />
         <FormattedMessage id="TopbarMobileMenu.loginLink" />
       </NamedLink>
     );
@@ -59,14 +62,15 @@ const TopbarMobileMenu = props => {
     );
     return (
       <div className={css.root}>
-        <div className={css.content}>
-          <div className={css.authenticationGreeting}>
-            <FormattedMessage
-              id="TopbarMobileMenu.unauthorizedGreeting"
-              values={{ lineBreak: <br />, signupOrLogin }}
-            />
-          </div>
+        <div className={css.content_out}>
+
+          
+          <h1 className={css.welcomeHeader}>Welcome</h1>
+         
+          {signup}
+          {login}
         </div>
+        <hr className={css.rule}/>
        
       </div>
     );

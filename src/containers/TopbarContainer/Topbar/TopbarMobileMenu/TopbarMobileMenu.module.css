@@ -16,6 +16,15 @@
   align-items: flex-start;
 }
 
+.content_out{
+  flex-grow: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 20%;
+}
+
 .content a{
   font-weight: normal;
   color: white;
@@ -159,12 +168,16 @@
 .signupLink {
   text-decoration: none;
   white-space: nowrap;
-  color: var(--marketplaceColor);
+  color: white;
+  font-weight: 300;
+  margin-top: 20px;
 }
 .loginLink {
   text-decoration: none;
   white-space: nowrap;
-  color: var(--marketplaceColor);
+  color: white;
+  font-weight: 300;
+  margin-top: 20px;
 }
 
 .currentPage {
@@ -218,4 +231,8 @@
   
   text-align: left;
   color: white;
+}
+.welcomeHeader{
+  padding: 0px;
+  margin: 0px;
 }
