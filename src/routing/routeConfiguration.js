@@ -175,6 +175,42 @@ const routeConfiguration = (layoutConfig) => {
       component: AuthenticationPage,
       extraProps: { tab: 'login' },
     },
+
+    {
+      path: '/mobile/signup-or-login',
+      name: 'SignupPage',
+      component: AuthenticationPage,
+      extraProps: { tab: 'signup' },
+    },
+
+    {
+      path: '/mobile/signup-options',
+      name: 'SignupPage',
+      component: AuthenticationPage,
+      extraProps: { tab: 'signup' },
+    },
+
+    {
+      path: '/mobile/signup-list-item',
+      name: 'SignupPage',
+      component: AuthenticationPage,
+      extraProps: { tab: 'signup' },
+    },
+
+    {
+      path: '/mobile/signup-rent-item',
+      name: 'SignupPage',
+      component: AuthenticationPage,
+      extraProps: { tab: 'signup' },
+    },
+
+    {
+      path: '/mobile/signup-store-item',
+      name: 'SignupPage',
+      component: AuthenticationPage,
+      extraProps: { tab: 'signup' },
+    },
+
     {
       path: '/signup',
       name: 'SignupPage',

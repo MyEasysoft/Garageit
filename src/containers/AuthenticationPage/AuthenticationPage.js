@@ -143,7 +143,7 @@ export const SocialLoginButtonsMaybe = props => {
 export const AuthenticationForms = props => {
   const [showLocationControl, setShowLocationControl] = useState(false);////////change this back to false
   const [showSubmitBtn, setShowSubmitBtn] = useState(false);
-  const [showLogiSignupForm, setShowLogiSignupForm] = useState(false);
+  const [showLogiSignupForm, setShowLogiSignupForm] = useState(true);
   const {
     isLogin,
     showFacebookLogin,
@@ -444,7 +444,7 @@ export const AuthenticationPageComponent = props => {
   const [authError, setAuthError] = useState(getAuthErrorFromCookies());
   const config = useConfiguration();
   const [showRadioFormOptions, setShowRadioFormOptions] = useState(true);
-  const [showSocialBtn, setShowSocialBtn] = useState(false);
+  const [showSocialBtn, setShowSocialBtn] = useState(true);
   
   useEffect(() => {
     // Remove the autherror cookie once the content is saved to state
@@ -541,7 +541,7 @@ export const AuthenticationPageComponent = props => {
         Create account
       </h2>
       <div className={css.option_con}>
-          <div>
+          <div className={css.header_content}>
             <h3>
               Choose how you plan to utilize Garageit!
             </h3>

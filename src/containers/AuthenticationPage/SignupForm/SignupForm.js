@@ -686,7 +686,7 @@ const createSignup = createOrSignup?
 
             <div className={classNames(css.bottomWrapper,css.buttom_flex)}>
               <PrimaryButton className={css.cancel_btn} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
-              Cancel
+                  Cancel
               </PrimaryButton>
 
               <PrimaryButton  className={css.submit_btn_desk} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
