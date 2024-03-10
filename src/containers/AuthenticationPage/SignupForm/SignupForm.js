@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import { FormattedMessage, injectIntl, intlShape } from '../../../util/reactIntl';
 import * as validators from '../../../util/validators';
-import { Form, PrimaryButton, FieldTextInput, FieldRadioButton, FieldSelect } from '../../../components';
+import { Form, PrimaryButton, FieldTextInput, FieldRadioButton, FieldSelect, H3, H2 } from '../../../components';
 
 import css from './SignupForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,8 +32,8 @@ const SignupFormComponent = props => (
         termsAndConditions,
         hideLocationControl,
         showSubmitBtn,
-        
         createOrSignup,
+        roleHeader,
       } = fieldRenderProps;
 
       const [show,setShow] = useState(true);
@@ -175,38 +175,8 @@ const createSignup = createOrSignup?
     </div>
   </div>:"";
 
-  const radioFormOptions = showRadioFormOptions?
-  <div  onChange={HandleChange} className={css.radioContainer}>
-                <FieldRadioButton
-                  id='SignupForm.ListUser'
-                  name="role"
-                  label="I want to list my item"
-                  value="List User"
-                  showAsRequired={showAsRequired}
-                 
-                />
-               
-                <FieldRadioButton
-                  id='SignupForm.User'
-                  name="role"
-                  label="I want to rent item"
-                  value="User"
-                  showAsRequired={showAsRequired}
-                  
-                />
-
-                <FieldRadioButton
-                  id='SignupForm.StoreUser'
-                  name="role"
-                  label="I want to store my item"
-                  value="Store User"
-                  showAsRequired={showAsRequired}
-                  
-                />
-              </div>:"";
-
 //showFormControl
-const formControls_mobile = true?
+const formControls_mobile = showFormControl?
       <div className={classNames(css.mobile,css.form_mobile)}>
           <FieldTextInput
            
@@ -1200,7 +1170,10 @@ const formControls_mobile = true?
      
       return (
         <Form className={classes} onSubmit={handleSubmit}>
+
           {createSignup}
+
+          <H2 className={css.mobile}>{roleHeader}</H2>
           <div>
 
 
@@ -1211,8 +1184,10 @@ const formControls_mobile = true?
             </div>
 
             
-            {radioFormOptions}
             {formControls_mobile}
+
+           
+
             {formControls_desk}
 
             <div className={classNames(css.bottomWrapper,css.buttom_flex)}>

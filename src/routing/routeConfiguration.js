@@ -203,6 +203,7 @@ const routeConfiguration = (layoutConfig) => {
       name: 'SignupPage',
       component: AuthenticationPage,
       extraProps: { tab: 'signup' },
+      loadData: pageDataLoadingAPI.AuthenticationPage.loadData,
     },
 
     {
@@ -210,6 +211,7 @@ const routeConfiguration = (layoutConfig) => {
       name: 'SignupPage',
       component: AuthenticationPage,
       extraProps: { tab: 'signup' },
+      loadData: pageDataLoadingAPI.AuthenticationPage.loadData,
     },
 
     {
@@ -217,6 +219,7 @@ const routeConfiguration = (layoutConfig) => {
       name: 'SignupPage',
       component: AuthenticationPage,
       extraProps: { tab: 'signup' },
+      loadData: pageDataLoadingAPI.AuthenticationPage.loadData,
     },
 
     

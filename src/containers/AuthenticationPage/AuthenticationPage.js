@@ -147,6 +147,7 @@ export const AuthenticationForms = props => {
   const [showLogiSignupForm, setShowLogiSignupForm] = useState(true); 
   const [showFormControl, setShowFormControl] = useState(true);
   const [createOrSignup, setCreateOrSignup] = useState(false);
+  const [roleHeader, setRoleHeader] = useState("")
   const location = useLocation();
   const path = location.pathname;
   const {
@@ -185,14 +186,20 @@ export const AuthenticationForms = props => {
       }else{}
 
       if(path==="/mobile/signup-options-listItem"){
+        setShowLogiSignupForm(true);
         handleShowRadioFormOptions(false);
-        setShowFormControl(true)
+        setShowFormControl(true);
+        setRoleHeader("List Item form");
       }else if(path === "/mobile/signup-options-rentItem"){
+        setShowLogiSignupForm(true);
         handleShowRadioFormOptions(false);
-        setShowFormControl(true)
+        setShowFormControl(true);
+        setRoleHeader("Rent Item form");
       }else if(path === "/mobile/signup-options-storeItem"){
+        setShowLogiSignupForm(true);
         handleShowRadioFormOptions(false);
-        setShowFormControl(true)
+        setShowFormControl(true);
+        setRoleHeader("Store Item form");
       }
       else{}
 
@@ -337,6 +344,7 @@ export const AuthenticationForms = props => {
                     showSubmitBtn={showSubmitBtn}
                     showFormControl={showFormControl}
                     createOrSignup={createOrSignup}
+                    roleHeader={roleHeader}
                   />
           </div>
         )}
