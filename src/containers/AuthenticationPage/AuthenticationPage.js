@@ -65,6 +65,7 @@ import map from '../../assets/map.png';
 import { faCancel, faClose } from '@fortawesome/free-solid-svg-icons';
 import DynamicMapboxMap from '../../components/Map/DynamicMapboxMap';
 import SearchMap from '../SearchPage/SearchMap/SearchMap';
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 // Social login buttons are needed by AuthenticationForms
 export const SocialLoginButtonsMaybe = props => {
@@ -143,7 +144,11 @@ export const SocialLoginButtonsMaybe = props => {
 export const AuthenticationForms = props => {
   const [showLocationControl, setShowLocationControl] = useState(false);////////change this back to false
   const [showSubmitBtn, setShowSubmitBtn] = useState(false);
-  const [showLogiSignupForm, setShowLogiSignupForm] = useState(true);
+  const [showLogiSignupForm, setShowLogiSignupForm] = useState(true); 
+  const [showFormControl, setShowFormControl] = useState(true);
+  const [createOrSignup, setCreateOrSignup] = useState(false);
+  const location = useLocation();
+  const path = location.pathname;
   const {
     isLogin,
     showFacebookLogin,
@@ -156,9 +161,45 @@ export const AuthenticationForms = props => {
     authInProgress,
     submitSignup,
     termsAndConditions,
-    
+    handleShowSignupOptions,
+    handleShowRadioFormOptions,
   } = props;
 
+
+  //Add the url as parameter to useeffect, to force pace refresh
+  //so that the create account form can pop up
+  const url = window.location.pathname.split('/').pop();
+  useEffect(
+    ()=>{
+       //This is mobile view
+      //Show respective mobile content
+      if(path==="/mobile/signup-or-login"){
+        setShowLogiSignupForm(true);
+        setShowFormControl(false)
+        setCreateOrSignup(true);
+      }else if(path === "/mobile/signup-options"){
+        setShowLogiSignupForm(false);
+        setShowFormControl(false)
+        setCreateOrSignup(false);
+        handleShowSignupOptions(true);
+      }else{}
+
+      if(path==="/mobile/signup-options-listItem"){
+        handleShowRadioFormOptions(false);
+        setShowFormControl(true)
+      }else if(path === "/mobile/signup-options-rentItem"){
+        handleShowRadioFormOptions(false);
+        setShowFormControl(true)
+      }else if(path === "/mobile/signup-options-storeItem"){
+        handleShowRadioFormOptions(false);
+        setShowFormControl(true)
+      }
+      else{}
+
+
+    },[url]
+  );
+  
 
   const fromState = { state: from ? { from } : null };
   const tabs = [
@@ -273,44 +314,41 @@ export const AuthenticationForms = props => {
           </div>
         </div>:"";
 
-  const login_signup_form = showLogiSignupForm?
-  <div className={css.login_signup}>
-  {locationControl}
-  <div className={css.content}>
-    <LinkTabNavHorizontal className={css.tabs} tabs={tabs} />
-    {loginOrSignupError}
 
-    {isLogin ? (
-      <LoginForm className={css.loginForm} onSubmit={submitLogin} inProgress={authInProgress} />
-    ) : (
-      <div>
-              <SignupForm
-                className={css.signupForm}
-                onSubmit={handleSubmitSignup}
-                inProgress={authInProgress}
-                termsAndConditions={termsAndConditions}
-                hideLocationControl={hideLocationControl}
-                showSubmitBtn={showSubmitBtn}
-              />
-      </div>
-    )}
-
-    <SocialLoginButtonsMaybe
-      isLogin={isLogin}
-      showFacebookLogin={showFacebookLogin}
-      showGoogleLogin={showGoogleLogin}
-      from={from}
-    />
-  </div>
-</div>:"";
-
-
-console.log(window.innerWidth);
-
-  
   return (
     <>
-    {login_signup_form}
+      {showLogiSignupForm?
+      <div>
+      {locationControl}
+      <div className={css.content}>
+        <LinkTabNavHorizontal className={css.tabs} tabs={tabs} />
+        {loginOrSignupError}
+
+        {isLogin ? (
+          <LoginForm className={css.loginForm} onSubmit={submitLogin} inProgress={authInProgress} />
+        ) : (
+          <div>
+                  <SignupForm
+                    className={css.signupForm}
+                    onSubmit={handleSubmitSignup}
+                    inProgress={authInProgress}
+                    termsAndConditions={termsAndConditions}
+                    hideLocationControl={hideLocationControl}
+                    showSubmitBtn={showSubmitBtn}
+                    showFormControl={showFormControl}
+                    createOrSignup={createOrSignup}
+                  />
+          </div>
+        )}
+
+        <SocialLoginButtonsMaybe
+          isLogin={isLogin}
+          showFacebookLogin={showFacebookLogin}
+          showGoogleLogin={showGoogleLogin}
+          from={from}
+        />
+      </div>
+    </div>:""}
     </>
    
     
@@ -396,6 +434,10 @@ export const AuthenticationOrConfirmInfoForm = props => {
     signupError,
     confirmError,
     termsAndConditions,
+    handleShowSignupOptions,
+    handleShowFormControl,
+    handleShowRadioFormOptions,
+   
   } = props;
   const isConfirm = tab === 'confirm';
   const isLogin = tab === 'login';
@@ -421,6 +463,10 @@ export const AuthenticationOrConfirmInfoForm = props => {
       authInProgress={authInProgress}
       submitSignup={submitSignup}
       termsAndConditions={termsAndConditions}
+      handleShowSignupOptions={handleShowSignupOptions}
+      handleShowFormControl={handleShowFormControl}
+      handleShowRadioFormOptions={handleShowRadioFormOptions}
+      
     ></AuthenticationForms>
   );
 };
@@ -443,16 +489,12 @@ export const AuthenticationPageComponent = props => {
   const [authInfo, setAuthInfo] = useState(getAuthInfoFromCookies());
   const [authError, setAuthError] = useState(getAuthErrorFromCookies());
   const config = useConfiguration();
-  const [showRadioFormOptions, setShowRadioFormOptions] = useState(true);
-  const [showSocialBtn, setShowSocialBtn] = useState(true);
+  const [showRadioFormOptions, setShowRadioFormOptions] = useState(false);
+  const [showSocialBtn, setShowSocialBtn] = useState(false);
+ const history = useHistory();
   
-  useEffect(() => {
-    // Remove the autherror cookie once the content is saved to state
-    // because we don't want to show the error message e.g. after page refresh
-    if (authError) {
-      Cookies.remove('st-autherror');
-    }
-  }, []);
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   // On mobile, it's better to scroll to top.
   useEffect(() => {
@@ -480,7 +522,23 @@ export const AuthenticationPageComponent = props => {
     tosAssetsData,
     tosFetchInProgress,
     tosFetchError,
+    handleShowFormControl,
   } = props;
+
+
+  const url = window.location.pathname.split('/').pop();
+  useEffect(() => {
+    // Remove the autherror cookie once the content is saved to state
+    // because we don't want to show the error message e.g. after page refresh
+    if (authError) {
+      Cookies.remove('st-autherror');
+    }
+
+  }, [url]);
+
+  
+  const locatn = useLocation();
+  const path = location.pathname;
 
   // History API has potentially state tied to this route
   // We have used that state to store previous URL ("from"),
@@ -529,8 +587,28 @@ export const AuthenticationPageComponent = props => {
     [css.hideOnMobile]: showEmailVerification,
   });
 
-  const HandleChange = ()=>{
 
+  //Go to the respective routes for the different signup options
+  const HandleChange = (event,data)=>{
+    event.preventDefault();
+    console.log(event.target.value);
+    if(event.target.value === "listItem"){
+      history.push("/mobile/signup-options-listItem");
+    }else if(event.target.value === "rentItem"){
+      history.push("/mobile/signup-options-rentItem");
+    }else{
+      history.push("/mobile/signup-options-storeItem");
+    }
+    
+
+  }
+  
+  const handleShowSignupOptions = ()=>{
+    setShowRadioFormOptions(!showRadioFormOptions);
+  }
+
+  const handleShowRadioFormOptions = ()=>{
+    setShowRadioFormOptions(!showRadioFormOptions);
   }
 
   const radioFormOptions = showRadioFormOptions?
@@ -538,8 +616,8 @@ export const AuthenticationPageComponent = props => {
   <form>
     <div className={css.mobile}>
         <h2 className={css.header}>
-        Create account
-      </h2>
+          Create account
+        </h2>
       <div className={css.option_con}>
           <div className={css.header_content}>
             <h3>
@@ -554,13 +632,13 @@ export const AuthenticationPageComponent = props => {
           <div  onChange={HandleChange} className={css.radioContainer}>
 
             <div className={css.radio_btn}>
-              <input className={css.radio} type='radio' name='role'/><span>I want to list my items</span>
+              <input className={css.radio} type='radio' value='listItem' name='role'/><span>I want to list my items</span>
             </div>
             <div className={css.radio_btn}>
-              <input className={css.radio} type='radio' name='role'/><span>I want to rent item</span>
+              <input className={css.radio} type='radio' value='rentItem' name='role'/><span>I want to rent item</span>
             </div>
             <div className={css.radio_btn}>
-              <input className={css.radio} type='radio' name='role'/><span>I want to store my item</span>
+              <input className={css.radio} type='radio' value='storeItem' name='role'/><span>I want to store my item</span>
             </div>
                     
         </div>
@@ -587,6 +665,7 @@ export const AuthenticationPageComponent = props => {
             <hr className={css.rule}/>OR <hr className={css.rule}/>
           </div>
         </div>:"";
+  
 
   return (
     <Page
@@ -643,6 +722,9 @@ export const AuthenticationPageComponent = props => {
               idpAuthError={authError}
               signupError={signupError}
               confirmError={confirmError}
+              handleShowSignupOptions={handleShowSignupOptions}
+              handleShowRadioFormOptions={handleShowRadioFormOptions}
+              
               termsAndConditions={
                 <TermsAndConditions
                   onOpenTermsOfService={() => setTosModalOpen(true)}

@@ -1342,7 +1342,7 @@ textarea {
 /* Bottom wrapper for the modal */
 .marketplaceModalBottomWrapper {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 20px;
   align-self: stretch;
   text-align: center;
   display: flex;

@@ -26,6 +26,7 @@ import refer_icon from '../../../../assets/icons/refer_icon.png';
 import reward_icon from '../../../../assets/icons/reward_icon.png';
 import logout_icon from '../../../../assets/icons/logout_icon.png';
 import signup_icon from '../../../../assets/icons/signup_icon.png';
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const TopbarMobileMenu = props => {
@@ -40,19 +41,37 @@ const TopbarMobileMenu = props => {
 
   const user = ensureCurrentUser(currentUser);
 
+  const location = useLocation();
+  const path = location.pathname;
+  const history = useHistory();
+
+  const contactDetailsMenu = (path==="/" || path==="/login" || path==="/signup" || path.indexOf("u")===1)?"":"";
+
+  const signupOrLoginLink = (event)=>{
+    event.preventDefault();
+    history.push("/mobile/signup-or-login")
+  }
+
+  const signupOptionLink = (event)=>{
+    event.preventDefault();
+    history.push("/login")
+  }
+
+
+
   if (!isAuthenticated) {
     const signup = (
-      <NamedLink name="SignupPage" className={css.signupLink}>
-        <img className={css.icons} src={signup_icon} />
-        <FormattedMessage id="TopbarMobileMenu.signupLink" />
-      </NamedLink>
+      <button className={classNames(css.signupLink,css.noborder)} onClick={signupOrLoginLink}>
+          <img className={css.icons} src={signup_icon} />
+          Signup
+      </button>
     );
 
     const login = (
-      <NamedLink name="LoginPage" className={css.loginLink}>
-        <img className={css.icons} src={logout_icon} />
-        <FormattedMessage id="TopbarMobileMenu.loginLink" />
-      </NamedLink>
+      <button className={classNames(css.signupLink,css.noborder)} onClick={signupOptionLink}>
+          <img className={css.icons} src={logout_icon} />
+          Login
+      </button>
     );
 
     const signupOrLogin = (
@@ -63,12 +82,9 @@ const TopbarMobileMenu = props => {
     return (
       <div className={css.root}>
         <div className={css.content_out}>
-
-          
           <h1 className={css.welcomeHeader}>Welcome</h1>
-         
-          {signup}
-          {login}
+            {signup}
+            {login}
         </div>
         <hr className={css.rule}/>
        

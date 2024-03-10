@@ -14,9 +14,11 @@
   display: flex;
   justify-content: space-between;
   margin-top: 24px;
+  width: 100%;
 
   @media (--viewportMedium) {
     margin-top: 32px;
+
   }
 }
 
@@ -50,6 +52,7 @@
   display: flex;
   flex-direction: row;
   gap: 30px;
+  margin-top: 20px;
 }
 
 .cancel_btn{
@@ -116,8 +119,44 @@
   border-width: thin;
 }
 
+.desktop{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+}
+
+.mobile{
+  display: none;
+}
+
+input{
+  width: 100%;
+}
+
+
 @media only screen and (max-width: 768px) {
 
+  
+.form_mobile{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  align-content: center;
+}
+
+.form_mobile input{
+  width: 100%;
+}
+
+  .desktop{
+    display: none;
+  }
+
+  .mobile{
+    display: flex;
+  }
 
   .submit_btn_desk{
     display: none;
@@ -155,7 +194,7 @@
 
   .next_btn{
     display:block;
-    padding: 10px;
+    padding: 15px;
     width: 100%;
     background-color: #183980;
     color: white;

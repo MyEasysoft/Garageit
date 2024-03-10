@@ -177,6 +177,14 @@ const routeConfiguration = (layoutConfig) => {
     },
 
     {
+      path: '/signup',
+      name: 'SignupPage',
+      component: AuthenticationPage,
+      extraProps: { tab: 'signup' },
+      loadData: pageDataLoadingAPI.AuthenticationPage.loadData,
+    },
+
+    {
       path: '/mobile/signup-or-login',
       name: 'SignupPage',
       component: AuthenticationPage,
@@ -191,33 +199,27 @@ const routeConfiguration = (layoutConfig) => {
     },
 
     {
-      path: '/mobile/signup-list-item',
+      path: '/mobile/signup-options-listItem',
       name: 'SignupPage',
       component: AuthenticationPage,
       extraProps: { tab: 'signup' },
     },
 
     {
-      path: '/mobile/signup-rent-item',
+      path: '/mobile/signup-options-rentItem',
       name: 'SignupPage',
       component: AuthenticationPage,
       extraProps: { tab: 'signup' },
     },
 
     {
-      path: '/mobile/signup-store-item',
+      path: '/mobile/signup-options-storeItem',
       name: 'SignupPage',
       component: AuthenticationPage,
       extraProps: { tab: 'signup' },
     },
 
-    {
-      path: '/signup',
-      name: 'SignupPage',
-      component: AuthenticationPage,
-      extraProps: { tab: 'signup' },
-      loadData: pageDataLoadingAPI.AuthenticationPage.loadData,
-    },
+    
     {
       path: '/confirm',
       name: 'ConfirmPage',
