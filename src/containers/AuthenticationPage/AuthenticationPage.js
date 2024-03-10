@@ -649,7 +649,7 @@ export const AuthenticationPageComponent = props => {
   </form>
   :"";
 
-  const socialBtn = showSocialBtn?
+  const socialBtn = true?
   
         <div className={css.personal_details}>
           <h2>Personal Details</h2>
