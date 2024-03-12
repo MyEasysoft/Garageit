@@ -232,19 +232,22 @@ export const listingFields = [
  */
 
 export const listingTypes = [
-  {
-    listingType: 'daily-booking',
-    label: 'Daily booking',
-    transactionType: {
-      process: 'default-booking',
-      alias: 'default-booking/release-1',
-      unitType: 'day',
-    },
-    defaultListingFields: {
-      location: true,
-      payoutDetails: true,
-    },
-  },
+  //Default 
+  // {
+  //   listingType: 'daily-booking',
+  //   label: 'Daily booking',
+  //   transactionType: {
+  //     process: 'default-booking',
+  //     alias: 'default-booking/release-1',
+  //     unitType: 'day',
+  //   },
+  //   defaultListingFields: {
+  //     location: true,
+  //     payoutDetails: true,
+  //   },
+  // },
+  /////////////////////////////////////////////////
+  
   // // Here are some examples for other listingTypes
   // // TODO: SearchPage does not work well if both booking and product selling are used at the same time
   // {
@@ -280,19 +283,19 @@ export const listingTypes = [
   //     payoutDetails: true,
   //   },
   // },
-  // {
-  //   listingType: 'inquiry',
-  //   label: 'Inquiry',
-  //   transactionType: {
-  //     process: 'default-inquiry',
-  //     alias: 'default-inquiry/release-1',
-  //     unitType: 'inquiry',
-  //   },
-  //   defaultListingFields: {
-  //     price: false,
-  //     location: true,
-  //   },
-  // },
+  {
+    listingType: 'inquiry',
+    label: 'Inquiry',
+    transactionType: {
+      process: 'default-inquiry',
+      alias: 'default-inquiry/release-1',
+      unitType: 'inquiry',
+    },
+    defaultListingFields: {
+      price: false,
+      location: true,
+    },
+  },
 ];
 
 // SearchPage can enforce listing query to only those listings with valid listingType

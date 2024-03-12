@@ -304,12 +304,12 @@ export const AuthenticationForms = props => {
               Good News! We Deliver to your location!
             </h2>
             <img className={css.map_img} src={img1} />
-            <p>
+            <p className={css.left_align}>
               Set Your Location, Sit Back, and Await Your Delivery!
             </p>
 
             
-            <div style={{ height: 200 }}>
+            <div className={css.map_con}>
             <SearchMap/>
           </div>
            
