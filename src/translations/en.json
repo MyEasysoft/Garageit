@@ -728,6 +728,7 @@
   "SignupForm.firstNameLabel": "First name",
   "SignupForm.firstNamePlaceholder": "First name",
   "SignupForm.firstNameRequired": "You need to add a first name.",
+  "SignupForm.AdditinalInfo": "Additional info.",
   "SignupForm.lastNameLabel": "Last name",
   "SignupForm.lastNamePlaceholder": "Last name",
   "SignupForm.lastNameRequired": "You need to add a last name.",

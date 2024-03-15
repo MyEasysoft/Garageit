@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { bool, node } from 'prop-types';
 import { compose } from 'redux';
 import { Form as FinalForm } from 'react-final-form';
@@ -45,6 +45,7 @@ const CustomListingComponent = props => (
     const location = useLocation();
     const history = useHistory();
     const path = location.pathname;
+    const fileInput = useRef(null);
 
 
     const url = window.location.pathname.split('/').pop();
@@ -175,13 +176,19 @@ const createSignup = createOrSignup?
   </div>
 </div>:"";
 
+const handleFileClick = ()=>{
+    fileInput.current.click();
+}
+
 //showFormControl
 const formControls_mobile = true?
     <div className={classNames(css.forn_con)}>
 
 
-        <div className={css.fileupload_con}>
+       
+        <div className={css.fileupload_con} onClick={handleFileClick}>
             <div className={css.fileupload}>
+
                 <img src={upload_icon}/>
                 <h5>Choose file to upload</h5>
                 <p>Select zip,image,pdf or ms.word</p>
@@ -189,6 +196,14 @@ const formControls_mobile = true?
             </div>
 
         </div>
+        
+        <input 
+            id='file' 
+            name='file' 
+            type='file' 
+            hidden
+            ref={fileInput}
+        />
 
        
 

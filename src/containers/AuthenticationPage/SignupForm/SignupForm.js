@@ -1134,20 +1134,21 @@ const formControls_mobile = showFormControl?
           />
         </div>
 
-
         <FieldTextInput
-          type="text"
-          id={formId ? `${formId}.AdditionalInfo` : 'AdditionalInfo'}
+          className={css.fieldInquiryMessage}
+          type="textarea"
           name="AdditionalInfo"
-          autoComplete="AdditionalInfo"
+          id={formId ? `${formId}.AdditionalInfo` : 'AdditionalInfo'}
           label='Additional Info'
           placeholder='Additional Info'
           validate={validators.required(
             intl.formatMessage({
-              id: 'SignupForm.firstNameRequired',
+              id: 'SignupForm.AdditinalInfo',
             })
           )}
         />
+
+       
 
         <FieldTextInput
           className={css.password}
