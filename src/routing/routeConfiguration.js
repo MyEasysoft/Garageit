@@ -124,6 +124,14 @@ const routeConfiguration = (layoutConfig) => {
         />
       ),
     },
+
+    {
+      path: '/mobile/listing/new',
+      name: 'EditListingPage',
+      auth: true,
+      component: EditListingPage,
+      loadData: pageDataLoadingAPI.EditListingPage.loadData,
+    },
     {
       path: '/l/:slug/:id/:type/:tab',
       name: 'EditListingPage',

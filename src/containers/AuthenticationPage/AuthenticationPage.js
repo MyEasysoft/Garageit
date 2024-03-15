@@ -147,7 +147,8 @@ export const AuthenticationForms = props => {
   const [showLogiSignupForm, setShowLogiSignupForm] = useState(true); 
   const [showFormControl, setShowFormControl] = useState(true);
   const [createOrSignup, setCreateOrSignup] = useState(false);
-  const [roleHeader, setRoleHeader] = useState("")
+  const [roleHeader, setRoleHeader] = useState("");
+  const [selectedRole, setSelectedRole] = useState("");
   const location = useLocation();
   const path = location.pathname;
   const {
@@ -190,16 +191,19 @@ export const AuthenticationForms = props => {
         handleShowRadioFormOptions(false);
         setShowFormControl(true);
         setRoleHeader("List Item form");
+        setSelectedRole("List Item");
       }else if(path === "/mobile/signup-options-rentItem"){
         setShowLogiSignupForm(true);
         handleShowRadioFormOptions(false);
         setShowFormControl(true);
         setRoleHeader("Rent Item form");
+        setSelectedRole("Rent Item");
       }else if(path === "/mobile/signup-options-storeItem"){
         setShowLogiSignupForm(true);
         handleShowRadioFormOptions(false);
         setShowFormControl(true);
         setRoleHeader("Store Item form");
+        setSelectedRole("Store Item");
       }
       else{}
 
@@ -236,9 +240,10 @@ export const AuthenticationForms = props => {
     },
   ];
 
+  //Insert the selected role (selectedRole) from state before sending the data to server
   const handleSubmitSignup = values => {
     const { fname, lname, ...rest } = values;
-    const params = { firstName: fname.trim(), lastName: lname.trim(), ...rest };
+    const params = { firstName: fname.trim(), lastName: lname.trim(), role:selectedRole, ...rest };
     submitSignup(params);
   };
 

@@ -40,6 +40,7 @@ const TopbarMobileMenu = props => {
   } = props;
 
   const user = ensureCurrentUser(currentUser);
+  const role = currentUser?.attributes?.profile?.protectedData?.role;
 
   const location = useLocation();
   const path = location.pathname;
@@ -55,6 +56,11 @@ const TopbarMobileMenu = props => {
   const signupOptionLink = (event)=>{
     event.preventDefault();
     history.push("/login")
+  }
+
+  const openListingPage = (event)=>{
+    event.preventDefault();
+    history.push("/mobile/listing/new")
   }
 
 
@@ -74,6 +80,8 @@ const TopbarMobileMenu = props => {
       </button>
     );
 
+    
+
     const signupOrLogin = (
       <span className={css.authenticationLinks}>
         <FormattedMessage id="TopbarMobileMenu.signupOrLogin" values={{ signup, login }} />
@@ -91,6 +99,15 @@ const TopbarMobileMenu = props => {
       </div>
     );
   }
+
+
+  //If user has successfully logged in
+  const listItem = role === "List Item"?(
+    <button className={classNames(css.listItemLink,css.noborder)} onClick={openListingPage}>
+        <img className={css.icons} src={logout_icon} />
+        List Item
+    </button>
+  ):"";
 
   const notificationCountBadge =
     notificationCount > 0 ? (
@@ -155,6 +172,7 @@ const TopbarMobileMenu = props => {
           <img className={css.icons} src={reward_icon} />
           Rewards
         </NamedLink>
+        {listItem}
         <div className={css.spacer} />
       </div>
 

@@ -1,0 +1,175 @@
+
+body{
+    font-weight: normal;
+}
+.custom_form_con{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.header{
+    text-align: center;
+    font-size: 30px;
+}
+
+.custom_form_con input{
+    margin-bottom: 10px;
+    border-style: none;
+    border-bottom-style: solid;
+    background-color: transparent;
+    border-radius: 0px;
+    padding-left: 0px;
+   
+}
+
+.fileupload_con{
+    padding: 20px;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
+    border-color: rgb(199, 199, 199);
+    margin-bottom: 20px;
+}
+
+
+.fileupload{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10px;
+    border-color: rgb(199, 199, 199);
+}
+
+
+.rule_con{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+    color: rgb(102, 102, 102);
+    align-items: center;
+    align-content: center;
+    
+  }
+  
+  .rule_con hr{
+    width: 100px;
+    color: rgba(192, 192, 192, 0.651);
+    background-color:rgba(182, 182, 182, 0.651);
+    opacity: .8;
+  }
+
+  .mR10{
+    margin-right: 10px;
+  }
+  .mT20{
+    margin-top: 50px;
+  }
+
+  .mB20{
+    margin-top: 20px;
+  }
+
+  .field_label{
+    font-weight: 100;
+  }
+
+  .cam_btn{
+    padding: 0px;
+  }
+
+  .calendar{
+    width: 100%;
+    height: auto;
+  }
+
+  .custom-container {
+    width: 100%;
+  }
+  
+  .custom-container .rmdp-input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 26px;
+  }
+
+  .rmdp-wrapper {
+    background-color: #fff;
+    border-radius: 5px;
+    direction: ltr;
+    text-align: center;
+    width:100% ;
+  }
+
+  .rmdp-shadow {
+    box-shadow: 0 0 5px #8798ad;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .custom_container {
+    width: 100%;
+  }
+  
+  .custom-container .rmdp-input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 26px;
+  }
+
+  .calendar_con{
+    width: 100%;
+  }
+
+  .calendar_con div{
+    width: 100%;
+    box-shadow: 1xp 1xp 1xp 1xp rgb(138, 15, 15);
+  }
+
+  .submit_btn_white{
+    background-color: #fff;
+    border-style: solid;
+    border-color: #183980;
+    color: #183980;
+    border-width: thin;
+  }
+
+  .forn_con p{
+    line-height: 15px;
+    margin-bottom: 0px;
+    margin-top: 30px;
+  }
+
+.custom_form_con{
+    display: none;
+}
+
+  
+@media only screen and (max-width: 1024px) {
+  
+}
+  
+@media only screen and (max-width: 768px) {
+    .custom_form_con{
+        display: flex;
+    }
+  
+}
+     
+@media only screen and (max-width: 412px) {
+
+
+}
+
+
+@media only screen and (max-width: 360px) {
+
+}

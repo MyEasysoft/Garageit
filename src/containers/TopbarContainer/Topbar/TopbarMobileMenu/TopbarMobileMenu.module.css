@@ -172,6 +172,19 @@
   font-weight: 300;
   margin-top: 20px;
 }
+
+
+.listItemLink {
+text-decoration: none;
+white-space: nowrap;
+color: white;
+font-weight: 300;
+margin-top: 0px;
+margin-left: -5px;
+font-size: 16px;
+
+}
+
 .loginLink {
   text-decoration: none;
   white-space: nowrap;
@@ -241,3 +254,8 @@
   border-style: none;
   text-align: left;
 }
+
+
+
+
+

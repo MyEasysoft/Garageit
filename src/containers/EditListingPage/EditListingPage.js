@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { bool, func, object, shape, string, oneOf } from 'prop-types';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -42,6 +42,8 @@ import {
 } from './EditListingPage.duck';
 import EditListingWizard from './EditListingWizard/EditListingWizard';
 import css from './EditListingPage.module.css';
+import CustomListingPageForm from '../../components/CustomListingForm/CustomListingForm';
+import CustomListingForm from '../../components/CustomListingForm/CustomListingForm';
 
 const STRIPE_ONBOARDING_RETURN_URL_SUCCESS = 'success';
 const STRIPE_ONBOARDING_RETURN_URL_FAILURE = 'failure';
@@ -128,8 +130,37 @@ export const EditListingPageComponent = props => {
 
   const hasStripeOnboardingDataIfNeeded = returnURLType ? !!(currentUser && currentUser.id) : true;
   const showForm = hasStripeOnboardingDataIfNeeded && (isNewURI || currentListing.id);
+  const [showCustomListing, setShowCustomListing] = useState(false);
+
+  console.log("working     ------------------------------------");
+
+  const path = location.pathname;
+  const url = window.location.pathname.split('/').pop();
+  useEffect(
+    ()=>{
+
+      if(path==="/mobile/listing/new"){
+        setShowCustomListing(true)
+      }
+
+    },[url]
+  );
+
+
+
+  const submitSignup = ()=>{}    
+
+  //Insert the selected role (selectedRole) from state before sending the data to server
+  const handleSubmitMobileListing = values => {
+    const { fname, lname, ...rest } = values;
+    const params = { firstName: fname.trim(), lastName: lname.trim(), role:selectedRole, ...rest };
+    submitSignup(params);
+  };
+
+
 
   if (shouldRedirect) {
+    console.log("working  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-");
     const isPendingApproval =
       currentListing && currentListingState === LISTING_STATE_PENDING_APPROVAL;
 
@@ -156,6 +187,7 @@ export const EditListingPageComponent = props => {
 
     return <NamedRedirect {...redirectProps} />;
   } else if (showForm) {
+    console.log("working   oooooooooooooooooooooooooooooooooooo");
     const {
       createListingDraftError = null,
       publishListingError = null,
@@ -180,6 +212,9 @@ export const EditListingPageComponent = props => {
       addExceptionError,
       deleteExceptionError,
     };
+
+
+    console.log("working  =============================");
     // TODO: is this dead code? (shouldRedirect is checked before)
     const newListingPublished =
       isDraftURI && currentListing && currentListingState !== LISTING_STATE_DRAFT;
@@ -197,7 +232,15 @@ export const EditListingPageComponent = props => {
       ? intl.formatMessage({ id: 'EditListingPage.titleCreateListing' })
       : intl.formatMessage({ id: 'EditListingPage.titleEditListing' });
 
+
+
+
     return (
+
+
+      <>
+      <h3>Goods</h3>
+      
       <Page title={title} scrollingDisabled={scrollingDisabled}>
         <TopbarContainer
           mobileRootClassName={css.mobileTopbar}
@@ -246,8 +289,38 @@ export const EditListingPageComponent = props => {
           stripeAccountLinkError={getAccountLinkError}
         />
       </Page>
+      
+      </>
+
+
+      
     );
-  } else {
+  } else if(showCustomListing){
+    const loadingPageMsg = {
+      id: 'EditListingPage.loadingListingData',
+    };
+    return (
+      <Page title={intl.formatMessage(loadingPageMsg)} scrollingDisabled={scrollingDisabled}>
+        <TopbarContainer
+          mobileRootClassName={css.mobileTopbar}
+          desktopClassName={css.desktopTopbar}
+          mobileClassName={css.mobileTopbar}
+        />
+
+
+     
+            <CustomListingForm
+              onSubmit={handleSubmitMobileListing}
+              inProgress={false}
+            />
+      
+        
+      </Page>
+    );
+
+  }
+  
+  else {
     // If user has come to this page through a direct linkto edit existing listing,
     // we need to load it first.
     const loadingPageMsg = {

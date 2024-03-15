@@ -732,6 +732,7 @@
   "SignupForm.lastNamePlaceholder": "Last name",
   "SignupForm.lastNameRequired": "You need to add a last name.",
   "SignupForm.passwordLabel": "Password",
+  "SignupForm.typeSomethingHere": "Type something here",
   "SignupForm.passwordPlaceholder": "Enter your password…",
   "SignupForm.passwordRequired": "You need to add a password.",
   "SignupForm.passwordTooLong": "The password can't be longer than {maxLength} characters.",
