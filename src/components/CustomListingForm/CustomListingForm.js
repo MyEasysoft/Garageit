@@ -16,6 +16,8 @@ import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.m
 import upload_icon from '../../assets/icons/upload_icon.png'
 import cam_icon from '../../assets/icons/cam_icon.png'
 import DatePicker2 from './DatePicker2';
+//import { WebcamCapture } from './WebcamCapture';
+import Webcam from "react-webcam";
 
 const CustomListingComponent = props => (
    
@@ -42,6 +44,11 @@ const CustomListingComponent = props => (
     const [showLocationBtn,setShowLocationBtn] = useState(true);
     const [showRadioFormOptions, setShowRadioFormOptions] = useState(false);
     const [showFormControl, setShowFormControl] = useState(true);
+    const [showCamera, setShowCamera] = useState(false);
+    const [imageSrc,setImageSrc] = useState("");
+    const [showOpenCamBtn,setShowOpenCamBtn] = useState(true);
+    const [selectedFile,setSelectedFile] = useState("");
+    const [selectedImage,setSelectedImage] = useState({});
     const location = useLocation();
     const history = useHistory();
     const path = location.pathname;
@@ -181,9 +188,64 @@ const handleFileClick = ()=>{
 }
 
 const handleChange = (event)=>{
-    const selectedFile = event.target.files[0];
-    console.log(selectedFile);
+  if(event.target.files && event.target.files[0]){
+  
+    let reader = new FileReader();
+    reader.onload = (e) =>{
+      
+      setImageSrc(e.target.result);
+    }
+    reader.readAsDataURL(event.target.files[0]);
+    
+  }
+    
 }
+
+const handleOpenCam = ()=>{
+  setShowCamera(!showCamera);
+  setShowOpenCamBtn(!showOpenCamBtn);
+}
+
+const getScreenshot = ()=>{
+  return {width: 1920, height: 1080};
+}
+const videoConstraints = {
+  width: 1280,
+  height: 720,
+  facingMode: "user"
+};
+
+const WebcamCapture = () => {
+  const webcamRef = React.useRef(null);
+  const capture = React.useCallback(
+    () => {
+      const imageSrc = webcamRef.current.getScreenshot();
+      setImageSrc(imageSrc);
+     
+      console.log(imageSrc);
+    },
+    [webcamRef]
+  );
+  return (
+    <>
+      <Webcam
+        audio={false}
+        height={250}
+        ref={webcamRef}
+        screenshotFormat="image/jpeg"
+        width={1280}
+        videoConstraints={videoConstraints}
+      />
+      
+      <PrimaryButton  className={css.cam_btn} type="button" onClick={capture}>
+            <img className={css.mR10} src={cam_icon}/>
+            Take Photo
+        </PrimaryButton>
+    </>
+  );
+};
+
+const webCamera = showCamera?<WebcamCapture/>:"";
 
 //showFormControl
 const formControls_mobile = true?
@@ -194,9 +256,13 @@ const formControls_mobile = true?
         <div className={css.fileupload_con} onClick={handleFileClick}>
             <div className={css.fileupload}>
 
-                <img src={upload_icon}/>
-                <h5>Choose file to upload</h5>
-                <p>Select zip,image,pdf or ms.word</p>
+                {imageSrc===""?
+                  <><img src={upload_icon}/>
+                  <h5>Choose file to upload</h5>
+                  <p>Select zip,image,pdf or ms.word</p></>:<img className={css.fit_img} src={imageSrc}/>
+                }
+                
+                
 
             </div>
 
@@ -211,13 +277,16 @@ const formControls_mobile = true?
             onChange={handleChange}
         />
 
+        {webCamera}
+
+        {showOpenCamBtn?
+         <PrimaryButton  className={css.cam_btn} type="button" onClick={handleOpenCam}>
+          <img className={css.mR10} src={cam_icon}/>
+          Open Camera & Take Photo
+        </PrimaryButton>:""
+        }
        
-
-        <PrimaryButton  className={css.cam_btn} type="button" inProgress={submitInProgress} disabled={submitDisabled}>
-            <img className={css.mR10} src={cam_icon}/>
-            Open Camera & Take Photo
-        </PrimaryButton>
-
+        
        <h4 className={css.mT20}>Item details</h4>
        
        <p>
