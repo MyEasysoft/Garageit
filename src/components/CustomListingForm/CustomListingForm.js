@@ -180,6 +180,11 @@ const handleFileClick = ()=>{
     fileInput.current.click();
 }
 
+const handleChange = (event)=>{
+    const selectedFile = event.target.files[0];
+    console.log(selectedFile);
+}
+
 //showFormControl
 const formControls_mobile = true?
     <div className={classNames(css.forn_con)}>
@@ -203,6 +208,7 @@ const formControls_mobile = true?
             type='file' 
             hidden
             ref={fileInput}
+            onChange={handleChange}
         />
 
        

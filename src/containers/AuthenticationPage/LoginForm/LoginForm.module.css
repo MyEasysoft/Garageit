@@ -30,3 +30,17 @@
 .recoveryLinkInfo {
   composes: marketplaceModalHelperText from global;
 }
+
+.my3{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.text_right{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items:flex-end;
+
+}

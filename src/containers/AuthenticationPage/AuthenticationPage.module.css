@@ -568,6 +568,7 @@
   padding: 5%;
   z-index: 1000;
   top: 0px;
+  overflow-y: scroll;
 }
 
 .map_con{

@@ -85,8 +85,8 @@ const LoginFormComponent = props => (
               validate={passwordRequired}
             />
           </div>
-          <div className={css.bottomWrapper}>
-            <p className={css.bottomWrapperText}>
+          <div className={classNames(css.bottomWrapperm,css.text_right)}>
+            <p className={classNames(css.bottomWrapperText,css.my3)}>
               <span className={css.recoveryLinkInfo}>
                 <FormattedMessage
                   id="LoginForm.forgotPasswordInfo"
