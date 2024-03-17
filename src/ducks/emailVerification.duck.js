@@ -36,7 +36,6 @@ export default function reducer(state = initialState, action = {}) {
 }
 
 // ================ Selectors ================ //
-
 export const verificationInProgress = state => {
   return state.emailVerification.verificationInProgress;
 };

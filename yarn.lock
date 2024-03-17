@@ -10956,6 +10956,11 @@ react-refresh@^0.11.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.11.0.tgz#77198b944733f0f1f1a90e791de4541f9f074046"
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
+react-responsive-datepicker@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-responsive-datepicker/-/react-responsive-datepicker-1.0.7.tgz#0dd8c630437dc5d2015077b4f75075e6bf0996ad"
+  integrity sha512-7L5JVe//RTVLvQfA5o4JT0mX7NsV+1/+/pbIdTHlJa/q36iuQ1jMehE3ciyIBfuFVizt1W3UDlftT2D8KC+ILg==
+
 react-router-dom@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.3.2.tgz#93a82c95732963d137c02b3aee0505956baeb69e"

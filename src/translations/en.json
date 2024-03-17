@@ -1092,5 +1092,9 @@
   "UserDisplayName.deleted": "Deleted user",
   "UserNav.accountSettings": "Account settings",
   "UserNav.profileSettings": "Profile settings",
-  "UserNav.yourListings": "Your listings"
+  "UserNav.yourListings": "Your listings",
+  "CustomListingForm.title":"Title",
+  "CustomListingForm.description":"Listing description",
+  "CustomListingForm.fullDetails":"Full Details",
+  "CustomListingForm.price":"Price"
 }

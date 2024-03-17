@@ -290,68 +290,91 @@ const formControls_mobile = true?
        <h4 className={css.mT20}>Item details</h4>
        
        <p>
-        Lorem Ipsum lorem ipsum?
-        What would like to call your item?
+        What is the title of your listing?
        </p>
         
         <FieldTextInput
          
           type="text"
-          id={formId ? `${formId}.fname` : 'fname'}
-          name="fname"
+          id={formId ? `${formId}.title` : 'title'}
+          name="title"
           autoComplete="given-name"
           label={intl.formatMessage({
-            id: 'SignupForm.firstNameLabel',
+            id: 'CustomListingForm.title',
           })}
-          placeholder="Firstname"
+          placeholder="Title"
           validate={validators.required(
             intl.formatMessage({
-              id: 'SignupForm.typeSomethingHere',
+              id: 'CustomListingForm.title',
             })
           )}
         />
 
 
         <p>
-            Is there any description of your item?
+            Listing description?
         </p>
         
         <FieldTextInput
           
           type="text"
-          id={formId ? `${formId}.lname` : 'lname'}
-          name="lname"
-          autoComplete="family-name"
+          id={formId ? `${formId}.description` : 'description'}
+          name="description"
+          autoComplete="description"
           label={intl.formatMessage({
-            id: 'SignupForm.lastNameLabel',
+            id: 'CustomListingForm.description',
           })}
-          placeholder="Last name"
+          placeholder="Listing description"
           validate={validators.required(
             intl.formatMessage({
-              id: 'SignupForm.typeSomethingHere',
+              id: 'CustomListingForm.typeSomethingHere',
             })
           )}
         />
       
       <p>
-        Lorem Ipsum lorem ipsum?
+       Listing details
       </p>
       
       
       <FieldTextInput
-       
-        type="password"
-        id={formId ? `${formId}.password` : 'password'}
-        name="password"
-        autoComplete="new-password"
-        label={intl.formatMessage({
-          id: 'SignupForm.passwordLabel',
-        })}
-        placeholder={intl.formatMessage({
-          id: 'SignupForm.typeSomethingHere',
-        })}
-        validate={passwordValidators}
-      />
+          
+          type="text"
+          id={formId ? `${formId}.details` : 'details'}
+          name="details"
+          autoComplete="family-name"
+          label={intl.formatMessage({
+            id: 'CustomListingForm.fullDetails',
+          })}
+          placeholder="Full details"
+          validate={validators.required(
+            intl.formatMessage({
+              id: 'CustomListingForm.typeSomethingHere',
+            })
+          )}
+        />
+
+      <p>
+       Listing price
+      </p>
+      
+      
+      <FieldTextInput
+          
+          type="text"
+          id={formId ? `${formId}.price` : 'price'}
+          name="price"
+          autoComplete="price"
+          label={intl.formatMessage({
+            id: 'CustomListingForm.price',
+          })}
+          placeholder="Price"
+          validate={validators.required(
+            intl.formatMessage({
+              id: 'CustomListingForm.typeSomethingHere',
+            })
+          )}
+        />
 
     </div>
     :"";
@@ -379,6 +402,7 @@ const formControls_mobile = true?
                             containerClassName={css.custom_container}
                             calendarPosition="bottom-center"
                         />
+                        
                     </div>
                     
                    

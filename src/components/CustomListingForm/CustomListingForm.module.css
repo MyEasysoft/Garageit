@@ -133,11 +133,11 @@ body{
     width: 100%;
   }
 
-  .calendar_con div{
+  .calendar_con div {
     width: 100%;
     box-shadow: 1xp 1xp 1xp 1xp rgb(138, 15, 15);
   }
-
+  
   .submit_btn_white{
     background-color: #fff;
     border-style: solid;
@@ -160,6 +160,10 @@ body{
   width: 100%;
 }
 
+.sd{
+  background-color: red;
+}
+
   
 @media only screen and (max-width: 1024px) {
   
@@ -177,6 +181,8 @@ body{
         width: 30px;
         height: 30px;
         margin: 0 auto;
+        width: 20px;
+        margin: 0 auto;
       }
 
       audio, video {
@@ -184,13 +190,33 @@ body{
         width: 100%;
       }
 
+      .sd{
+        background-color: red;
+      }
+      
 
 }
      
 @media only screen and (max-width: 412px) {
 
+  .rmdp-day.rmdp-selected span:not(.highlight) {
+    background-color: #0074d9;
+    box-shadow: 0 0 3px #8798ad;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+  }
+
+  
+.sd{
+  background-color: red;
+}
+
 
 }
+
+
 
 
 @media only screen and (max-width: 360px) {
