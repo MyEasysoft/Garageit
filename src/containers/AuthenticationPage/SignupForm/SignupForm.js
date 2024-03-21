@@ -650,9 +650,7 @@ const formControls_mobile = showFormControl?
           )}
         />
 
-
         <FieldTextInput
-         
           type="password"
           id={formId ? `${formId}.password` : 'password'}
           name="password"
@@ -665,7 +663,6 @@ const formControls_mobile = showFormControl?
           })}
           validate={passwordValidators}
         />
-
       </div>
       :"";
 
@@ -1175,35 +1172,23 @@ const formControls_mobile = showFormControl?
 
           <H2 className={css.mobile}>{roleHeader}</H2>
           <div>
-
-
             <div>
               <h5>
                 Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam
               </h5>
             </div>
-
-            
             {formControls_mobile}
-
-           
-
             {formControls_desk}
-
             <div className={classNames(css.bottomWrapper,css.buttom_flex)}>
               <PrimaryButton className={css.cancel_btn} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
                   Cancel
               </PrimaryButton>
-
               <PrimaryButton  className={css.submit_btn_desk} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
-                  <FormattedMessage id="SignupForm.signUp" />
+                  <FormattedMessage id="SignupForm.signUp"/>
               </PrimaryButton>
               {submitBtn}
             </div>
-
-
             </div>
-
         </Form>
       );
     }}

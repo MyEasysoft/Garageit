@@ -613,7 +613,7 @@ export function requestCreateListingDraft(data, config) {
 
     let createDraftResponse = null;
     return sdk.ownListings
-      .createDraft(ownListingValues, queryParams)
+      .create(ownListingValues, queryParams)
       .then(response => {
         createDraftResponse = response;
         const listingId = response.data.data.id;
@@ -629,6 +629,78 @@ export function requestCreateListingDraft(data, config) {
         log.error(e, 'create-listing-draft-failed', { listingData: data });
         return dispatch(createListingDraftError(storableError(e)));
       });
+  };
+}
+
+export function requestCreateListingNew(dataMain,selectedFile, config) {
+  return (dispatch, getState, sdk) => {
+    dispatch(createListingDraftRequest(dataMain));
+    //const { stockUpdate, images, ...rest } = data;
+
+    // If images should be saved, create array out of the image UUIDs for the API call
+    // Note: in this template, image upload is not happening at the same time as listing creation.
+    // const imageProperty = typeof images !== 'undefined' ? { images: imageIds(images) } : {};
+    // const ownListingValues = { ...imageProperty, ...rest };
+
+    // const imageVariantInfo = getImageVariantInfo(config.layout.listingImage);
+    // const queryParams = {
+    //   expand: true,
+    //   include: ['author', 'images', 'currentStock'],
+    //   'fields.image': imageVariantInfo.fieldsImage,
+    //   ...imageVariantInfo.imageVariants,
+    // };
+
+    console.log(selectedFile + "33333333333333333333333333333333333333333333333333333333333333");
+
+   
+    sdk.images.upload({
+      image: selectedFile
+    }, {
+      expand: true
+    }).then(res => {
+      // res.data
+
+      const imgId = res.data.data.id.uuid;
+      console.log("Image Id  " + imgId + "   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+
+      const imgs = [new UUID(imgId)];
+   
+      dataMain.images = imgs;
+
+      return sdk.ownListings
+      .create(dataMain)
+      .then(response => {
+        //createDraftResponse = response;
+        const listingId = response.data.data.id;
+
+        console.log(listingId + "aaaaaaaaaaaaaaaaaaaaaaaaa");
+        // If stockUpdate info is passed through, update stock
+        //return updateStockOfListingMaybe(listingId, stockUpdate, dispatch);
+      })
+      .then(() => {
+        // Modify store to understand that we have created listing and can redirect away
+        //dispatch(createListingDraftSuccess(createDraftResponse));
+        //return createDraftResponse;
+      })
+      .catch(e => {
+        log.error(e, 'create-listing-draft-failed', { listingData: data });
+        return dispatch(createListingDraftError(storableError(e)));
+      });
+
+
+
+
+
+
+
+
+
+
+    });
+
+
+
+   
   };
 }
 
@@ -699,6 +771,7 @@ export const requestPublishListingDraft = listingId => (dispatch, getState, sdk)
       dispatch(publishListingError(storableError(e)));
     });
 };
+
 
 // Images return imageId which we need to map with previously generated temporary id
 export function requestImageUpload(actionPayload, listingImageConfig) {

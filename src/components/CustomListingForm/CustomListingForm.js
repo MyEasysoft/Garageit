@@ -18,6 +18,7 @@ import cam_icon from '../../assets/icons/cam_icon.png'
 import DatePicker2 from './DatePicker2';
 //import { WebcamCapture } from './WebcamCapture';
 import Webcam from "react-webcam";
+import EditListingPhotosForm from '../../containers/EditListingPage/EditListingWizard/EditListingPhotosPanel/EditListingPhotosForm';
 
 const CustomListingComponent = props => (
    
@@ -38,6 +39,8 @@ const CustomListingComponent = props => (
       showSubmitBtn,
       createOrSignup,
       roleHeader,
+      onImageUpload,
+      onSetSelectedFile,
     } = fieldRenderProps;
 
     const [show,setShow] = useState(true);
@@ -58,20 +61,14 @@ const CustomListingComponent = props => (
     const url = window.location.pathname.split('/').pop();
     useEffect(
       ()=>{
-  
         if(path==="/mobile/signup-options-listItem"){
-         
           setShowFormControl(true)
         }else if(path === "/mobile/signup-options-rentItem"){
-         
           setShowFormControl(true)
         }else if(path === "/mobile/signup-options-storeItem"){
-         
           setShowFormControl(true)
         }
         else{}
-  
-  
       },[url]
     );
     
@@ -90,6 +87,7 @@ const CustomListingComponent = props => (
         id: 'SignupForm.emailRequired',
       })
     );
+
     const emailValid = validators.emailFormatValid(
       intl.formatMessage({
         id: 'SignupForm.emailInvalid',
@@ -189,16 +187,13 @@ const handleFileClick = ()=>{
 
 const handleChange = (event)=>{
   if(event.target.files && event.target.files[0]){
-  
     let reader = new FileReader();
     reader.onload = (e) =>{
-      
       setImageSrc(e.target.result);
     }
+    onSetSelectedFile(event.target.files[0]);
     reader.readAsDataURL(event.target.files[0]);
-    
   }
-    
 }
 
 const handleOpenCam = ()=>{
@@ -212,17 +207,31 @@ const getScreenshot = ()=>{
 const videoConstraints = {
   width: 1280,
   height: 720,
-  facingMode: "user"
+  facingMode: "environment"
 };
+
+
 
 const WebcamCapture = () => {
   const webcamRef = React.useRef(null);
   const capture = React.useCallback(
-    () => {
+    async () => {
       const imageSrc = webcamRef.current.getScreenshot();
+      const blob = await  fetch(imageSrc).then((res) =>
+      {
+        const blob = res.blob();
+        onSetSelectedFile(blob);
+        console.log(blob);
+        return blob;
+      }
+      );
+      
+
+      onSetSelectedFile(blob);
+      console.log(blob + "+++++++++++++++++++++++++++++++++++++++++++++++++++");
       setImageSrc(imageSrc);
-     
-      console.log(imageSrc);
+      
+      
     },
     [webcamRef]
   );
@@ -250,22 +259,14 @@ const webCamera = showCamera?<WebcamCapture/>:"";
 //showFormControl
 const formControls_mobile = true?
     <div className={classNames(css.forn_con)}>
-
-
-       
         <div className={css.fileupload_con} onClick={handleFileClick}>
             <div className={css.fileupload}>
-
                 {imageSrc===""?
                   <><img src={upload_icon}/>
                   <h5>Choose file to upload</h5>
                   <p>Select zip,image,pdf or ms.word</p></>:<img className={css.fit_img} src={imageSrc}/>
                 }
-                
-                
-
             </div>
-
         </div>
         
         <input 
@@ -276,6 +277,8 @@ const formControls_mobile = true?
             ref={fileInput}
             onChange={handleChange}
         />
+
+     
 
         {webCamera}
 
@@ -288,13 +291,11 @@ const formControls_mobile = true?
        
         
        <h4 className={css.mT20}>Item details</h4>
-       
        <p>
         What is the title of your listing?
        </p>
         
         <FieldTextInput
-         
           type="text"
           id={formId ? `${formId}.title` : 'title'}
           name="title"
@@ -309,14 +310,11 @@ const formControls_mobile = true?
             })
           )}
         />
-
-
         <p>
             Listing description?
         </p>
         
         <FieldTextInput
-          
           type="text"
           id={formId ? `${formId}.description` : 'description'}
           name="description"
@@ -336,9 +334,7 @@ const formControls_mobile = true?
        Listing details
       </p>
       
-      
       <FieldTextInput
-          
           type="text"
           id={formId ? `${formId}.details` : 'details'}
           name="details"
@@ -358,9 +354,7 @@ const formControls_mobile = true?
        Listing price
       </p>
       
-      
       <FieldTextInput
-          
           type="text"
           id={formId ? `${formId}.price` : 'price'}
           name="price"
@@ -413,20 +407,12 @@ const formControls_mobile = true?
                     <PrimaryButton  className={css.submit_btn_white} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
                         Save as draft
                     </PrimaryButton>
-                        
-                    
           </div>
-
       </Form>
     );
   }}
 />
 )
-
-
-
-
-
 
 const CustomListingForm = compose(injectIntl)(CustomListingComponent);
 CustomListingForm.displayName = 'CustomListingComponent';

@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 // Import configs and util modules
 import { intlShape, injectIntl } from '../../util/reactIntl';
 import { types as sdkTypes } from '../../util/sdkLoader';
+const { Money } = sdkTypes;
 import {
   LISTING_PAGE_PARAM_TYPE_DRAFT,
   LISTING_PAGE_PARAM_TYPE_NEW,
@@ -39,6 +40,7 @@ import {
   requestImageUpload,
   removeListingImage,
   savePayoutDetails,
+  requestCreateListingNew,
 } from './EditListingPage.duck';
 import EditListingWizard from './EditListingWizard/EditListingWizard';
 import css from './EditListingPage.module.css';
@@ -53,6 +55,8 @@ const STRIPE_ONBOARDING_RETURN_URL_TYPES = [
 ];
 
 const { UUID } = sdkTypes;
+
+
 
 // Pick images that are currently attached to listing entity and images that are going to be attached.
 // Avoid duplicates and images that should be removed.
@@ -100,6 +104,7 @@ export const EditListingPageComponent = props => {
     onDeleteAvailabilityException,
     onCreateListingDraft,
     onPublishListingDraft,
+    onCreateListingNew,
     onUpdateListing,
     onImageUpload,
     onRemoveListingImage,
@@ -131,6 +136,7 @@ export const EditListingPageComponent = props => {
   const hasStripeOnboardingDataIfNeeded = returnURLType ? !!(currentUser && currentUser.id) : true;
   const showForm = hasStripeOnboardingDataIfNeeded && (isNewURI || currentListing.id);
   const [showCustomListing, setShowCustomListing] = useState(false);
+  const [selectedFile, setSelectedFile] = useState([]);
 
   console.log("working     ------------------------------------");
 
@@ -146,18 +152,89 @@ export const EditListingPageComponent = props => {
     },[url]
   );
 
+  const onSetSelectedFile = (data)=>{
+    setSelectedFile(data);
+  }
 
+  const submitSignup = ()=>{}
 
-  const submitSignup = ()=>{}    
-
+  
   //Insert the selected role (selectedRole) from state before sending the data to server
   const handleSubmitMobileListing = values => {
-    const { fname, lname, ...rest } = values;
-    const params = { firstName: fname.trim(), lastName: lname.trim(), role:selectedRole, ...rest };
-    submitSignup(params);
+
+  const listingData = { title: "Peugeot eT101 22",
+    description: "7-speed Hybrid",
+    availabilityPlan: {
+      type: "availability-plan/day",
+      entries: [
+        {
+          dayOfWeek: "mon",
+          seats: 3
+        },
+        {
+          dayOfWeek: "fri",
+          seats: 1
+        }
+      ]
+    },
+    privateData: {
+      externalServiceId: "abcd-service-id-1234"
+    },
+    publicData: {
+      address: {
+        city: "New York",
+        country: "USA",
+        state: "NY",
+        street: "230 Hamilton Ave"
+      },
+      category: "road",
+      gears: 22,
+      rules: "This is a nice, bike! Please, be careful with it."
+    },
+    price: new Money(1590, "USD"),
+    
   };
 
+  const { title, description, details, price } = values;
+  const listingDat = { title: title.trim(),
+    description: description.trim(),
+    availabilityPlan: {
+      type: "availability-plan/day",
+      entries: [
+        {
+          dayOfWeek: "mon",
+          seats: 3
+        },
+        {
+          dayOfWeek: "fri",
+          seats: 1
+        }
+      ]
+    },
+    privateData: {
+      externalServiceId: "abcd-service-id-1234"
+      
+    },
+    publicData: {
+      address: {
+        city: "New York",
+        country: "USA",
+        state: "NY",
+        street: "230 Hamilton Ave"
+      },
+      category: "road",
+      gears: 22,
+      rules: "This is a nice, bike! Please, be careful with it.",
+      details:details.trim()
+    },
+    price: new Money(parseInt(price), "USD"),
+  };
 
+    console.log(listingDat);
+    onCreateListingNew(listingDat,selectedFile);
+    console.log("submited           -----------------------------");
+
+  };
 
   if (shouldRedirect) {
     console.log("working  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-");
@@ -307,14 +384,13 @@ export const EditListingPageComponent = props => {
           mobileClassName={css.mobileTopbar}
         />
 
-
-     
             <CustomListingForm
               onSubmit={handleSubmitMobileListing}
               inProgress={false}
+              onImageUpload={onImageUpload}
+              onSetSelectedFile={onSetSelectedFile}
             />
       
-        
       </Page>
     );
 
@@ -440,6 +516,7 @@ const mapDispatchToProps = dispatch => ({
   onUpdateListing: (tab, values, config) => dispatch(requestUpdateListing(tab, values, config)),
   onCreateListingDraft: (values, config) => dispatch(requestCreateListingDraft(values, config)),
   onPublishListingDraft: listingId => dispatch(requestPublishListingDraft(listingId)),
+  onCreateListingNew: (data,selectedFile) => dispatch(requestCreateListingNew(data,selectedFile)),
   onImageUpload: (data, listingImageConfig) =>
     dispatch(requestImageUpload(data, listingImageConfig)),
   onManageDisableScrolling: (componentId, disableScrolling) =>

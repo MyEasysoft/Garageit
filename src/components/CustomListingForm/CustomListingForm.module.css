@@ -202,7 +202,7 @@ p{
 }
      
 @media only screen and (max-width: 412px) {
-
+  
   .rmdp-day.rmdp-selected span:not(.highlight) {
     background-color: #0074d9;
     box-shadow: 0 0 3px #8798ad;
