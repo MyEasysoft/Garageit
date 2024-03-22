@@ -32,6 +32,7 @@ const CustomListingComponent = props => (
       formId,
       handleSubmit,
       inProgress,
+      success,
       invalid,
       intl,
       termsAndConditions,
@@ -57,10 +58,18 @@ const CustomListingComponent = props => (
     const path = location.pathname;
     const fileInput = useRef(null);
 
-
     const url = window.location.pathname.split('/').pop();
     useEffect(
       ()=>{
+
+       
+    console.log(success + "      qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+
+    if(success){
+      history.push("/listings");
+    }
+
+
         if(path==="/mobile/signup-options-listItem"){
           setShowFormControl(true)
         }else if(path === "/mobile/signup-options-rentItem"){
@@ -69,9 +78,14 @@ const CustomListingComponent = props => (
           setShowFormControl(true)
         }
         else{}
-      },[url]
+
+       
+
+      },[url,success]
     );
     
+
+
 
     const HandleChange = (event)=>{
         if(event.target.value==="Influencer"){
@@ -153,12 +167,12 @@ const CustomListingComponent = props => (
   
     const handleShowSignin =(event)=>{
       event.preventDefault();
-      history.push("/login")
+      history.push("/login");
     }
 
     const submitBtn = showSubmitBtn? <PrimaryButton  className={css.submit_btn} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
-                                      <FormattedMessage id="SignupForm.signUp" />
-                                  </PrimaryButton>:<button onClick={handleSetLocation} type="button" className={css.next_btn} >Next</button>;
+                        <FormattedMessage id="SignupForm.signUp" />
+                    </PrimaryButton>:<button onClick={handleSetLocation} type="button" className={css.next_btn} >Next</button>;
 
 console.log(createOrSignup +"      =========================");
 const createSignup = createOrSignup?
@@ -278,8 +292,6 @@ const formControls_mobile = true?
             onChange={handleChange}
         />
 
-     
-
         {webCamera}
 
         {showOpenCamBtn?
@@ -373,9 +385,6 @@ const formControls_mobile = true?
     </div>
     :"";
 
-
-
-   
     return (
       <Form className={classes} onSubmit={handleSubmit}>
 
@@ -388,7 +397,6 @@ const formControls_mobile = true?
                     </div>
 
                     {formControls_mobile}
-
                     <p>Select dates for renting your item.</p>
 
                     <div className={css.calendar_con}>
@@ -396,15 +404,13 @@ const formControls_mobile = true?
                             containerClassName={css.custom_container}
                             calendarPosition="bottom-center"
                         />
-                        
                     </div>
-                    
-                   
-                    <PrimaryButton className={classNames(css.cancel_btn,css.mB20)} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
+
+                    <PrimaryButton className={classNames(css.cancel_btn,css.mB20)} type="submit" inProgress={inProgress} disabled={submitDisabled}>
                         List now
                     </PrimaryButton>
 
-                    <PrimaryButton  className={css.submit_btn_white} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
+                    <PrimaryButton  className={css.submit_btn_white} type="submit" inProgress={false} disabled={submitDisabled}>
                         Save as draft
                     </PrimaryButton>
           </div>

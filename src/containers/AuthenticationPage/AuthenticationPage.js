@@ -572,7 +572,7 @@ export const AuthenticationPageComponent = props => {
 
   // Already authenticated, redirect away from auth page
   if (isAuthenticated && from) {
-    return <Redirect to={from} />;
+    return <Redirect to={"/mobile/listing/new"} />;
   } else if (isAuthenticated && currentUserLoaded && !showEmailVerification) {
     return <NamedRedirect name="LandingPage" />;
   }
@@ -612,8 +612,6 @@ export const AuthenticationPageComponent = props => {
     }else{
       history.push("/mobile/signup-options-storeItem");
     }
-    
-
   }
   
   const handleShowSignupOptions = ()=>{
@@ -640,7 +638,6 @@ export const AuthenticationPageComponent = props => {
               Select all options that apply
             </p>
           </div>
-
 
           <div  onChange={HandleChange} className={css.radioContainer}>
 
@@ -678,7 +675,28 @@ export const AuthenticationPageComponent = props => {
             <hr className={css.rule}/>OR <hr className={css.rule}/>
           </div>
         </div>:"";
-  
+
+
+  console.log("Email verification   --------------------");
+
+  let role = "";
+  if(path==="/mobile/signup-options-listItem"){
+   role = "listItem";
+  }else if(path === "/mobile/signup-options-rentItem"){
+    role = "rentItem";
+  }else if(path === "/mobile/signup-options-storeItem"){
+    role = "storeItem";
+  }
+  else{}
+
+
+  //If the role is ListItem
+  //Redirect to CustomListingPage
+  if(showEmailVerification && role === "listItem"){
+    const history = useHistory();
+    history.push("/mobile/listing/new");
+  }
+
 
   return (
     <Page
@@ -713,6 +731,7 @@ export const AuthenticationPageComponent = props => {
 
         {socialBtn}
           {showEmailVerification ? (
+
             <EmailVerificationInfo
               name={user.attributes.profile.firstName}
               email={<span className={css.email}>{user.attributes.email}</span>}
@@ -720,6 +739,7 @@ export const AuthenticationPageComponent = props => {
               resendErrorMessage={resendErrorMessage}
               sendVerificationEmailInProgress={sendVerificationEmailInProgress}
             />
+
           ) : (
             <AuthenticationOrConfirmInfoForm
               tab={tab}

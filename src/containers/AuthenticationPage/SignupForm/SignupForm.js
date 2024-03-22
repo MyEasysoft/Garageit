@@ -60,14 +60,9 @@ const SignupFormComponent = props => (
             setShowFormControl(true)
           }
           else{}
-    
-    
         },[url]
       );
       
-
-
-
       const HandleChange = (event)=>{
           if(event.target.value==="Influencer"){
               setShow(true);
@@ -82,6 +77,7 @@ const SignupFormComponent = props => (
           id: 'SignupForm.emailRequired',
         })
       );
+      
       const emailValid = validators.emailFormatValid(
         intl.formatMessage({
           id: 'SignupForm.emailInvalid',
@@ -151,8 +147,8 @@ const SignupFormComponent = props => (
       }
 
       const submitBtn = showSubmitBtn? <PrimaryButton  className={css.submit_btn} type="submit" inProgress={submitInProgress} disabled={submitDisabled}>
-                                        <FormattedMessage id="SignupForm.signUp" />
-                                    </PrimaryButton>:<button onClick={handleSetLocation} type="button" className={css.next_btn} >Next</button>;
+                                            <FormattedMessage id="SignupForm.signUp" />
+                                        </PrimaryButton>:<button onClick={handleSetLocation} type="button" className={css.next_btn} >Next</button>;
 
 console.log(createOrSignup +"      =========================");
 const createSignup = createOrSignup?

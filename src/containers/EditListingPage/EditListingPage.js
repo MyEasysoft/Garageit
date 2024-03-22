@@ -46,6 +46,8 @@ import EditListingWizard from './EditListingWizard/EditListingWizard';
 import css from './EditListingPage.module.css';
 import CustomListingPageForm from '../../components/CustomListingForm/CustomListingForm';
 import CustomListingForm from '../../components/CustomListingForm/CustomListingForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 const STRIPE_ONBOARDING_RETURN_URL_SUCCESS = 'success';
 const STRIPE_ONBOARDING_RETURN_URL_FAILURE = 'failure';
@@ -136,6 +138,8 @@ export const EditListingPageComponent = props => {
   const hasStripeOnboardingDataIfNeeded = returnURLType ? !!(currentUser && currentUser.id) : true;
   const showForm = hasStripeOnboardingDataIfNeeded && (isNewURI || currentListing.id);
   const [showCustomListing, setShowCustomListing] = useState(false);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(true);
+  const [showListingAlert, setShowListingAlert] = useState(false);
   const [selectedFile, setSelectedFile] = useState([]);
 
   console.log("working     ------------------------------------");
@@ -290,7 +294,6 @@ export const EditListingPageComponent = props => {
       deleteExceptionError,
     };
 
-
     console.log("working  =============================");
     // TODO: is this dead code? (shouldRedirect is checked before)
     const newListingPublished =
@@ -309,21 +312,17 @@ export const EditListingPageComponent = props => {
       ? intl.formatMessage({ id: 'EditListingPage.titleCreateListing' })
       : intl.formatMessage({ id: 'EditListingPage.titleEditListing' });
 
-
-
-
     return (
-
-
       <>
       <h3>Goods</h3>
-      
       <Page title={title} scrollingDisabled={scrollingDisabled}>
+
         <TopbarContainer
           mobileRootClassName={css.mobileTopbar}
           desktopClassName={css.desktopTopbar}
           mobileClassName={css.mobileTopbar}
         />
+
         <EditListingWizard
           id="EditListingWizard"
           className={css.wizard}
@@ -366,32 +365,75 @@ export const EditListingPageComponent = props => {
           stripeAccountLinkError={getAccountLinkError}
         />
       </Page>
-      
       </>
-
-
-      
     );
   } else if(showCustomListing){
     const loadingPageMsg = {
       id: 'EditListingPage.loadingListingData',
     };
-    return (
-      <Page title={intl.formatMessage(loadingPageMsg)} scrollingDisabled={scrollingDisabled}>
-        <TopbarContainer
-          mobileRootClassName={css.mobileTopbar}
-          desktopClassName={css.desktopTopbar}
-          mobileClassName={css.mobileTopbar}
-        />
 
-            <CustomListingForm
-              onSubmit={handleSubmitMobileListing}
-              inProgress={false}
-              onImageUpload={onImageUpload}
-              onSetSelectedFile={onSetSelectedFile}
+  const handleCloseSuccessAlert = ()=>{
+    setShowSuccessAlert(false);
+  }
+
+  const handleCloseListingAlert = ()=>{
+    setShowListingAlert(false);
+  }
+
+    return (
+      <>
+          {showSuccessAlert?
+          <div className={css.successAlertCon}>
+            <div className={css.successAlert}>
+                <div>
+                  <h2>Welcome Aboard!</h2>
+                  <p>
+                    You’re now successfully registered
+                  </p>
+
+                </div>
+                <div>
+                  <FontAwesomeIcon className={css.closeBtn} icon={faClose} onClick={handleCloseSuccessAlert}/>
+                </div>
+            </div>
+          </div>:""
+          }
+          
+          {showListingAlert?
+           <div className={css.successAlertCon}>
+            <div className={css.successAlert}>
+                      <div>
+                        <h2>Congratulations!</h2>
+                        <p>
+                            Your Item has been Published
+                        </p>
+
+                      </div>
+                      <div>
+                        <FontAwesomeIcon className={css.closeBtn} icon={faClose} onClick={handleCloseListingAlert}/>
+                      </div>
+                  </div>
+            </div>:""
+          }
+         
+           <Page title={intl.formatMessage(loadingPageMsg)} scrollingDisabled={scrollingDisabled}>
+            <TopbarContainer
+              mobileRootClassName={css.mobileTopbar}
+              desktopClassName={css.desktopTopbar}
+              mobileClassName={css.mobileTopbar}
             />
-      
-      </Page>
+
+                <CustomListingForm
+                  onSubmit={handleSubmitMobileListing}
+                  inProgress={page.createListingInProgress}
+                  success={page.createListingInSuccess}
+                  onImageUpload={onImageUpload}
+                  onSetSelectedFile={onSetSelectedFile}
+                />
+
+          </Page>
+      </>
+     
     );
 
   }

@@ -128,6 +128,10 @@ export const CREATE_LISTING_DRAFT_REQUEST = 'app/EditListingPage/CREATE_LISTING_
 export const CREATE_LISTING_DRAFT_SUCCESS = 'app/EditListingPage/CREATE_LISTING_DRAFT_SUCCESS';
 export const CREATE_LISTING_DRAFT_ERROR = 'app/EditListingPage/CREATE_LISTING_DRAFT_ERROR';
 
+export const CREATE_LISTING_REQUEST = 'app/EditListingPage/CREATE_LISTING_REQUEST';
+export const CREATE_LISTING_SUCCESS = 'app/EditListingPage/CREATE_LISTING_SUCCESS';
+export const CREATE_LISTING_ERROR = 'app/EditListingPage/CREATE_LISTING_ERROR';
+
 export const PUBLISH_LISTING_REQUEST = 'app/EditListingPage/PUBLISH_LISTING_REQUEST';
 export const PUBLISH_LISTING_SUCCESS = 'app/EditListingPage/PUBLISH_LISTING_SUCCESS';
 export const PUBLISH_LISTING_ERROR = 'app/EditListingPage/PUBLISH_LISTING_ERROR';
@@ -173,6 +177,7 @@ export const SAVE_PAYOUT_DETAILS_ERROR = 'app/EditListingPage/SAVE_PAYOUT_DETAIL
 const initialState = {
   // Error instance placeholders for each endpoint
   createListingDraftError: null,
+  createListingError: null,
   listingId: null,
   publishListingError: null,
   updateListingError: null,
@@ -181,6 +186,8 @@ const initialState = {
   setStockError: null,
   setStockInProgress: false,
   createListingDraftInProgress: false,
+  createListingInProgress:false,
+  createListingInSuccess:false,
   submittedListingId: null,
   redirectToListing: false,
   uploadedImages: {},
@@ -204,6 +211,7 @@ const initialState = {
   deleteExceptionError: null,
   deleteExceptionInProgress: false,
   listingDraft: null,
+  listingNew: null,
   updatedTab: null,
   updateInProgress: false,
   payoutDetailsSaveInProgress: false,
@@ -241,6 +249,33 @@ export default function reducer(state = initialState, action = {}) {
         createListingDraftInProgress: false,
         createListingDraftError: payload,
       };
+
+      case CREATE_LISTING_REQUEST:
+        return {
+          ...state,
+          createListingInProgress: true,
+          createListingInSuccess:false,
+          createListingError: null,
+          submittedListingId: null,
+          listingNew: null,
+        };
+  
+      case CREATE_LISTING_SUCCESS:
+        return {
+          ...state,
+          ...updateUploadedImagesState(state, payload),
+          createListingInProgress: false,
+          createListingInSuccess:true,
+          submittedListingId: payload.data.id,
+          listingNew: payload.data,
+        };
+      case CREATE_LISTING_ERROR:
+        return {
+          ...state,
+          createListingInProgress: false,
+          createListingInSuccess:false,
+          createListingError: payload,
+        };
 
     case PUBLISH_LISTING_REQUEST:
       return {
@@ -484,6 +519,10 @@ export const createListingDraftRequest = requestAction(CREATE_LISTING_DRAFT_REQU
 export const createListingDraftSuccess = successAction(CREATE_LISTING_DRAFT_SUCCESS);
 export const createListingDraftError = errorAction(CREATE_LISTING_DRAFT_ERROR);
 
+export const createListingRequest = requestAction(CREATE_LISTING_REQUEST);
+export const createListingSuccess = successAction(CREATE_LISTING_SUCCESS);
+export const createListingError = errorAction(CREATE_LISTING_ERROR);
+
 // SDK method: ownListings.publish
 export const publishListingRequest = requestAction(PUBLISH_LISTING_REQUEST);
 export const publishListingSuccess = successAction(PUBLISH_LISTING_SUCCESS);
@@ -593,6 +632,8 @@ const updateStockOfListingMaybe = (listingId, stockTotals, dispatch) => {
 // NOTE: we want to keep it possible to include stock management field to the first wizard form.
 // this means that there needs to be a sequence of calls:
 // create, set stock, show listing (to get updated currentStock entity)
+
+
 export function requestCreateListingDraft(data, config) {
   return (dispatch, getState, sdk) => {
     dispatch(createListingDraftRequest(data));
@@ -632,77 +673,43 @@ export function requestCreateListingDraft(data, config) {
   };
 }
 
+
 export function requestCreateListingNew(dataMain,selectedFile, config) {
   return (dispatch, getState, sdk) => {
-    dispatch(createListingDraftRequest(dataMain));
-    //const { stockUpdate, images, ...rest } = data;
-
-    // If images should be saved, create array out of the image UUIDs for the API call
-    // Note: in this template, image upload is not happening at the same time as listing creation.
-    // const imageProperty = typeof images !== 'undefined' ? { images: imageIds(images) } : {};
-    // const ownListingValues = { ...imageProperty, ...rest };
-
-    // const imageVariantInfo = getImageVariantInfo(config.layout.listingImage);
-    // const queryParams = {
-    //   expand: true,
-    //   include: ['author', 'images', 'currentStock'],
-    //   'fields.image': imageVariantInfo.fieldsImage,
-    //   ...imageVariantInfo.imageVariants,
-    // };
-
-    console.log(selectedFile + "33333333333333333333333333333333333333333333333333333333333333");
-
-   
+    dispatch(createListingRequest(dataMain));
+    let createResponse = null;
     sdk.images.upload({
       image: selectedFile
     }, {
       expand: true
     }).then(res => {
       // res.data
-
       const imgId = res.data.data.id.uuid;
       console.log("Image Id  " + imgId + "   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-
       const imgs = [new UUID(imgId)];
-   
       dataMain.images = imgs;
-
       return sdk.ownListings
       .create(dataMain)
       .then(response => {
-        //createDraftResponse = response;
+        createResponse = response;
         const listingId = response.data.data.id;
-
         console.log(listingId + "aaaaaaaaaaaaaaaaaaaaaaaaa");
         // If stockUpdate info is passed through, update stock
         //return updateStockOfListingMaybe(listingId, stockUpdate, dispatch);
       })
       .then(() => {
         // Modify store to understand that we have created listing and can redirect away
-        //dispatch(createListingDraftSuccess(createDraftResponse));
-        //return createDraftResponse;
+        dispatch(createListingSuccess(createResponse));
+        return createResponse;
       })
       .catch(e => {
         log.error(e, 'create-listing-draft-failed', { listingData: data });
-        return dispatch(createListingDraftError(storableError(e)));
+        return dispatch(createListingError(storableError(e)));
       });
-
-
-
-
-
-
-
-
-
-
     });
-
-
-
-   
   };
 }
+
 
 // Update the given tab of the wizard with the given data. This saves
 // the data to the listing, and marks the tab updated so the UI can
@@ -771,7 +778,6 @@ export const requestPublishListingDraft = listingId => (dispatch, getState, sdk)
       dispatch(publishListingError(storableError(e)));
     });
 };
-
 
 // Images return imageId which we need to map with previously generated temporary id
 export function requestImageUpload(actionPayload, listingImageConfig) {

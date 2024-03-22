@@ -35,6 +35,33 @@
   flex-grow: 1;
 }
 
-.custom_listing_form{
-  
+.successAlert{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.successAlertCon{
+  padding: 15px;
+  background-color: #183980;
+  color: white;
+}
+
+.successAlertCon p{
+  color: white;
+  margin: 0px;
+}
+
+
+.successAlertCon h2{
+  color: white;
+  text-align: center;
+  margin: 0px;
+}
+
+.closeBtn{
+  position:absolute;
+  cursor: pointer;
+  margin-left: 40px;
 }
