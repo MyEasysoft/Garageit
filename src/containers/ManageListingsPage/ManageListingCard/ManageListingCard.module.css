@@ -384,3 +384,50 @@
 .closeListingText {
   composes: h5 from global;
 }
+
+.list_header{
+  text-align: left;
+  margin: 10px;
+  margin-bottom: 0px;
+}
+
+.list_p{
+  text-align: left;
+}
+
+p{
+  text-align: left;
+  margin: 10px;
+  margin-top: 0px;
+}
+
+.action_btn_dark{
+  position: relative;
+  padding: 10px;
+  width: 96%;
+  background-color: #183980;
+  color: white;
+  border-radius: 10px;
+  border-style: none;
+  margin-left: 2%;
+  margin-bottom: 10px;
+}
+
+.action_btn_light{
+  position: relative;
+  padding: 10px;
+  width: 96%;
+  background-color: #ffffff;
+  color: white;
+  border-radius: 10px;
+  border-style: none;
+  margin-left: 2%;
+  color:#183980 ;
+  border-style: solid;
+  border-color: #183980;
+
+}
+
+hr{
+  margin: 20px 10px;
+}

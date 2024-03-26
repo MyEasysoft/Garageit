@@ -217,7 +217,6 @@ export const EditListingPageComponent = props => {
     },
     privateData: {
       externalServiceId: "abcd-service-id-1234"
-      
     },
     publicData: {
       address: {
@@ -407,7 +406,6 @@ export const EditListingPageComponent = props => {
                         <p>
                             Your Item has been Published
                         </p>
-
                       </div>
                       <div>
                         <FontAwesomeIcon className={css.closeBtn} icon={faClose} onClick={handleCloseListingAlert}/>

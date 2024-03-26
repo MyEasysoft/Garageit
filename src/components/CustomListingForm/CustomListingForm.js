@@ -21,7 +21,6 @@ import Webcam from "react-webcam";
 import EditListingPhotosForm from '../../containers/EditListingPage/EditListingWizard/EditListingPhotosPanel/EditListingPhotosForm';
 
 const CustomListingComponent = props => (
-   
   <FinalForm
   {...props}
   mutators={{ ...arrayMutators }}
@@ -84,9 +83,6 @@ const CustomListingComponent = props => (
       },[url,success]
     );
     
-
-
-
     const HandleChange = (event)=>{
         if(event.target.value==="Influencer"){
             setShow(true);
@@ -224,8 +220,6 @@ const videoConstraints = {
   facingMode: "environment"
 };
 
-
-
 const WebcamCapture = () => {
   const webcamRef = React.useRef(null);
   const capture = React.useCallback(
@@ -240,11 +234,9 @@ const WebcamCapture = () => {
       }
       );
       
-
       onSetSelectedFile(blob);
       console.log(blob + "+++++++++++++++++++++++++++++++++++++++++++++++++++");
       setImageSrc(imageSrc);
-      
       
     },
     [webcamRef]

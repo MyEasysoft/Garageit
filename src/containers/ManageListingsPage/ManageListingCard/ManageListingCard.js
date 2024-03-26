@@ -38,6 +38,7 @@ import {
   IconSpinner,
   PrimaryButtonInline,
   ResponsiveImage,
+  PrimaryButton,
 } from '../../../components';
 
 import MenuIcon from './MenuIcon';
@@ -414,6 +415,8 @@ export const ManageListingCardComponent = props => {
     ? Object.keys(firstImage?.attributes?.variants).filter(k => k.startsWith(variantPrefix))
     : [];
 
+    console.log("-----------11111111111111111111");
+
   return (
     <div className={classes}>
       <div
@@ -442,6 +445,22 @@ export const ManageListingCardComponent = props => {
             sizes={renderSizes}
           />
         </AspectRatioWrapper>
+
+        <h3 className={css.list_header}>{listing.attributes.title}</h3>
+        <p className={css.list_p}>{listing.attributes.description}</p>
+        <hr/>
+        <h3 className={css.list_header}>Description</h3>
+        <p className={css.list_p}>{listing.attributes.description}</p>
+
+        <div> 
+          <button className={classNames(css.action_btn_dark)} type="submit">
+              List more items
+          </button>
+
+          <button className={classNames(css.action_btn_light)} type="submit">
+          Go to my dashboard
+          </button>
+        </div>
 
         <div className={classNames(css.menuOverlayWrapper)}>
           <div className={classNames(css.menuOverlay, { [css.menuOverlayOpen]: isMenuOpen })} />
@@ -531,45 +550,7 @@ export const ManageListingCardComponent = props => {
         ) : null}
       </div>
 
-      <div className={css.info}>
-        <PriceMaybe price={price} publicData={publicData} config={config} intl={intl} />
-
-        <div className={css.mainInfo}>
-          <div className={css.titleWrapper}>
-            <InlineTextButton
-              rootClassName={titleClasses}
-              onClick={event => {
-                event.preventDefault();
-                event.stopPropagation();
-                history.push(createListingURL(routeConfiguration, listing));
-              }}
-            >
-              {formatTitle(title, MAX_LENGTH_FOR_WORDS_IN_TITLE)}
-            </InlineTextButton>
-          </div>
-        </div>
-
-        <div className={css.manageLinks}>
-          <NamedLink
-            className={css.manageLink}
-            name="EditListingPage"
-            params={{ id, slug, type: editListingLinkType, tab: 'details' }}
-          >
-            <FormattedMessage id="ManageListingCard.editListing" />
-          </NamedLink>
-
-          <LinkToStockOrAvailabilityTab
-            id={id}
-            slug={slug}
-            editListingLinkType={editListingLinkType}
-            isBookable={isBookable}
-            currentStock={currentStock}
-            hasListingType={hasListingType}
-            hasStockManagementInUse={hasStockManagementInUse}
-            intl={intl}
-          />
-        </div>
-      </div>
+     
     </div>
   );
 };

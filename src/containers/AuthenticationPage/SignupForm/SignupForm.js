@@ -15,8 +15,6 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 const SignupFormComponent = props => (
-  
-  
   <FinalForm
     {...props}
     mutators={{ ...arrayMutators }}
@@ -77,7 +75,7 @@ const SignupFormComponent = props => (
           id: 'SignupForm.emailRequired',
         })
       );
-      
+
       const emailValid = validators.emailFormatValid(
         intl.formatMessage({
           id: 'SignupForm.emailInvalid',

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -23,6 +23,8 @@ import ManageListingCard from './ManageListingCard/ManageListingCard';
 
 import { closeListing, openListing, getOwnListingsById } from './ManageListingsPage.duck';
 import css from './ManageListingsPage.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 export class ManageListingsPageComponent extends Component {
   constructor(props) {
@@ -52,6 +54,8 @@ export class ManageListingsPageComponent extends Component {
       scrollingDisabled,
       intl,
     } = this.props;
+
+    //const [showListingAlert, setShowListingAlert] = useState(false);
 
     const hasPaginationInfo = !!pagination && pagination.totalItems != null;
     const listingsAreLoaded = !queryInProgress && hasPaginationInfo;
@@ -123,8 +127,30 @@ export class ManageListingsPageComponent extends Component {
       `${panelWidth / 3}vw`,
     ].join(', ');
 
+    const handleCloseListingAlert = ()=>{
+      //setShowListingAlert(!showListingAlert);
+    }
+
     return (
-      <Page title={title} scrollingDisabled={scrollingDisabled}>
+
+      <>
+       {true?
+           <div className={css.successAlertCon}>
+            <div className={css.successAlert}>
+                      <div>
+                        <h2>Congratulations!</h2>
+                        <p>
+                            Your Item has been Published
+                        </p>
+
+                      </div>
+                      <div>
+                        <FontAwesomeIcon className={css.closeBtn} icon={faClose} onClick={handleCloseListingAlert}/>
+                      </div>
+                  </div>
+            </div>:""
+          }
+       <Page title={title} scrollingDisabled={scrollingDisabled}>
         <LayoutSingleColumn
           topbar={
             <>
@@ -159,6 +185,8 @@ export class ManageListingsPageComponent extends Component {
           </div>
         </LayoutSingleColumn>
       </Page>
+      </>
+     
     );
   }
 }
