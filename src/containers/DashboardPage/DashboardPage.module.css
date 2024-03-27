@@ -1,0 +1,152 @@
+@import '../../styles/customMediaQueries.css';
+
+.root {
+  background-color: var(--colorWhite);
+}
+.content {
+  width: calc(100% - 48px);
+  margin: 12px 24px 24px 24px;
+
+  @media (--viewportMedium) {
+    max-width: 565px;
+    margin: 55px auto 56px auto;
+  }
+}
+
+.headingContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.heading {
+  margin-right: 24px;
+}
+
+.profileLink {
+  composes: buttonSecondaryInline from global;
+
+  padding: 12px 16px 5px 16px;
+  margin: 19px 0 0 auto;
+
+  float: right;
+  flex-shrink: 0;
+}
+.contents{
+  width: 100%;
+  height: auto;
+}
+
+.contents img{
+  width: 100%;
+  height: auto;
+}
+
+.sub_content{
+  padding: 20px;
+}
+
+.align_left{
+  text-align: left;
+}
+
+.magT20{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.col6{
+  width: 50%;
+  height: 200px;
+  box-shadow: 1px 1px 3px 1px rgb(185, 185, 185);
+  border-radius: 10px;
+}
+
+.full_col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 80%;
+  background-color: #18398059;
+  align-items: center;
+  align-content: center;
+  vertical-align: middle;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.full_col img{
+  display: flex;
+  width: 50px;
+  height: 50px;
+  align-self: center;
+}
+
+.upl{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 20%;
+  align-self: baseline;
+  
+}
+
+.upl p{
+  font-weight: bold;
+}
+
+.content2{
+  height: 50%;
+  padding: 15px;
+  text-align: left;
+}
+
+.content2 h2,h3,p{
+  text-align: left;
+}
+
+.flex_div{
+  display: flex;
+  flex-direction: column;
+  justify-content: last baseline;
+}
+
+.no_border{
+  border-style: none;
+}
+
+.trend_icon{
+  
+  margin-left: 80%;
+  width: fit-content;
+  
+}
+
+.text_center{
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.upl_cursor{
+  cursor: pointer;
+}
+
+.magT30{
+  margin-top: 30px;
+}
+
+.text_bold{
+  font-weight: bold;
+}
+
+.cam_btn{
+  margin-top: 20px;
+}

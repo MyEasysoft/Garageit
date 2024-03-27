@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { bool, func, object, shape, string } from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -18,6 +18,7 @@ import ProfileSettingsForm from './ProfileSettingsForm/ProfileSettingsForm';
 
 import { updateProfile, uploadImage } from './ProfileSettingsPage.duck';
 import css from './ProfileSettingsPage.module.css';
+import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 const onImageUploadHandler = (values, fn) => {
   const { id, imageId, file } = values;
@@ -27,6 +28,7 @@ const onImageUploadHandler = (values, fn) => {
 };
 
 export const ProfileSettingsPageComponent = props => {
+  
   const config = useConfiguration();
   const {
     currentUser,
@@ -40,6 +42,24 @@ export const ProfileSettingsPageComponent = props => {
     uploadInProgress,
     intl,
   } = props;
+
+  const [showMobileProfile, setShowMobileProfile] = useState(false);
+  const location = useLocation();
+  const history = useHistory();
+
+  const path = location.pathname;
+  const url = window.location.pathname.split('/').pop();
+  useEffect(
+    ()=>{
+
+      if(path==="/profile-settings-mobile"){
+        setShowMobileProfile(true)
+      }
+
+    },[url]
+  );
+
+
 
   const handleSubmit = values => {
     const { firstName, lastName, bio: rawBio } = values;
@@ -86,6 +106,32 @@ export const ProfileSettingsPageComponent = props => {
 
   const title = intl.formatMessage({ id: 'ProfileSettingsPage.title' });
 
+  const dashboard = showMobileProfile?
+  <div>
+    <img src={user.profileImage}/>
+  </div>
+  :
+  
+  <div className={css.content}>
+  <div className={css.headingContainer}>
+    <H3 as="h1" className={css.heading}>
+      <FormattedMessage id="ProfileSettingsPage.heading" />
+    </H3>
+    {user.id ? (
+      <NamedLink
+        className={css.profileLink}
+        name="ProfilePage"
+        params={{ id: user.id.uuid }}
+      >
+        <FormattedMessage id="ProfileSettingsPage.viewProfileLink" />
+      </NamedLink>
+    ) : null}
+  </div>
+  {profileSettingsForm}
+</div>
+  
+  ;
+
   return (
     <Page className={css.root} title={title} scrollingDisabled={scrollingDisabled}>
       <LayoutSingleColumn
@@ -97,24 +143,9 @@ export const ProfileSettingsPageComponent = props => {
         }
         footer={<FooterContainer />}
       >
-        <div className={css.content}>
-          <div className={css.headingContainer}>
-            <H3 as="h1" className={css.heading}>
-              <FormattedMessage id="ProfileSettingsPage.heading" />
-            </H3>
-            {user.id ? (
-              <NamedLink
-                className={css.profileLink}
-                name="ProfilePage"
-                params={{ id: user.id.uuid }}
-              >
-                <FormattedMessage id="ProfileSettingsPage.viewProfileLink" />
-              </NamedLink>
-            ) : null}
-          </div>
-          {profileSettingsForm}
-        </div>
+        {dashboard}
       </LayoutSingleColumn>
+
     </Page>
   );
 };

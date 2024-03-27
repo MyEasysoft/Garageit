@@ -143,6 +143,13 @@ const TopbarMobileMenu = props => {
           Home
         </NamedLink>
         <NamedLink
+          className={classNames(css.navigationLink, currentPageClass('DashbpardPage'))}
+          name="DashboardPage"
+        >
+          <img className={css.icons} src={reward_icon} />
+          Dashboard
+        </NamedLink>
+        <NamedLink
           className={classNames(css.inbox, currentPageClass('InboxPage'))}
           name="InboxPage"
           params={{ tab: currentUserHasListings ? 'sales' : 'orders' }}
@@ -173,6 +180,7 @@ const TopbarMobileMenu = props => {
           Rewards
         </NamedLink>
         {listItem}
+       
         <div className={css.spacer} />
       </div>
 

@@ -1096,5 +1096,6 @@
   "CustomListingForm.title":"Title",
   "CustomListingForm.description":"Listing description",
   "CustomListingForm.fullDetails":"Full Details",
-  "CustomListingForm.price":"Price"
+  "CustomListingForm.price":"Price",
+  "DashboardPage.heading":"Dashboard"
 }
