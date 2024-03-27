@@ -14,8 +14,6 @@ import { H3, Page, UserNav, NamedLink, LayoutSingleColumn, PrimaryButton } from 
 import TopbarContainer from '../TopbarContainer/TopbarContainer';
 import FooterContainer from '../FooterContainer/FooterContainer';
 
-
-
 import { updateProfile, uploadImage } from './DashboardPage.duck';
 import css from './DashboardPage.module.css';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
@@ -24,7 +22,6 @@ import card1 from '../../../src/assets/card1.png';
 import camIcon from '../../../src/assets/Camera.png';
 import classNames from 'classnames';
 import trend from '../../../src/assets/trend.png';
-
 
 const onImageUploadHandler = (values, fn) => {
   const { id, imageId, file } = values;
