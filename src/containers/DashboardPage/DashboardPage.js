@@ -18,7 +18,7 @@ import { updateProfile, uploadImage } from './DashboardPage.duck';
 import css from './DashboardPage.module.css';
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import dashboardImg from '../../../src/assets/dashboard_img.png';
-import card1 from '../../../src/assets/card1.png';
+import card1 from '../../../src/assets/card_bg.png';
 import camIcon from '../../../src/assets/Camera.png';
 import classNames from 'classnames';
 import trend from '../../../src/assets/trend.png';
@@ -114,7 +114,25 @@ export const DashboardPageComponent = props => {
          <div className={css.sub_content}>
             <h2 className={classNames(css.align_left,css.magB30)}>Hey Sam</h2>
             <p className={css.align_left}>Welcome to Garageit</p>
-            <img className={css.magT20} src={card1}/>
+            <div className={classNames(css.magT20)}>
+              <div className={css.card_con}>
+                <div className={css.bg_img}>
+                  
+                  <div className={css.captionn}>
+                    <div className={css.row2}><h1>300</h1>point</div>
+                    <p>Lorem ipum lorem ipsum lorpem ipsum lorem ipsum</p>
+                  </div>
+
+                  <div className={css.overlay_btn}>
+                    <button className={css.use_btn}>Use point</button>
+                  </div>
+                </div>
+                
+                
+              </div>
+            </div>
+           
+            
             <p className={css.align_left}>What do you want to do today?</p>
             <div className={css.row}>
               <div className={css.col6}>
@@ -167,9 +185,7 @@ export const DashboardPageComponent = props => {
                   <h6 className={css.align_left}>Total reviews</h6>
                   <p className={css.align_left}>Lorem ipsum dolar</p>
                 </div>
-              
               </div>
-              
             </div>
 
             <div className={css.magT30}>
