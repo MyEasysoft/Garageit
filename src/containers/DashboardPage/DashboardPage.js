@@ -92,8 +92,8 @@ export const DashboardPageComponent = props => {
   
   const title = intl.formatMessage({ id: 'DashboardPage.title' });
 
-
   return (
+    
     <Page className={css.root} title={title} scrollingDisabled={scrollingDisabled}>
       <LayoutSingleColumn
         topbar={
@@ -174,11 +174,9 @@ export const DashboardPageComponent = props => {
             <div>
             <PrimaryButton  className={css.cam_btn} type="button">
               Switch to lorem ispum
-            </PrimaryButton>:""
+            </PrimaryButton>
             </div>
          </div>
-
-         
         </div>
       </LayoutSingleColumn>
 

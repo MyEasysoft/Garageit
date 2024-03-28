@@ -154,3 +154,8 @@
   text-align: left;
   margin-left: 0px;
 }
+
+.modals{
+  position: fixed;
+  top: 0px;
+}

@@ -75,7 +75,8 @@
   composes: isOpen;
   display: block;
   height: calc(var(--vh, 1vh) * 100);
-  position: absolute;
+  position: fixed;
+  top: 0px;
 
   @media (--viewportMedium) {
     display: flex;
@@ -87,6 +88,7 @@
     left: 0;
   }
 }
+
 
 .content {
 }
