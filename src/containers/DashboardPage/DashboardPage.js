@@ -22,6 +22,8 @@ import card1 from '../../../src/assets/card1.png';
 import camIcon from '../../../src/assets/Camera.png';
 import classNames from 'classnames';
 import trend from '../../../src/assets/trend.png';
+import iconA from '../../../src/assets/iconA.png';
+import iconB from '../../../src/assets/iconB.png';
 
 const onImageUploadHandler = (values, fn) => {
   const { id, imageId, file } = values;
@@ -88,9 +90,12 @@ export const DashboardPageComponent = props => {
   const { firstName, lastName, bio } = user.attributes.profile;
   const profileImageId = user.profileImage ? user.profileImage.id : null;
   const profileImage = image || { imageId: profileImageId };
-
-  
   const title = intl.formatMessage({ id: 'DashboardPage.title' });
+
+  const handleCamClick = (event)=>{
+    history.push("/mobile/listing/new");
+  }
+
 
   return (
     
@@ -107,14 +112,14 @@ export const DashboardPageComponent = props => {
         <div className={css.contents}>
          <img src={dashboardImg}/>
          <div className={css.sub_content}>
-            <h2 className={css.align_left}>Hey Sam</h2>
+            <h2 className={classNames(css.align_left,css.magB30)}>Hey Sam</h2>
             <p className={css.align_left}>Welcome to Garageit</p>
             <img className={css.magT20} src={card1}/>
             <p className={css.align_left}>What do you want to do today?</p>
             <div className={css.row}>
               <div className={css.col6}>
                 <div className={css.full_col}>
-                  <img className={css.upl_cursor} src={camIcon}/>
+                  <button className={css.no_border} onClick={handleCamClick}><img className={css.upl_cursor} src={camIcon}/></button>
                 </div>
                 <div className={css.upl}>
                   <p className={css.text_center}>Upload Item</p>
@@ -140,7 +145,7 @@ export const DashboardPageComponent = props => {
             <div className={classNames(css.col6,css.flex_div)}>
                 <div className={css.content2}>
                   <div>
-                      <button className={classNames(css.no_border,css.trend_icon)} ><img src={trend}/></button>
+                      <button className={classNames(css.no_border,css.trend_icon)} ><img src={iconA}/></button>
                   </div>
                  
                 </div>
@@ -154,9 +159,8 @@ export const DashboardPageComponent = props => {
               <div className={classNames(css.col6,css.flex_div)}>
                 <div className={css.content2}>
                   <div>
-                      <button className={classNames(css.no_border,css.trend_icon)} ><img src={trend}/></button>
+                      <button className={classNames(css.no_border,css.trend_icon)} ><img src={iconB}/></button>
                   </div>
-                 
                 </div>
                 <div className={css.content2}>
                   <h3 className={css.align_left}>50</h3>
