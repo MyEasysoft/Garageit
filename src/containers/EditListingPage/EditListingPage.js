@@ -166,39 +166,6 @@ export const EditListingPageComponent = props => {
   //Insert the selected role (selectedRole) from state before sending the data to server
   const handleSubmitMobileListing = values => {
 
-  const listingData = { title: "Peugeot eT101 22",
-    description: "7-speed Hybrid",
-    availabilityPlan: {
-      type: "availability-plan/day",
-      entries: [
-        {
-          dayOfWeek: "mon",
-          seats: 3
-        },
-        {
-          dayOfWeek: "fri",
-          seats: 1
-        }
-      ]
-    },
-    privateData: {
-      externalServiceId: "abcd-service-id-1234"
-    },
-    publicData: {
-      address: {
-        city: "New York",
-        country: "USA",
-        state: "NY",
-        street: "230 Hamilton Ave"
-      },
-      category: "road",
-      gears: 22,
-      rules: "This is a nice, bike! Please, be careful with it."
-    },
-    price: new Money(1590, "USD"),
-    
-  };
-
   const { title, description, details, price } = values;
   const listingDat = { title: title.trim(),
     description: description.trim(),
@@ -228,9 +195,15 @@ export const EditListingPageComponent = props => {
       category: "road",
       gears: 22,
       rules: "This is a nice, bike! Please, be careful with it.",
-      details:details.trim()
+      details:details.trim(),
+      transactionProcessAlias:"default-booking/release-1",
+      unitType:"item",
+      shippingEnabled:true,
+      pickupEnabled:false,
+      listingType:"Space Booking"
     },
     price: new Money(parseInt(price), "USD"),
+    
   };
 
     console.log(listingDat);

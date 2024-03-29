@@ -695,6 +695,9 @@ export const AuthenticationPageComponent = props => {
   if(showEmailVerification && role === "listItem"){
     const history = useHistory();
     history.push("/mobile/listing/new");
+  }else if(showEmailVerification && role === "RentItem"){
+    const history = useHistory();
+    history.push("/s");
   }
 
 
