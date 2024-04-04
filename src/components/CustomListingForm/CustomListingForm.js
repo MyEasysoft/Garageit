@@ -353,7 +353,6 @@ const formControls_mobile = true?
             })
           )}
         />
-
       <p>
        Listing price
       </p>

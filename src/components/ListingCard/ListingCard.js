@@ -17,6 +17,7 @@ import { isBookingProcessAlias } from '../../transactions/transaction';
 import { AspectRatioWrapper, NamedLink, ResponsiveImage } from '../../components';
 
 import css from './ListingCard.module.css';
+import CustomListingCard from '../CustomSection/CustomListingCard';
 
 const MIN_LENGTH_FOR_LONG_WORDS = 10;
 
@@ -104,39 +105,26 @@ export const ListingCardComponent = props => {
       }
     : null;
 
+
+
+console.log("===============================================");
+
+
   return (
-    <NamedLink className={classes} name="ListingPage" params={{ id, slug }}>
-      <AspectRatioWrapper
-        className={css.aspectRatioWrapper}
-        width={aspectWidth}
-        height={aspectHeight}
-        {...setActivePropsMaybe}
-      >
-        <LazyImage
-          rootClassName={css.rootForImage}
-          alt={title}
-          image={firstImage}
-          variants={variants}
-          sizes={renderSizes}
-        />
-      </AspectRatioWrapper>
-      <div className={css.info}>
-        <PriceMaybe price={price} publicData={publicData} config={config} intl={intl} />
-        <div className={css.mainInfo}>
-          <div className={css.title}>
-            {richText(title, {
-              longWordMinLength: MIN_LENGTH_FOR_LONG_WORDS,
-              longWordClass: css.longWord,
-            })}
-          </div>
-          {showAuthorInfo ? (
-            <div className={css.authorInfo}>
-              <FormattedMessage id="ListingCard.author" values={{ authorName }} />
-            </div>
-          ) : null}
-        </div>
-      </div>
-    </NamedLink>
+   <CustomListingCard 
+    id={id}
+    title={title}
+    slug={slug}
+    price={price.amount/100}
+    firstImage={firstImage}
+    variants={variants}
+    renderSizes={renderSizes}
+    LazyImage ={LazyImage}
+    aspectWidth = {aspectWidth}
+    aspectHeight = {aspectHeight}
+    variantPrefix = {variantPrefix}
+    setActivePropsMaybe={setActivePropsMaybe}
+   />
   );
 };
 

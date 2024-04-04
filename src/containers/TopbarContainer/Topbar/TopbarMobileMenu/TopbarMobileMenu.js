@@ -63,7 +63,10 @@ const TopbarMobileMenu = props => {
     history.push("/mobile/listing/new")
   }
 
-
+  const openListingSearchPage = (event)=>{
+    event.preventDefault();
+    history.push("/s")
+  }
 
   if (!isAuthenticated) {
     const signup = (
@@ -107,7 +110,12 @@ const TopbarMobileMenu = props => {
         <img className={css.icons} src={logout_icon} />
         List Item
     </button>
-  ):"";
+  ):
+  <button className={classNames(css.listItemLink,css.noborder)} onClick={openListingSearchPage}>
+    <img className={css.icons} src={logout_icon} />
+    Rent Item
+  </button>
+;
 
   const notificationCountBadge =
     notificationCount > 0 ? (
