@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { array, arrayOf, bool, func, shape, string, oneOf, object } from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -79,6 +79,9 @@ import SectionMapMaybe from './SectionMapMaybe';
 import SectionGallery from './SectionGallery';
 
 import css from './ListingPage.module.css';
+import CustomListingDetailsCard from '../../components/CustomListingForm/CustomListingDetailsCard.js';
+import classNames from 'classnames';
+import f1 from '../../assets/l1.png';
 
 const MIN_LENGTH_FOR_LONG_WORDS_IN_TITLE = 16;
 
@@ -117,6 +120,18 @@ export const ListingPageComponent = props => {
     config,
     routeConfiguration,
   } = props;
+
+
+
+// function Slideshow() {
+//   return (
+//     <div className="slideshow">
+//       <div className="slideshowSlider">
+//         <div className="slide"></div>
+//       </div>
+//     </div>
+//   );
+// }
 
   const listingConfig = config.listing;
   const listingId = new UUID(rawParams.id);
@@ -275,12 +290,82 @@ export const ListingPageComponent = props => {
       }
     : {};
   const currentStock = currentListing.currentStock?.attributes?.quantity || 0;
-  const schemaAvailability =
-    currentStock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock';
+  const schemaAvailability = currentStock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock';
 
   const createFilterOptions = options => options.map(o => ({ key: `${o.option}`, label: o.label }));
 
+  const colors = ["#0088FE", "#00C49F", "#FFBB28"];
+  const images = [f1, f1, f1];
+  const delay = 250000;
+
+  const Slideshow =() =>{
+    const [index, setIndex] = useState(0);
+    const timeoutRef = useRef(null);
+
+    const resetTimeout = ()=> {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    }
+
+    useEffect(() => {
+      resetTimeout();
+      timeoutRef.current = setTimeout(
+        () =>
+          setIndex((prevIndex) =>
+            prevIndex === colors.length - 1 ? 0 : prevIndex + 1
+          ),
+        delay
+      );
+      return () => {resetTimeout();};
+    }, [index]);
+
+    return (
+            <>
+      <div className={css.slideshow}>
+        <div className={css.slideshowSlider}
+        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+        >
+          {images.map((img, index) => (
+            <div
+              className={css.slide}
+              key={index}
+              
+            >
+              <img className={css.imgs} src={img}/>
+            </div>
+          ))}
+        </div>
+        <button className={css.price_con}> {formattedPrice}</button>
+        <div className={css.dots_con}>
+          <div className={css.slideshowDots}>
+            {colors.map((_, idx) => {
+
+              let classess = "";
+              if(index === idx){
+                  classess = css.active;
+              }
+            return <div key={idx} className={classNames(css.slideshowDot,classess)} 
+                      onClick={() => {
+                        setIndex(idx);
+                      }}
+                      ></div>
+          })}
+          </div>
+        </div>
+        
+       
+      </div>
+
+      
+
+      </>
+    );
+  }
+
+
   return (
+
     <Page
       title={schemaTitle}
       scrollingDisabled={scrollingDisabled}
@@ -302,135 +387,17 @@ export const ListingPageComponent = props => {
         },
       }}
     >
-      <LayoutSingleColumn className={css.pageRoot} topbar={topbar} footer={<FooterContainer />}>
-        <div className={css.contentWrapperForProductLayout}>
-          <div className={css.mainColumnForProductLayout}>
-            {currentListing.id && noPayoutDetailsSetWithOwnListing ? (
-              <ActionBarMaybe
-                className={css.actionBarForProductLayout}
-                isOwnListing={isOwnListing}
-                listing={currentListing}
-                showNoPayoutDetailsSet={noPayoutDetailsSetWithOwnListing}
-              />
-            ) : null}
-            {currentListing.id ? (
-              <ActionBarMaybe
-                className={css.actionBarForProductLayout}
-                isOwnListing={isOwnListing}
-                listing={currentListing}
-                editParams={{
-                  id: listingId.uuid,
-                  slug: listingSlug,
-                  type: listingPathParamType,
-                  tab: listingTab,
-                }}
-              />
-            ) : null}
-            <SectionGallery
-              listing={currentListing}
-              variantPrefix={config.layout.listingImage.variantPrefix}
-            />
-            <div className={css.mobileHeading}>
-              <H4 as="h1" className={css.orderPanelTitle}>
-                <FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />
-              </H4>
-            </div>
-            <SectionTextMaybe text={description} showAsIngress />
-            <SectionDetailsMaybe
-              publicData={publicData}
-              metadata={metadata}
-              listingConfig={listingConfig}
-              intl={intl}
-            />
-            {listingConfig.listingFields.reduce((pickedElements, config) => {
-              const { key, enumOptions, includeForListingTypes, scope = 'public' } = config;
-              const listingType = publicData?.listingType;
-              const isTargetListingType =
-                includeForListingTypes == null || includeForListingTypes.includes(listingType);
+      <LayoutSingleColumn topbar={topbar} footer={<FooterContainer />}>
+          <Slideshow />
+          <CustomListingDetailsCard
+            id={currentAuthor.id.uuid}
+            title={schemaTitle}
+            slug={"Very good presser"}
+          />
 
-              const value =
-                scope === 'public' ? publicData[key] : scope === 'metadata' ? metadata[key] : null;
-              const hasValue = value != null;
-              return isTargetListingType && config.schemaType === SCHEMA_TYPE_MULTI_ENUM
-                ? [
-                    ...pickedElements,
-                    <SectionMultiEnumMaybe
-                      key={key}
-                      heading={config?.showConfig?.label}
-                      options={createFilterOptions(enumOptions)}
-                      selectedOptions={value || []}
-                    />,
-                  ]
-                : isTargetListingType && hasValue && config.schemaType === SCHEMA_TYPE_TEXT
-                ? [
-                    ...pickedElements,
-                    <SectionTextMaybe key={key} heading={config?.showConfig?.label} text={value} />,
-                  ]
-                : pickedElements;
-            }, [])}
-
-            <SectionMapMaybe
-              geolocation={geolocation}
-              publicData={publicData}
-              listingId={currentListing.id}
-              mapsConfig={config.maps}
-            />
-            <SectionReviews reviews={reviews} fetchReviewsError={fetchReviewsError} />
-            <SectionAuthorMaybe
-              title={title}
-              listing={currentListing}
-              authorDisplayName={authorDisplayName}
-              onContactUser={onContactUser}
-              isInquiryModalOpen={isAuthenticated && inquiryModalOpen}
-              onCloseInquiryModal={() => setInquiryModalOpen(false)}
-              sendInquiryError={sendInquiryError}
-              sendInquiryInProgress={sendInquiryInProgress}
-              onSubmitInquiry={onSubmitInquiry}
-              currentUser={currentUser}
-              onManageDisableScrolling={onManageDisableScrolling}
-            />
-          </div>
-          <div className={css.orderColumnForProductLayout}>
-            <OrderPanel
-              className={css.productOrderPanel}
-              listing={currentListing}
-              isOwnListing={isOwnListing}
-              onSubmit={handleOrderSubmit}
-              authorLink={
-                <NamedLink
-                  className={css.authorNameLink}
-                  name="ListingPage"
-                  params={params}
-                  to={{ hash: '#author' }}
-                >
-                  {authorDisplayName}
-                </NamedLink>
-              }
-              title={<FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />}
-              titleDesktop={
-                <H4 as="h1" className={css.orderPanelTitle}>
-                  <FormattedMessage id="ListingPage.orderTitle" values={{ title: richTitle }} />
-                </H4>
-              }
-              payoutDetailsWarning={payoutDetailsWarning}
-              author={ensuredAuthor}
-              onManageDisableScrolling={onManageDisableScrolling}
-              onContactUser={onContactUser}
-              monthlyTimeSlots={monthlyTimeSlots}
-              onFetchTimeSlots={onFetchTimeSlots}
-              onFetchTransactionLineItems={onFetchTransactionLineItems}
-              lineItems={lineItems}
-              fetchLineItemsInProgress={fetchLineItemsInProgress}
-              fetchLineItemsError={fetchLineItemsError}
-              validListingTypes={config.listing.listingTypes}
-              marketplaceCurrency={config.currency}
-              dayCountAvailableForBooking={config.stripe.dayCountAvailableForBooking}
-              marketplaceName={config.marketplaceName}
-            />
-          </div>
-        </div>
       </LayoutSingleColumn>
     </Page>
+    
   );
 };
 

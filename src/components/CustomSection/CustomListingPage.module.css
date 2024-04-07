@@ -37,7 +37,9 @@ a{
     margin: 0px;
 }
 
-
+.m_3{
+  margin: 0px 20px;
+}
 
 .container_card{
   position: relative;
@@ -537,7 +539,7 @@ p{
         border-radius: 10px;
         color: white;
        
-        margin:  20px;
+        margin:  0px 20px 20px 20px;
         font-weight: bold;
     }
 
@@ -718,7 +720,7 @@ p{
         border-radius: 10px;
         color: white;
        
-        margin:  20px;
+        margin:  0px 20px 20px 20px;
         font-weight: bold;
     }
 
@@ -892,7 +894,7 @@ p{
           border-radius: 10px;
           color: #183980;
          
-          margin:  20px;
+          margin:  0px 20px 20px 20px;
           font-weight: bold;
           margin: 0 auto;
       }
@@ -1030,7 +1032,7 @@ p{
           background-color: #183980;
           padding: 8px 20px;
           border-radius: 10px;
-          margin:  20px;
+          margin:  0px 20px 20px 20px;
           color: white;
          
           font-weight: bold;

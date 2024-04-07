@@ -43,7 +43,7 @@ const CustomListingComponent = props =>{
 
                 <div className={css.header}>
                     <h2>Ready for Rental</h2>
-                    <p>
+                    <p className={css.m_3}>
                         Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam
                     </p>
                 </div>
@@ -619,13 +619,12 @@ const CustomListingComponent = props =>{
 
                 <div className={css.header}>
                     <h2>What our clients say</h2>
-                    
                 </div>
 
                 <div className={css.card_rows}>
                     <div className={classNames(css.flex_col,css.card_2)}>
                             <div className={classNames(css.flex_col,css.card,css.no_shadow)}>
-                                <div className={css.profile_icon_con}>
+                                <div className={classNames(css.profile_icon_con,css.no_margin)}>
                                     <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
                                     <div>
                                         <h3>John Carter</h3>

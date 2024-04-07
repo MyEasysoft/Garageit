@@ -91,10 +91,7 @@ const CustomListingCard = props =>{
                                
                                     <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
                                     <NamedLink {...landingPageProps} className={classNames(css.no_bg)}>Ask a question</NamedLink>
-                               
-                                
                             </div>
-
                             <div  className={css.overlay_col}>
                                 <NamedLink {...landingPageProps} className={css.btn_card}>Browse listings</NamedLink>
                                 <div className={css.overlay}>
