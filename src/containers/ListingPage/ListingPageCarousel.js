@@ -392,7 +392,7 @@ export const ListingPageComponent = props => {
           <CustomListingDetailsCard
             id={currentAuthor.id.uuid}
             title={schemaTitle}
-            slug={"Very good presser"}
+            slug={description}
           />
 
       </LayoutSingleColumn>

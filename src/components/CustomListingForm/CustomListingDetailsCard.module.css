@@ -674,7 +674,58 @@
   hyphens: auto;
 }
 
-  
+.custom_container .rmdp-day, .rmdp-week-day{
+  height: 48px;
+  width: 48px;
+  background-color: red;
+}
+
+.calendar_con{
+  margin-top: 10px;
+}
+
+.no_trans{
+  text-transform: none;
+  text-align: left;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.flex_btn{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 90%;
+  margin: 0px 20px;
+}
+
+.flex_btn button{
+  padding: 10px 20px;
+  width: 50%;
+  border-radius: 10px;
+  border-width: thin;
+}
+
+.flex_btn_full{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 90%;
+  margin: 0px 20px;
+}
+
+.flex_btn_full button{
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 10px;
+  border-width: thin;
+  margin-top: 20px;
+  background-color: #183980;
+  color: white;
+  margin-bottom: 50px;
+}
+
+
   @media only screen and (max-width: 1024px) {
     
     .desk{

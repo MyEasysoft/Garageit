@@ -18,6 +18,7 @@ import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
 import { lazyLoadWithDimensions } from '../../util/uiHelpers';
 import AspectRatioWrapper from '../AspectRatioWrapper/AspectRatioWrapper';
 import { Field, Form } from 'react-final-form';
+import DatePicker2 from './DatePicker2';
 
 const CustomListingDetailsCard = props =>{
 
@@ -36,6 +37,7 @@ const CustomListingDetailsCard = props =>{
 
     const LazyImage = lazyLoadWithDimensions(ResponsiveImage, { loadAfterInitialRendering: 3000 });
     const [showQueryForm , setShowQueryForm] = useState(false);
+    const [showRentNow , setShowRentNow] = useState(false);
 
     const activeClassName = '';
     const landingPageProps = {
@@ -76,11 +78,15 @@ const handleAskQuestion = (event)=>{
     setShowQueryForm(!showQueryForm);
 }
 
+const handleRentNow = (event)=>{
+    event.preventDefault();
+    setShowRentNow(!showRentNow);
+}
+
   return (
-    
     <>
             <div className={classNames(css.mobile)}>
-            <NamedLink name="ListingPage" params={{ id, slug }}>
+           
                 <div className={css.card_rows}>
 
                     <div className={classNames(css.flex_col,css.card)}>
@@ -116,25 +122,46 @@ const handleAskQuestion = (event)=>{
                                 </div>
                                     <hr className={css.hr}/>
 
-                                    {!showQueryForm?
+                                    {!showQueryForm && !showRentNow?
                                         <>
                                             <h3 className={classNames(css.text_left,css.magL20)}>Description</h3>
                                             <p className={classNames(css.magL20,css.mb_20)}>
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum nisl et nunc facilisis, a commodo eros mollis.
                                             </p>
-                                            <NamedLink {...landingPageProps} className={css.btn_1}>Rent Now</NamedLink>
+                                            
+                                            <button  className={classNames(css.btn_1,css.no_bg)} onClick={handleRentNow}>Rent Now</button>
                                             <button  className={classNames(css.btn_1,css.no_bg)} onClick={handleAskQuestion}>Ask a question</button>
 
                                         </>:""
                                     }
                                     
-
                                     {showQueryForm?
                                         <SendQuestionForm/>:""
                                     }
                                     
+                                    {showRentNow?
+                                    <><h5 className={css.no_trans}>Select date for booking</h5>
 
-                                    <h2 className={css.text_black}>Reviews</h2>
+                                    <div className={css.calendar_con}>
+                                        <DatePicker2
+                                            containerClassName={css.custom_container}
+                                            calendarPosition="bottom-center"
+                                        />
+                                        <h5 className={css.no_trans}>Need this delivered</h5>
+                                        <div className={css.flex_btn}>
+                                            <button>Yes</button>
+                                            <button>No</button>
+                                        </div>
+                                        <div className={css.flex_btn_full}>
+                                            <button>Request for Rent</button>
+                                        </div>
+                                    </div></>
+                                    :""}
+                                    
+
+                                    {!showRentNow?
+                                    <>
+                                     <h2 className={css.text_black}>Reviews</h2>
 
                                     <div className={classNames(csss.flex_col,csss.card_2)}>
                                             <div className={classNames(csss.flex_col2,csss.card,csss.no_shadow)}>
@@ -155,23 +182,16 @@ const handleAskQuestion = (event)=>{
                                                             diam dui tempor nisi risus bibendum cursus ac non tortor posuere fringilla 
                                                             donec enim congue morbi netus sit non quis.
                                                         </p>
-                                                       
                                             </div>
                                     </div>
-
-
-
-
-
-
-
-
+                                    </>:""}
+                                   
                             </div>
                          
                     </div>
 
                 </div>
-            </NamedLink>
+           
             </div>
                 
     </>
