@@ -245,6 +245,10 @@ font-size: 16px;
   text-align: left;
   color: white;
 }
+
+.header_p{
+  color: white;
+}
 .welcomeHeader{
   padding: 0px;
   margin: 0px;

@@ -129,13 +129,15 @@ const TopbarMobileMenu = props => {
     return currentPage === page || isAccountSettingsPage ? css.currentPage : null;
   };
 
+  console.log("ooooooooooppppppppppppppccccccccccccccccccc");
+
   return (
     <div className={css.root}>
       <div className={css.profile}>
         <AvatarLarge className={css.avatar} user={currentUser} />
         <div className={css.profile_text}>
-          <h3 className={css.header}>Ashfak Sayem</h3>
-          <p className={css.header}>ashfaksayem@gmail.com</p>
+          <h3 className={css.header}>{currentUser.attributes.profile.displayName}</h3>
+          <p className={css.header_p}>{currentUser.attributes.email}</p>
         </div>
       </div>
       

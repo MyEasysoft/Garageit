@@ -674,11 +674,6 @@
   hyphens: auto;
 }
 
-.custom_container .rmdp-day, .rmdp-week-day{
-  height: 48px;
-  width: 48px;
-  background-color: red;
-}
 
 .calendar_con{
   margin-top: 10px;
@@ -724,6 +719,76 @@
   color: white;
   margin-bottom: 50px;
 }
+
+
+.rmdp-day, .rmdp-week-day {
+  color: #000;
+  cursor: pointer;
+  height: 54px;
+  position: relative;
+  width: 54px;
+  background-color: rgb(159, 231, 26);
+}
+
+
+.rmdp-day span{
+  background-color: rgb(89, 0, 255);
+}
+
+.custom_container{
+  background-color: rgb(27, 214, 205);
+}
+
+.map_con{
+  height: 300px;
+}
+
+.location_Modal{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.5);
+  width: 100%;
+  height: 100%;
+  
+  top: 0px;
+  
+}
+
+.location_form{
+  background-color: white;
+  padding: 10px;
+  width: 96%;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+
+.cancel{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.close_btn{
+  border-style: none;
+  cursor: pointer;
+}
+
+.zip{
+  padding: 10px;
+}
+
+.submit_btn{
+  background-color: #183980;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+
 
 
   @media only screen and (max-width: 1024px) {
@@ -1016,6 +1081,19 @@
       transform: scale(1.2);
       transition: .2s;
     }
+
+    
+
+    
+.location_Modal{
+  display: block;
+  position: fixed;
+  background-color: rgba(128, 128, 128, 0.5);
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  z-index: 10000000;
+}
   
   }
   

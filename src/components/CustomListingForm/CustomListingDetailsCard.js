@@ -12,13 +12,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classNames from 'classnames';
 import NamedLink from '../NamedLink/NamedLink';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faShare } from '@fortawesome/free-solid-svg-icons';
+import { faClose, faShare } from '@fortawesome/free-solid-svg-icons';
 import ReviewRating from '../ReviewRating/ReviewRating';
 import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
 import { lazyLoadWithDimensions } from '../../util/uiHelpers';
 import AspectRatioWrapper from '../AspectRatioWrapper/AspectRatioWrapper';
 import { Field, Form } from 'react-final-form';
 import DatePicker2 from './DatePicker2';
+import SearchMap from '../../containers/SearchPage/SearchMap/SearchMap';
 
 const CustomListingDetailsCard = props =>{
 
@@ -44,13 +45,14 @@ const CustomListingDetailsCard = props =>{
         name: 'LandingPage',
         activeClassName,
         match: { url: '/' },
-      };
+    };
       
 const onSubmit = (values)=>{
     console.log(values +"      zzzzzzzzzzzzzzzzzzzzzz");
   }
 
 const SendQuestionForm = (props) => (
+    
 <Form
     onSubmit={onSubmit}
     render={({ handleSubmit }) => (
@@ -72,7 +74,7 @@ const SendQuestionForm = (props) => (
     )}
 />
 );
-
+const [showLocationControl, setShowLocationControl] = useState(false);////////change this back to false
 const handleAskQuestion = (event)=>{
     event.preventDefault();
     setShowQueryForm(!showQueryForm);
@@ -82,6 +84,41 @@ const handleRentNow = (event)=>{
     event.preventDefault();
     setShowRentNow(!showRentNow);
 }
+
+
+
+const handleClose = ()=>{
+    setShowLocationControl(!showLocationControl);
+  }
+
+
+  
+
+const handleSetDeliveryLocation = ()=>{
+    setShowLocationControl(!showLocationControl);
+  }
+
+
+const locationControl = showLocationControl?
+        <div className={css.location_Modal}>
+          <div className={css.location_form}>
+            <div className={css.cancel}>
+              <button className={css.close_btn} onClick={handleClose}><FontAwesomeIcon icon={faClose} /></button>
+            </div>
+
+            <h4>Select your delivery spot</h4>
+           
+            <div className={css.map_con}>
+                <SearchMap/>
+            </div>
+           
+            <input className={css.zip} type='text' placeholder='Enter your zip code'/>
+            <button  className={css.submit_btn}>
+              Save my delivery location
+            </button>
+           
+          </div>
+        </div>:"";
 
   return (
     <>
@@ -146,6 +183,7 @@ const handleRentNow = (event)=>{
                                         <DatePicker2
                                             containerClassName={css.custom_container}
                                             calendarPosition="bottom-center"
+
                                         />
                                         <h5 className={css.no_trans}>Need this delivered</h5>
                                         <div className={css.flex_btn}>
@@ -153,10 +191,11 @@ const handleRentNow = (event)=>{
                                             <button>No</button>
                                         </div>
                                         <div className={css.flex_btn_full}>
-                                            <button>Request for Rent</button>
+                                            <button onClick={handleSetDeliveryLocation}>Request for Rent</button>
                                         </div>
                                     </div></>
                                     :""}
+                                    
                                     
 
                                     {!showRentNow?
@@ -185,6 +224,10 @@ const handleRentNow = (event)=>{
                                             </div>
                                     </div>
                                     </>:""}
+
+                                    {locationControl}
+
+                                    
                                    
                             </div>
                          
