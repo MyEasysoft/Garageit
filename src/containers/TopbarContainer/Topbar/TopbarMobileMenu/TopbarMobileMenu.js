@@ -136,8 +136,8 @@ const TopbarMobileMenu = props => {
       <div className={css.profile}>
         <AvatarLarge className={css.avatar} user={currentUser} />
         <div className={css.profile_text}>
-          <h3 className={css.header}>{currentUser.attributes.profile.displayName}</h3>
-          <p className={css.header_p}>{currentUser.attributes.email}</p>
+          <h3 className={css.header}>{currentUser?.attributes?.profile?.displayName}</h3>
+          <p className={css.header_p}>{currentUser?.attributes?.email}</p>
         </div>
       </div>
       
