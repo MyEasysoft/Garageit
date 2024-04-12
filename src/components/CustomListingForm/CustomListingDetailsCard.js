@@ -98,6 +98,10 @@ const handleSetDeliveryLocation = ()=>{
     setShowLocationControl(!showLocationControl);
   }
 
+  const handleConfirmDelivery = ()=>{
+    console.log("Delivering -------------------------");
+  }
+
 
 const locationControl = showLocationControl?
         <div className={css.location_Modal}>
@@ -112,11 +116,14 @@ const locationControl = showLocationControl?
                 <SearchMap/>
             </div>
            
-            <input className={css.zip} type='text' placeholder='Enter your zip code'/>
-            <button  className={css.submit_btn}>
-              Save my delivery location
-            </button>
-           
+            <div className={css.estimate}>
+                <div>
+                    <h3>Estimated Delivery amount</h3>
+                    <p>Estimated time 8:30 - 9:15 PM</p>
+                </div>
+                <div><b>$ 5.00</b></div>
+            </div>
+            <NamedLink className={css.submit_btn} name="OrderDetailsPage" params={{ id}}>Confirm Delivery</NamedLink>
           </div>
         </div>:"";
 
