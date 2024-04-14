@@ -132,7 +132,7 @@ export const ListingPageComponent = props => {
 //     </div>
 //   );
 // }
-
+const [showSlide, setShowSlide] = useState(true);
   const listingConfig = config.listing;
   const listingId = new UUID(rawParams.id);
   const isPendingApprovalVariant = rawParams.variant === LISTING_PAGE_PENDING_APPROVAL_VARIANT;
@@ -181,6 +181,10 @@ export const ListingPageComponent = props => {
   } else if (!currentListing.id) {
     // Still loading the listing
     return <LoadingPage topbar={topbar} scrollingDisabled={scrollingDisabled} intl={intl} />;
+  }
+
+  const hideSlide = ()=>{
+    setShowSlide(!showSlide);
   }
 
   const {
@@ -388,11 +392,15 @@ export const ListingPageComponent = props => {
       }}
     >
       <LayoutSingleColumn topbar={topbar} footer={<FooterContainer />}>
-          <Slideshow />
+          {showSlide?
+            <Slideshow />:""
+          }
+          
           <CustomListingDetailsCard
             id={currentAuthor.id.uuid}
             title={schemaTitle}
             slug={description}
+            hideSlide={hideSlide}
           />
 
       </LayoutSingleColumn>

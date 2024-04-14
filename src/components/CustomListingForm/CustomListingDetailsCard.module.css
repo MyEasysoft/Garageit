@@ -365,7 +365,7 @@
   .form_label{
     color: #3A3A3A;
     text-align: left;
-    margin-left: 20px;
+    
   }
 
   textarea{
@@ -425,6 +425,7 @@
   .overlay_col_2 p, a{
     color: white;
   }
+  
   
   
   .overlay_col_2 a{
@@ -800,6 +801,56 @@
   margin-top: 20px;
 }
 
+.input_con{
+  margin: 20px;
+}
+
+.input_con h4{
+  font-size: 16px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.me_2{
+  margin-right: 20px;
+}
+
+.details_con{
+  border-radius: 10px;
+  border-style: solid;
+  border-width: thin;
+  margin: 20px;
+  border-color: rgb(238, 238, 238);
+  padding: 20px;
+  gap: 20px;
+}
+
+.paysumry h1,h2,h3,h4,h5{
+  font-weight: bold;
+  text-align: left;
+}
+
+
+.paysumry h1,h2,h3,h4{
+  margin-top: 50px;
+  margin-left: 20px;
+}
+b{
+  color: #000;
+}
+
+.successPage_con{
+  margin: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: thin;
+  margin: 20px;
+  border-color: rgb(238, 238, 238);
+  padding: 20px;
+  gap: 20px;
+}
+
+
 
   @media only screen and (max-width: 1024px) {
     
@@ -1060,6 +1111,13 @@
     height: fit-content;
     justify-content: space-between;
     margin-top: 20px;
+  }
+  
+  .flex_row_2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
   }
   .flex_col{
     position: relative;
