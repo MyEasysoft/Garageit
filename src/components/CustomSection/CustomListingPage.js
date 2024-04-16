@@ -623,7 +623,7 @@ const CustomListingComponent = props =>{
 
                 <div className={css.card_rows}>
                     <div className={classNames(css.flex_col,css.card_2)}>
-                            <div className={classNames(css.flex_col,css.card,css.no_shadow)}>
+                            <div className={classNames(css.flex_col,css.card_no_shadow,css.no_shadow)}>
                                 <div className={classNames(css.profile_icon_con,css.no_margin)}>
                                     <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
                                     <div>
@@ -648,7 +648,7 @@ const CustomListingComponent = props =>{
                             </div>
                     </div>
                     <div className={classNames(css.flex_col,css.card_2)}>
-                            <div className={classNames(css.flex_col,css.card,css.no_shadow)}>
+                            <div className={classNames(css.flex_col,css.card_no_shadow,css.no_shadow)}>
                                 <div className={css.profile_icon_con}>
                                     <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
                                     <div>
@@ -677,7 +677,7 @@ const CustomListingComponent = props =>{
                             </div>
                     </div>
                     <div className={classNames(css.flex_col,css.card_2)}>
-                            <div className={classNames(css.flex_col,css.card,css.no_shadow)}>
+                            <div className={classNames(css.flex_col,css.card_no_shadow,css.no_shadow)}>
                                 <div className={css.profile_icon_con}>
                                     <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
                                     <div>

@@ -825,13 +825,13 @@
   gap: 20px;
 }
 
-.paysumry h1,h2,h3,h4,h5{
+.paysumry h1,h2,h4,h5{
   font-weight: bold;
   text-align: left;
 }
 
 
-.paysumry h1,h2,h3,h4{
+.paysumry h1,h2,h4{
   margin-top: 50px;
   margin-left: 20px;
 }
