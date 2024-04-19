@@ -721,7 +721,6 @@
   margin-bottom: 50px;
 }
 
-
 .rmdp-day, .rmdp-week-day {
   color: #000;
   cursor: pointer;
@@ -730,7 +729,6 @@
   width: 54px;
   background-color: rgb(159, 231, 26);
 }
-
 
 .rmdp-day span{
   background-color: rgb(89, 0, 255);
@@ -755,7 +753,6 @@
   height: 100%;
   z-index: 100000000;
   top: 0px;
-  
 }
 
 .location_form{

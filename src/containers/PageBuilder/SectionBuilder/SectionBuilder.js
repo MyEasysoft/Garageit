@@ -47,7 +47,7 @@ const defaultSectionComponents = {
 //////////////////////
 
 const SectionBuilder = props => {
-  const { sections, options ,listings} = props;
+  const { sections, options ,listings,entities} = props;
   const { sectionComponents = {}, isInsideContainer, ...otherOption } = options || {};
 
   // If there's no sections, we can't render the correct section component
@@ -99,6 +99,7 @@ const SectionBuilder = props => {
                  defaultClasses={DEFAULT_CLASSES}
                  isInsideContainer={isInsideContainer}
                  options={otherOption}
+                 entities={entities}
                  {...section}
                />
               ) : ""}

@@ -85,6 +85,7 @@ const PageBuilder = props => {
     pageAssetsData,
     inProgress,
     error,
+    entities,
     fallbackPage,
     schemaType,
     options,
@@ -120,7 +121,7 @@ const PageBuilder = props => {
                 {sections.length === 0 && inProgress ? (
                   <LoadingSpinner />
                 ) : (
-                  <SectionBuilder sections={sections} options={options} />
+                  <SectionBuilder entities={entities} sections={sections} options={options} />
                 )}
               </Main>
               <Footer>

@@ -34,7 +34,8 @@ const CustomListingDetailsCard = props =>{
         aspectHeight,
         setActivePropsMaybe,
         id,
-        hideSlide
+        hideSlide,
+        imgUrl
         } = props;
 
     const LazyImage = lazyLoadWithDimensions(ResponsiveImage, { loadAfterInitialRendering: 3000 });
@@ -317,7 +318,7 @@ const listinPageProps = {
                                         <>
                                             <h3 className={classNames(css.text_left,css.magL20)}>Description</h3>
                                             <p className={classNames(css.magL20,css.mb_20)}>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam interdum nisl et nunc facilisis, a commodo eros mollis.
+                                                {slug}
                                             </p>
                                             
                                             <button  className={classNames(css.btn_1,css.no_bg)} onClick={handleRentNow}>Rent Now</button>

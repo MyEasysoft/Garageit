@@ -3,9 +3,9 @@ import { updatedEntities, denormalisedEntities } from '../util/data';
 // ================ Action types ================ //
 
 export const ADD_MARKETPLACE_ENTITIES = 'app/marketplaceData/ADD_MARKETPLACE_ENTITIES';
+export const ADD_MARKETPLACE_ENTITIES_LAND = 'app/marketplaceData/ADD_MARKETPLACE_ENTITIES_LAND';
 
-// ================ Reducer ================ //
-
+//================Reducer================
 const initialState = {
   // Database of all the fetched entities.
   entities: {},
@@ -20,12 +20,25 @@ const merge = (state, payload) => {
   };
 };
 
+const mergeLand = (state, payload) => {
+  const { sdkResponse, sanitizeConfig } = payload;
+  const apiResponse = sdkResponse.data;
+  const included = sdkResponse.data.included;
+  return {
+    ...state,
+    data: apiResponse,
+    images:included,
+  };
+};
+
 export default function marketplaceDataReducer(state = initialState, action = {}) {
   const { type, payload } = action;
   switch (type) {
     case ADD_MARKETPLACE_ENTITIES:
       return merge(state, payload);
 
+    case ADD_MARKETPLACE_ENTITIES_LAND:
+    return mergeLand(state, payload);
     default:
       return state;
   }
@@ -65,6 +78,11 @@ export const getMarketplaceEntities = (state, entityRefs) => {
   const throwIfNotFound = false;
   return denormalisedEntities(entities, entityRefs, throwIfNotFound);
 };
+
+export const addMarketplaceEntities2 = (sdkResponse) => ({
+  type: ADD_MARKETPLACE_ENTITIES_LAND,
+  payload: { sdkResponse },
+});
 
 // ================ Action creators ================ //
 

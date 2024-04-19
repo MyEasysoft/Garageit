@@ -29,7 +29,7 @@ const getPageDataLoadingAPI = () => {
       loadData: AuthenticationPageLoader,
     },
     LandingPage: {
-      loadData: LandingPageLoader,
+      loadData: SearchPageLoader,loadData: LandingPageLoader,
     },
     CheckoutPage: {
       setInitialValues: CheckoutPageInitialValues,

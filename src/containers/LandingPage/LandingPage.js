@@ -16,13 +16,14 @@ const PageBuilder = loadable(() =>
 );
 
 export const LandingPageComponent = props => {
-  const { pageAssetsData, inProgress, error } = props;
+  const { pageAssetsData, inProgress, error,entities } = props;
 
   return (
     <PageBuilder
       pageAssetsData={pageAssetsData?.[camelize(ASSET_NAME)]?.data}
       inProgress={inProgress}
       error={error}
+      entities={entities}
       fallbackPage={<FallbackPage error={error} />}
     />
   );
@@ -36,7 +37,13 @@ LandingPageComponent.propTypes = {
 
 const mapStateToProps = state => {
   const { pageAssetsData, inProgress, error } = state.hostedAssets || {};
-  return { pageAssetsData, inProgress, error };
+  const {entities} = state.marketplaceData;
+  return { 
+      pageAssetsData,
+      inProgress,
+      error ,
+      entities
+    };
 };
 
 // Note: it is important that the withRouter HOC is **outside** the

@@ -195,6 +195,7 @@ const [showSlide, setShowSlide] = useState(true);
     publicData = {},
     metadata = {},
   } = currentListing.attributes;
+  const imgUrl = currentListing?.images[0]?.attributes?.variants['listing-card']?.url;
 
   const richTitle = (
     <span>
@@ -302,7 +303,7 @@ const [showSlide, setShowSlide] = useState(true);
   const images = [f1, f1, f1];
   const delay = 250000;
 
-  const Slideshow =() =>{
+  const Slideshow =(props) =>{
     const [index, setIndex] = useState(0);
     const timeoutRef = useRef(null);
 
@@ -336,7 +337,7 @@ const [showSlide, setShowSlide] = useState(true);
               key={index}
               
             >
-              <img className={css.imgs} src={img}/>
+              <img className={css.imgs} src={props.imgUrl}/>
             </div>
           ))}
         </div>
@@ -393,14 +394,17 @@ const [showSlide, setShowSlide] = useState(true);
     >
       <LayoutSingleColumn topbar={topbar} footer={<FooterContainer />}>
           {showSlide?
-            <Slideshow />:""
+            <Slideshow
+            imgUrl={imgUrl}
+            />:""
           }
           
           <CustomListingDetailsCard
-            id={currentAuthor.id.uuid}
+            id={currentAuthor?.id?.uuid}
             title={schemaTitle}
             slug={description}
             hideSlide={hideSlide}
+            imgUrl={imgUrl}
           />
 
       </LayoutSingleColumn>
