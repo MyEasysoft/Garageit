@@ -183,6 +183,30 @@ const routeConfiguration = (layoutConfig) => {
       component: DashboardPage,
     },
 
+    {
+      path: '/dashboard-mobile/favourite',
+      name: 'DashboardPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: DashboardPage,
+    },
+
+    {
+      path: '/dashboard-mobile/rewards',
+      name: 'DashboardPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: DashboardPage,
+    },
+
+    {
+      path: '/dashboard-mobile/refer-a-friend',
+      name: 'DashboardPage',
+      auth: true,
+      authPage: 'LoginPage',
+      component: DashboardPage,
+    },
+
     // Note: authenticating with IdP (e.g. Facebook) expects that /login path exists
     // so that in the error case users can be redirected back to the LoginPage
     // In case you change this, remember to update the route in server/api/auth/loginWithIdp.js

@@ -128,8 +128,24 @@ const TopbarMobileMenu = props => {
       page === 'AccountSettingsPage' && ACCOUNT_SETTINGS_PAGES.includes(currentPage);
     return currentPage === page || isAccountSettingsPage ? css.currentPage : null;
   };
+  const activeClassName = 'my-active-class';
+  const favouritePageProps = {
+    name: 'DashboardPage',
+    activeClassName,
+    match: { url: '/dashboard-mobile/favourite'},
+  };
 
-  console.log("ooooooooooppppppppppppppccccccccccccccccccc");
+  const handleFavouriteClicked = ()=>{
+    history.push("/dashboard-mobile/favourite");
+  }
+
+  const handleRewardsClicked = ()=>{
+    history.push("/dashboard-mobile/rewards");
+  }
+
+  const handleReferAFriendClicked = ()=>{
+    history.push("/dashboard-mobile/refer-a-friend");
+  }
 
   return (
     <div className={css.root}>
@@ -152,6 +168,7 @@ const TopbarMobileMenu = props => {
           <img className={css.icons} src={home_icon} />
           Home
         </NamedLink>
+
         <NamedLink
           className={classNames(css.navigationLink, currentPageClass('DashbpardPage'))}
           name="DashboardPage"
@@ -159,6 +176,7 @@ const TopbarMobileMenu = props => {
           <img className={css.icons} src={reward_icon} />
           Dashboard
         </NamedLink>
+
         <NamedLink
           className={classNames(css.inbox, currentPageClass('InboxPage'))}
           name="InboxPage"
@@ -168,27 +186,34 @@ const TopbarMobileMenu = props => {
           Message
           {notificationCountBadge}
         </NamedLink>
-        <NamedLink
-          className={classNames(css.navigationLink, currentPageClass('ManageListingsPage'))}
-          name="ManageListingsPage"
+
+        <button
+          className={classNames(css.navigationLink,css.nav_btn)}
+          onClick={handleFavouriteClicked}
+         
+         
         >
           <img className={css.icons} src={favourite_icon} />
           Favourite
-        </NamedLink>
-        <NamedLink
-          className={classNames(css.navigationLink, currentPageClass('ProfileSettingsPage'))}
-          name="ProfileSettingsPage"
+        </button>
+
+        <button
+          className={classNames(css.navigationLink,css.nav_btn)}
+          onClick={handleReferAFriendClicked}
         >
           <img className={css.icons} src={refer_icon} />
           Refer a friend
-        </NamedLink>
-        <NamedLink
-          className={classNames(css.navigationLink, currentPageClass('AccountSettingsPage'))}
-          name="AccountSettingsPage"
+        </button>
+
+        <button
+          className={classNames(css.navigationLink,css.nav_btn)}
+          onClick={handleRewardsClicked}
+         
         >
           <img className={css.icons} src={reward_icon} />
           Rewards
-        </NamedLink>
+        </button>
+
         {listItem}
        
         <div className={css.spacer} />

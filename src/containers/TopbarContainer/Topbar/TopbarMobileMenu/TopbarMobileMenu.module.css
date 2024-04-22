@@ -259,7 +259,13 @@ font-size: 16px;
   text-align: left;
 }
 
-
+.nav_btn{
+  font-weight: normal;
+  font-size: 16px;
+  color: white;
+  border-style: none;
+  cursor: pointer;
+}
 
 
 

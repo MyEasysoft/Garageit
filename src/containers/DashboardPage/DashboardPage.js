@@ -49,6 +49,10 @@ export const DashboardPageComponent = props => {
   } = props;
 
   const [showMobileProfile, setShowMobileProfile] = useState(false);
+  const [showDashboard, setShowDashboard] = useState(false);
+  const [showFavourite, setShowFavourite] = useState(false);
+  const [showReward, setShowReward] = useState(false);
+  const [showReferAFriend, setShowReferAFriend] = useState(false);
   const location = useLocation();
   const history = useHistory();
 
@@ -58,8 +62,25 @@ export const DashboardPageComponent = props => {
     ()=>{
 
       if(path==="/profile-settings-mobile"){
-        setShowMobileProfile(true)
+        setShowMobileProfile(true);
       }
+      else if(path==="/dashboard-mobile"){
+        setShowDashboard(true);
+      }else if(path==="/dashboard-mobile/favourite"){
+        setShowFavourite(true);
+        setShowReward(false);
+        setShowReferAFriend(false);
+      }
+      else if(path === "/dashboard-mobile/rewards"){
+        setShowReward(true);
+        setShowReferAFriend(false);
+        setShowFavourite(false);
+      }else if(path === "/dashboard-mobile/refer-a-friend"){
+        setShowReferAFriend(true);
+        setShowFavourite(false);
+        setShowReward(false);
+      }
+      else{}
 
     },[url]
   );
@@ -67,7 +88,7 @@ export const DashboardPageComponent = props => {
   const handleSubmit = values => {
     const { firstName, lastName, bio: rawBio } = values;
 
-    // Ensure that the optional bio is a string
+    // Ensure that the optional bio is a string--
     const bio = rawBio || '';
 
     const profile = {
@@ -96,6 +117,117 @@ export const DashboardPageComponent = props => {
     history.push("/mobile/listing/new");
   }
 
+ const normalDashboard = showDashboard? 
+      <div className={css.contents}>
+          <img src={dashboardImg}/>
+          <div className={css.sub_content}>
+              <h2 className={classNames(css.align_left,css.magB30)}>Hey Sam</h2>
+              <p className={css.align_left}>Welcome to Garageit</p>
+              <div className={classNames(css.magT20)}>
+                <div className={css.card_con}>
+                  <div className={css.bg_img}>
+                    
+                    <div className={css.captionn}>
+                      <div className={css.row2}><h1>300</h1>point</div>
+                      <p>Lorem ipum lorem ipsum lorpem ipsum lorem ipsum</p>
+                    </div>
+
+                    <div className={css.overlay_btn}>
+                      <button className={css.use_btn}>Use point</button>
+                    </div>
+                  </div>
+                  
+                  
+                </div>
+              </div>
+            
+              
+              <p className={css.align_left}>What do you want to do today?</p>
+              <div className={css.row}>
+                <div className={css.col6}>
+                  <div className={css.full_col}>
+                    <button className={css.no_border} onClick={handleCamClick}><img className={css.upl_cursor} src={camIcon}/></button>
+                  </div>
+                  <div className={css.upl}>
+                    <p className={css.text_center}>Upload Item</p>
+                  </div>
+                </div>
+                <div className={classNames(css.col6,css.flex_div)}>
+                  <div className={css.content2}>
+                    <div>
+                        <button className={classNames(css.no_border,css.trend_icon)} ><img src={trend}/></button>
+                    </div>
+                  
+                  </div>
+                  <div className={css.content2}>
+                    <h3 className={css.align_left}>20</h3>
+                    <h6 className={css.align_left}>Resent items</h6>
+                    <p className={css.align_left}>Lorem ipsum dolar</p>
+                  </div>
+                
+                </div>
+                
+              </div>
+              <div className={css.row}>
+              <div className={classNames(css.col6,css.flex_div)}>
+                  <div className={css.content2}>
+                    <div>
+                        <button className={classNames(css.no_border,css.trend_icon)} ><img src={iconA}/></button>
+                    </div>
+                  
+                  </div>
+                  <div className={css.content2}>
+                    <h3 className={css.align_left}>100k</h3>
+                    <h6 className={css.align_left}>Item views</h6>
+                    <p className={css.align_left}>Lorem ipsum dolar</p>
+                  </div>
+                
+                </div>
+                <div className={classNames(css.col6,css.flex_div)}>
+                  <div className={css.content2}>
+                    <div>
+                        <button className={classNames(css.no_border,css.trend_icon)} ><img src={iconB}/></button>
+                    </div>
+                  </div>
+                  <div className={css.content2}>
+                    <h3 className={css.align_left}>50</h3>
+                    <h6 className={css.align_left}>Total reviews</h6>
+                    <p className={css.align_left}>Lorem ipsum dolar</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={css.magT30}>
+                <p className={classNames(css.align_left,css.text_bold)}>Would you like to lorem ipsum lorem</p>
+              </div>
+              <div>
+              <PrimaryButton  className={css.cam_btn} type="button">
+                Switch to lorem ispum
+              </PrimaryButton>
+              </div>
+          </div>
+      </div>:"";
+
+const favourite = showFavourite?
+      <div>
+        <br/>
+        <h2>Favourites</h2>
+
+      </div>:"";
+
+const Rewards = showReward?
+      <div>
+         <br/>
+        <h2>Rewards</h2>
+
+      </div>:"";
+
+const ReferAFriend = showReferAFriend?
+      <div>
+         <br/>
+        <h2>Refer a friend</h2>
+
+      </div>:"";
 
   return (
     
@@ -109,95 +241,10 @@ export const DashboardPageComponent = props => {
         }
         footer={<FooterContainer />}
       >
-        <div className={css.contents}>
-         <img src={dashboardImg}/>
-         <div className={css.sub_content}>
-            <h2 className={classNames(css.align_left,css.magB30)}>Hey Sam</h2>
-            <p className={css.align_left}>Welcome to Garageit</p>
-            <div className={classNames(css.magT20)}>
-              <div className={css.card_con}>
-                <div className={css.bg_img}>
-                  
-                  <div className={css.captionn}>
-                    <div className={css.row2}><h1>300</h1>point</div>
-                    <p>Lorem ipum lorem ipsum lorpem ipsum lorem ipsum</p>
-                  </div>
-
-                  <div className={css.overlay_btn}>
-                    <button className={css.use_btn}>Use point</button>
-                  </div>
-                </div>
-                
-                
-              </div>
-            </div>
-           
-            
-            <p className={css.align_left}>What do you want to do today?</p>
-            <div className={css.row}>
-              <div className={css.col6}>
-                <div className={css.full_col}>
-                  <button className={css.no_border} onClick={handleCamClick}><img className={css.upl_cursor} src={camIcon}/></button>
-                </div>
-                <div className={css.upl}>
-                  <p className={css.text_center}>Upload Item</p>
-                </div>
-              </div>
-              <div className={classNames(css.col6,css.flex_div)}>
-                <div className={css.content2}>
-                  <div>
-                      <button className={classNames(css.no_border,css.trend_icon)} ><img src={trend}/></button>
-                  </div>
-                 
-                </div>
-                <div className={css.content2}>
-                  <h3 className={css.align_left}>20</h3>
-                  <h6 className={css.align_left}>Resent items</h6>
-                  <p className={css.align_left}>Lorem ipsum dolar</p>
-                </div>
-              
-              </div>
-              
-            </div>
-            <div className={css.row}>
-            <div className={classNames(css.col6,css.flex_div)}>
-                <div className={css.content2}>
-                  <div>
-                      <button className={classNames(css.no_border,css.trend_icon)} ><img src={iconA}/></button>
-                  </div>
-                 
-                </div>
-                <div className={css.content2}>
-                  <h3 className={css.align_left}>100k</h3>
-                  <h6 className={css.align_left}>Item views</h6>
-                  <p className={css.align_left}>Lorem ipsum dolar</p>
-                </div>
-              
-              </div>
-              <div className={classNames(css.col6,css.flex_div)}>
-                <div className={css.content2}>
-                  <div>
-                      <button className={classNames(css.no_border,css.trend_icon)} ><img src={iconB}/></button>
-                  </div>
-                </div>
-                <div className={css.content2}>
-                  <h3 className={css.align_left}>50</h3>
-                  <h6 className={css.align_left}>Total reviews</h6>
-                  <p className={css.align_left}>Lorem ipsum dolar</p>
-                </div>
-              </div>
-            </div>
-
-            <div className={css.magT30}>
-              <p className={classNames(css.align_left,css.text_bold)}>Would you like to lorem ipsum lorem</p>
-            </div>
-            <div>
-            <PrimaryButton  className={css.cam_btn} type="button">
-              Switch to lorem ispum
-            </PrimaryButton>
-            </div>
-         </div>
-        </div>
+        {normalDashboard}
+        {favourite}
+        {Rewards}
+        {ReferAFriend}
       </LayoutSingleColumn>
 
     </Page>

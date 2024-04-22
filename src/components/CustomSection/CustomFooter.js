@@ -26,7 +26,7 @@ function CustomFooterComponent(){
                         <img src={logo2}/>
                     </NamedLink>
 
-                    <p>
+                    <p className={css.text_center}>
                         Lorem ipsum dolor sit amet, Lorem ipsum dolor sit ametconsectetur adipiscing elit.
                     </p>
                     <div className={css.social_list}>
@@ -38,7 +38,7 @@ function CustomFooterComponent(){
                 <div className={css.footer_form_con}>
                     <div className={css.footer_form}>
                         <h3>Stay in the loop</h3>
-                        <p>Don't miss out! Opt-in for reminders to stay up to date and in the know of new items, and deals in your area</p>
+                        <p className={css.text_center}>Don't miss out! Opt-in for reminders to stay up to date and in the know of new items, and deals in your area</p>
                         <div className={css.form_input_con}>
                             <input className={css.text_input} type='email' placeholder='Enter your email address..'/>
                             <input className={css.submit_btn} type='submit' value='Submit'/>
@@ -49,7 +49,7 @@ function CustomFooterComponent(){
            
             <hr/>
             <div className={css.row_1}>
-                <p>© 2024 Garageit. All right reserved.</p>
+                <p className={css.text_center}>© 2024 Garageit. All right reserved.</p>
                 <div className={css.row_2}>
                     <NamedLink  {...landingPageProps}>Home</NamedLink>
                     <NamedLink  {...landingPageProps}>Listings</NamedLink>
