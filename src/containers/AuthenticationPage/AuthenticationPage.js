@@ -626,12 +626,12 @@ export const AuthenticationPageComponent = props => {
 
   <form>
     <div className={css.mobile}>
-        <h2 className={css.header}>
+        <h2 className={classNames(css.header,css.text_center)}>
           Create account
         </h2>
       <div className={css.option_con}>
-          <div className={css.header_content}>
-            <h3>
+          <div className={classNames(css.header_content)}>
+            <h3 className={classNames(css.text_center)}>
               Choose how you plan to utilize Garageit!
             </h3>
             <p>

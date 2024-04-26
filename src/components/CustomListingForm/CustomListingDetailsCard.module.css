@@ -119,6 +119,7 @@
     padding: 0px;
     line-height: 20px;
     font-size: 25px;
+    margin-bottom: 20px;
   }
   
   .desktop{
@@ -185,6 +186,7 @@
   padding: 0px;
   font-size: 20px;
   line-height: 20px;
+  margin-bottom: 20px;
   }
   
   .flex_row{
@@ -822,15 +824,26 @@
   gap: 20px;
 }
 
-.paysumry h1,h2,h4,h5{
-  font-weight: bold;
-  text-align: left;
+.text_center{
+  text-align: center;
 }
 
 
-.paysumry h1,h2,h4{
+.text_left{
+  text-align: left;
+}
+
+.headers{
   margin-top: 50px;
   margin-left: 20px;
+  text-align: center;
+}
+
+
+.headers_left{
+  margin-top: 50px;
+  margin-left: 20px;
+  text-align: center;
 }
 b{
   color: #000;
@@ -847,6 +860,9 @@ b{
   gap: 20px;
 }
 
+.mb_20{
+  margin-bottom: 20px;
+}
 
 
   @media only screen and (max-width: 1024px) {
@@ -922,6 +938,7 @@ b{
     margin: 0px;
     padding: 0px;
     line-height: 20px;
+    margin-bottom: 20px;
   }
   
   .flex_row{
@@ -1100,6 +1117,7 @@ b{
     margin: 0px;
     padding: 0px;
     line-height: 20px;
+    margin-bottom: 20px;
   }
   
   .flex_row{
@@ -1291,6 +1309,7 @@ b{
           margin: 0px;
           padding: 0px;
           line-height: 20px;
+          margin-bottom: 20px;
         }
         .flex_row{
           display: flex;
@@ -1449,6 +1468,8 @@ b{
     margin: 0px;
     padding: 0px;
     line-height: 20px;
+    margin-bottom: 20px;
+
   }
   
   .circle_1{

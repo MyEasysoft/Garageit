@@ -89,6 +89,7 @@ a{
   padding: 0px;
   line-height: 20px;
   font-size: 25px;
+  margin-bottom: 20px;
 }
 
 .desktop{
@@ -158,6 +159,7 @@ padding: 0px;
 font-size: 20px;
 line-height: 20px;
 color: #3A3A3A;
+margin-bottom: 20px;
 }
 
 .flex_row{
@@ -378,12 +380,18 @@ padding:0px 20px 20px 20px;
   text-decoration: underline;
 }
 
-
 p{
   margin-top: 4px;
   margin-bottom: 0px;
   color: gray;
+  margin:20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
+
 .card{
   box-shadow: .5px .5px .5px .5px rgb(231, 231, 231);
   border-radius: 20px;
@@ -580,6 +588,7 @@ p{
   padding: 0px;
   line-height: 20px;
   color: #3A3A3A;
+  margin-bottom: 20px;
 }
 
 .flex_row{
@@ -763,6 +772,7 @@ p{
   margin: 0px;
   padding: 0px;
   line-height: 20px;
+  margin-bottom: 20px;
 }
 
 .flex_row{
@@ -940,6 +950,7 @@ p{
         padding: 0px;
         line-height: 20px;
         color: #3A3A3A;
+        margin-bottom: 20px;
       }
       .flex_row{
         display: flex;
@@ -1101,6 +1112,7 @@ p{
   padding: 0px;
   line-height: 20px;
   color: #3A3A3A;
+  margin-bottom: 20px;
 }
 
 .circle_1{
@@ -1243,6 +1255,7 @@ margin: 0px;
 padding: 0px;
 line-height: 20px;
 color: #3A3A3A;
+margin-bottom: 20px;
 }
 
 .circle_1{

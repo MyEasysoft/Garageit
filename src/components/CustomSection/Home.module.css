@@ -103,6 +103,11 @@ body{
   margin-bottom: 50px;
 }
 
+
+.text_center{
+  text-align: center;
+}
+
 @media only screen and (max-width: 1024px) {
   .mobile{
     display: flex;
@@ -169,12 +174,7 @@ body{
       height: fit-content;
     }
 
-    
-h1,h2,h3{
-  text-align: center;
-  margin: 0px;
-}
-
+  
 
 }
 
@@ -244,11 +244,7 @@ h1,h2,h3{
         height: fit-content;
       }
 
-      
-h1,h2,h3{
-  text-align: center;
-  margin: 0px;
-}
+ 
 
   }
    
@@ -307,10 +303,7 @@ h1,h2,h3{
         height: fit-content;
       }
 
-      h1,h2,h3{
-        text-align: center;
-        margin: 0px;
-      }
+     
    
    }
    
@@ -370,9 +363,5 @@ h1,h2,h3{
         height: fit-content;
       }
 
-   
-h1,h2,h3{
-  text-align: center;
-  margin: 0px;
-}
+ 
    }

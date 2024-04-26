@@ -44,6 +44,9 @@ import SearchResultsPanel from './SearchResultsPanel/SearchResultsPanel';
 import NoSearchResultsMaybe from './NoSearchResultsMaybe/NoSearchResultsMaybe';
 
 import css from './SearchPage.module.css';
+import TopbarSearchForm from '../TopbarContainer/Topbar/TopbarSearchForm/TopbarSearchForm';
+import grid_icon from '../../assets/grid_icon.PNG';
+import search_icon from '../../assets/search_icon.PNG';
 
 const MODAL_BREAKPOINT = 768; // Search is in modal on mobile layout
 
@@ -282,6 +285,26 @@ export class SearchPageComponent extends Component {
       config
     );
 
+    const onSearchSubmit = ()=>{
+      
+    }
+
+    const search = (
+      <div className={css.search}>
+        <div className={css.search_div}>
+          <div className={css.searchIcon_div}><img src={search_icon}/></div>
+          <select className={classNames(css.select,css.no_shadow)}>
+            <option>Search Listings</option>
+            <option>Recent</option>
+            <option>Old</option>
+          </select>
+        </div>
+        
+        <div className={css.gridIcon_div}><img src={grid_icon}/></div>
+      </div>
+      
+    );
+
     // Set topbar class based on if a modal is open in
     // a child component
     const topbarClasses = this.state.isMobileModalOpen
@@ -331,40 +354,9 @@ export class SearchPageComponent extends Component {
 
           <div className={css.layoutWrapperMain} role="main">
             <div className={css.searchResultContainer}>
-              <SearchFiltersMobile
-                className={css.searchFiltersMobileList}
-                urlQueryParams={validQueryParams}
-                sortByComponent={sortBy('mobile')}
-                listingsAreLoaded={listingsAreLoaded}
-                resultsCount={totalItems}
-                searchInProgress={searchInProgress}
-                searchListingsError={searchListingsError}
-                showAsModalMaxWidth={MODAL_BREAKPOINT}
-                onManageDisableScrolling={onManageDisableScrolling}
-                onOpenModal={this.onOpenMobileModal}
-                onCloseModal={this.onCloseMobileModal}
-                resetAll={this.resetAll}
-                selectedFiltersCount={selectedFiltersCountForMobile}
-                isMapVariant={false}
-                noResultsInfo={noResultsInfo}
-              >
-                {availableFilters.map(config => {
-                  return (
-                    <FilterComponent
-                      key={`SearchFiltersMobile.${config.scope || 'built-in'}.${config.key}`}
-                      idPrefix="SearchFiltersMobile"
-                      config={config}
-                      marketplaceCurrency={marketplaceCurrency}
-                      urlQueryParams={validQueryParams}
-                      initialValues={initialValues(this.props, this.state.currentQueryParams)}
-                      getHandleChangedValueFn={this.getHandleChangedValueFn}
-                      intl={intl}
-                      liveEdit
-                      showAsPopup={false}
-                    />
-                  );
-                })}
-              </SearchFiltersMobile>
+              <h4 className={css.search_header}>Lorem ipsum assist</h4>
+              {search}
+             
               <MainPanelHeader
                 className={css.mainPanel}
                 sortByComponent={sortBy('desktop')}

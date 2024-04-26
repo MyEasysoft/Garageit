@@ -286,7 +286,7 @@ const listinPageProps = {
                                             <div className={classNames(css.flex_col,css.p_2)}>
                                             <div className={classNames(css.flex_row)}>
                                                 <div>
-                                                    <h1 className={css.text_left}>{title}</h1>
+                                                    <h1 className={classNames(css.text_left,css.mb_20)}>{title}</h1>
                                                     <p className={css.text_left}>{slug}</p>
                                                         <div className={css.logedinControl}>
                                                             <ReviewRating
@@ -353,16 +353,16 @@ const listinPageProps = {
 
                                     {!showRentNow && !showPaymentSummary?
                                     <>
-                                     <h2 className={css.text_black}>Reviews</h2>
+                                     <h2 className={classNames(css.text_black,css.headers)}>Reviews</h2>
 
                                     <div className={classNames(csss.flex_col,csss.card_2)}>
                                             <div className={classNames(csss.flex_col2,csss.card,csss.no_shadow)}>
                                                 <div className={csss.profile_icon_con}>
                                                     <img className={classNames(csss.resize,csss.abs_posi,csss.no_rad)} src={f1}/>
                                                     <div>
-                                                        <h3>Sophie Moore</h3>
+                                                        <h3 className={css.text_left}>Sophie Moore</h3>
                                                         <p>Head of Design at Google</p>
-                                                    </div>
+                                                    </div> 
                                                     
                                                 </div>
                                             </div>

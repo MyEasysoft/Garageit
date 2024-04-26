@@ -38,7 +38,7 @@ const HomeComponent1 = props =>{
                         </div>
 
                         <div className={classNames(css.mobile)}>
-                            <h2><span className={css.letter_spacing_1}>#GARAGEITEXPERIENCE</span></h2>
+                            <h2 className={classNames(css.text_center)}><span className={classNames(css.letter_spacing_1)}>#GARAGEITEXPERIENCE</span></h2>
                             <h1>Discover Our Latest Storage Collection</h1>
                             <NamedLink {...landingPageProps} className={css.btn_1}>Create Account</NamedLink>
             
