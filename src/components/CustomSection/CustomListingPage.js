@@ -92,7 +92,7 @@ const CustomListingComponent = props =>{
                                     <div className={classNames(css.flex_row)}>
                                         <div>
                                             <h1 className={css.text_left}>{title}</h1>
-                                            <p>{description}</p>
+                                            <p className={css.abr_text}>{description}</p>
                                             
                                         </div>
                                         <div>
@@ -155,7 +155,8 @@ const CustomListingComponent = props =>{
 
             {listing !== undefined? Object.values(listing).map((val,key)=>{
                     
-        
+                    let count = Object.keys(listing).length;
+                    if(count < 10){return}
                     if(key < 4){return}
                     if(key > 8){return}
                     const title = val?.attributes?.title;
@@ -186,7 +187,7 @@ const CustomListingComponent = props =>{
                                     <div className={classNames(css.flex_row)}>
                                         <div>
                                             <h1 className={css.text_left}>{title}</h1>
-                                            <p>{description}</p>
+                                            <p className={css.abr_text}>{description}</p>
                                             
                                         </div>
                                         <div>
