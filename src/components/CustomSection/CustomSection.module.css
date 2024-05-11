@@ -14,25 +14,20 @@
     
   }
 
-  
   .container{
     position: relative;
     float: left;
     width: 100%;
     padding-top: 70px;
-    
     color: rgb(53, 53, 53);
-   
   }
+
 .containerMain{
   padding: 8%;
   padding-top: 0px;
   padding-bottom: 0px;
-  
-  
 }
   
-
   .row{
 
       position: relative;

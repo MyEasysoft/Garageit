@@ -55,6 +55,10 @@ const HomeComponent1 = props =>{
     
     <>
     {view}
+
+
+
+    
     </>
     
     

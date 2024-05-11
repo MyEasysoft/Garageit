@@ -39,12 +39,11 @@ const CustomListingComponent = props =>{
         match: { url: '/' },
       };
 
-      console.log("uuuuuuuuuuuuuu");
-
+     
   return (
 
 
-    
+
     
     <>
             <div className={classNames(css.desktop)}>
@@ -141,8 +140,6 @@ const CustomListingComponent = props =>{
                    
                 }):""}
 
-
-
                 </div>
 
               
@@ -167,8 +164,6 @@ const CustomListingComponent = props =>{
                     const img = image[imgId]?.attributes?.variants['listing-card']?.url;
                     //console.log(img);
 
-
-            
                     return(
                         <div key={key} className={classNames(css.flex_col,css.card)}>
             
@@ -232,176 +227,7 @@ const CustomListingComponent = props =>{
 
             </div>
 
-            <div className={classNames(css.desktop)}>
-
-                    <div className={css.header}>
-                        <h2>Flexibility and options to suit your lifestyle.</h2>
-                        <p>
-                            You need it? We got it. We make finding your next home easy, comfortable, and simple. 
-                            From our happiness guarantee<br/> to our selective roommate finder option. 
-                            We provide you the flexibility that you most desire.
-                        </p>
-                    </div>
-
-                    <div className={css.card_rows}>
-                        <div className={classNames(css.flex_col,css.card)}>
-                            <div className={classNames(css.flex_col,css.card)}>
-                                    <div className={css.container_card}>
-                                        <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
-                                        
-                                    </div>
-                                  
-
-                                </div>
-
-                                <div  className={css.overlay_col_2}>
-                                    <div>
-                                        <h3 className={classNames(css.text_left,css.color_white)}>Looking for Delivery?</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam</p>
-                                        <NamedLink {...landingPageProps}>
-                                            Learn more
-                                        </NamedLink>
-                                    </div>
-                                
-                                   
-                                </div>
-
-
-                        </div>
-                        <div className={classNames(css.flex_col,css.card)}>
-                            <div className={classNames(css.flex_col,css.card)}>
-                                    <div className={css.container_card}>
-                                        <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f2}/>
-                                        
-                                    </div>
-                                </div>
-
-                                <div  className={css.overlay_col_2}>
-                                    <div>
-                                        <h3 className={classNames(css.text_left,css.color_white)}>Want list your item?</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam</p>
-                                        <NamedLink {...landingPageProps}>
-                                            Learn more
-                                        </NamedLink>
-                                    </div>
-                                </div>
-                        </div>
-                        <div className={classNames(css.flex_col,css.card)}>
-                            <div className={classNames(css.flex_col,css.card)}>
-                                    <div className={css.container_card}>
-                                        <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f3}/>
-                                    </div>
-                                </div>
-                                <div  className={css.overlay_col_2}>
-                                    <div>
-                                        <h3 className={classNames(css.text_left,css.color_white)}>Looking for storage?</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam</p>
-                                        <NamedLink {...landingPageProps}>
-                                            Learn more
-                                        </NamedLink>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-            </div>
-
-            <div className={classNames(css.desktop,css.mb_5)}>
-
-                <div className={css.header}>
-                    <h2>What our clients say</h2>
-                </div>
-
-                <div className={css.card_rows}>
-                    <div className={classNames(css.flex_col,css.card_2)}>
-                            <div className={classNames(css.flex_col,css.card_no_shadow,css.no_shadow)}>
-                                <div className={classNames(css.profile_icon_con,css.no_margin)}>
-                                    <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
-                                    <div>
-                                        <h3>John Carter</h3>
-                                        <p>Head of Marketing at Facebook</p>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <hr className={css.hr}/>
-                            <div>
-                                        <h4 className={css.mb_2}>“Totally recommended”</h4>
-                                        <p className={css.mb_2}>
-                                        Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam 
-                                        diam dui tempor nisi risus bibendum cursus ac non tortor posuere fringilla 
-                                        donec enim congue morbi netus sit non quis.
-                                        </p>
-                                        <ReviewRating
-                                           rating={4}
-                                           className={css.ratng}
-                                        />
-                            </div>
-                    </div>
-                    <div className={classNames(css.flex_col,css.card_2)}>
-                            <div className={classNames(css.flex_col,css.card_no_shadow,css.no_shadow)}>
-                                <div className={css.profile_icon_con}>
-                                    <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
-                                    <div>
-                                        <h3>Sophie Moore</h3>
-                                        <p>Head of Design at Google</p>
-                                    </div>
-                                    
-                                </div>
-                            
-
-                            </div>
-                            <hr className={css.hr}/>
-                            <div>
-                                        <h4 className={css.mb_2}>“Totally recommended”</h4>
-                                        <p className={css.mb_2}>
-                                        Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam 
-                                        diam dui tempor nisi risus bibendum cursus ac non tortor posuere fringilla 
-                                        donec enim congue morbi netus sit non quis.
-                                        </p>
-                                        <ReviewRating
-                                           rating={4}
-                                           className={css.ratng}
-                                            /* Available Props */
-                                        />
-                                       
-                            </div>
-                    </div>
-                    <div className={classNames(css.flex_col,css.card_2)}>
-                            <div className={classNames(css.flex_col,css.card_no_shadow,css.no_shadow)}>
-                                <div className={css.profile_icon_con}>
-                                    <img className={classNames(css.resize,css.abs_posi,css.no_rad)} src={f1}/>
-                                    <div>
-                                        <h3>Andy Smith</h3>
-                                        <p>Head of Development at YouTube</p>
-                                    </div>
-                                    
-                                </div>
-                            
-
-                            </div>
-                            <hr className={css.hr}/>
-                            <div>
-                                        <h4 className={css.mb_2}>“Totally recommended”</h4>
-                                        <p className={css.mb_2}>
-                                        Lorem ipsum dolor sit amet consectetur amet odio ante nunc enim quam 
-                                        diam dui tempor nisi risus bibendum cursus ac non tortor posuere fringilla 
-                                        donec enim congue morbi netus sit non quis.
-                                        </p>
-                                        <ReviewRating
-                                           rating={5}
-                                           className={css.ratng}
-                                            /* Available Props */
-                                        />
-                            </div>
-                    </div>
-
-
-
-                </div>
-
-
-
-            </div>
+           
 
     </>
     

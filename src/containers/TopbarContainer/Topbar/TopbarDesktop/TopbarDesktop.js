@@ -60,7 +60,7 @@ const TopbarDesktop = props => {
       appConfig={appConfig}
     />
   );
-
+//
   const notificationDot = notificationCount > 0 ? <div className={css.notificationDot} /> : null;
 
   const messages = authenticatedOnClientSide ? (

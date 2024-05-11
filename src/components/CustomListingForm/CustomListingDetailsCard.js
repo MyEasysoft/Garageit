@@ -63,7 +63,7 @@ const SendQuestionForm = (props) => (
     render={({ handleSubmit }) => (
     <form onSubmit={handleSubmit} className={css.flow_form}>
 
-        <h2 className={css.form_label}>Ask a question:</h2>
+        <h2 className={classNames(css.form_label,css.text_center)}>Ask a question:</h2>
         <Field
         name="queryMessage"
         render={({ input, meta }) => (
@@ -241,7 +241,7 @@ const locationControl = showLocationControl?
 
 const paymentSummary = showPaymentSummary?
         <div className={css.paysumry}>
-         <h2>Payment Summary</h2>
+         <h2 className={css.text_center}>Payment Summary</h2>
          <div className={css.details_con}>
             <h5>Wood cutter booking</h5>
             < div className={css.flex_row_2}>

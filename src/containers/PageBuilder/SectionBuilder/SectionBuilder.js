@@ -18,6 +18,8 @@ import SectionFooter from './SectionFooter';
 import { H2, ListingCard } from '../../../components';
 import HomeComponent1 from '../../../components/CustomSection/Home';
 import CustomListingComponent from '../../../components/CustomSection/CustomListingPage';
+import DeliveryComponent from '../../../components/CustomSection/DeliveryPage';
+import ClientsComponent from '../../../components/CustomSection/ClientsPage';
 
 // These are shared classes.
 // Use these to have consistent styles between different section components
@@ -94,32 +96,46 @@ const SectionBuilder = props => {
               ) : ""}
               {index === 1? (
                  <CustomListingComponent
-                 key={`${section.sectionId}_${index}`}
-                 className={classes}
-                 defaultClasses={DEFAULT_CLASSES}
-                 isInsideContainer={isInsideContainer}
-                 options={otherOption}
-                 entities={entities}
-                 {...section}
-               />
+                  key={`${section.sectionId}_${index}`}
+                  className={classes}
+                  defaultClasses={DEFAULT_CLASSES}
+                  isInsideContainer={isInsideContainer}
+                  options={otherOption}
+                  entities={entities}
+                  {...section}
+                />
               ) : ""}
 
               {index === 2? (
-              ""
+               ""
               ) : ""}
 
               {index === 3? (
                 ""
-
-
               ) :""}
 
               {index === 4? (
-               ""
+                  <DeliveryComponent
+                    key={`${section.sectionId}_${index}`}
+                    className={classes}
+                    defaultClasses={DEFAULT_CLASSES}
+                    isInsideContainer={isInsideContainer}
+                    options={otherOption}
+                    entities={entities}
+                    {...section}
+                  />
               ) :""}
 
               {index === 5? (
-              ""
+               <ClientsComponent
+                key={`${section.sectionId}_${index}`}
+                className={classes}
+                defaultClasses={DEFAULT_CLASSES}
+                isInsideContainer={isInsideContainer}
+                options={otherOption}
+                entities={entities}
+                {...section}
+              />
               ) :""}
 
               {index === 6? (

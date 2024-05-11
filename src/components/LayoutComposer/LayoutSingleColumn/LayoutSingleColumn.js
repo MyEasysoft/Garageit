@@ -6,7 +6,7 @@ import LayoutComposer from '../LayoutComposer';
 
 import css from './LayoutSingleColumn.module.css';
 
-// Commonly used layout
+///// Commonly used layout
 const LayoutSingleColumn = props => {
   const {
     className,

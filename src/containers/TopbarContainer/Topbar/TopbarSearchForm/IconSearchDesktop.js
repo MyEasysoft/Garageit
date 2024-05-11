@@ -25,4 +25,6 @@ const IconSearchDesktop = () => (
   </svg>
 );
 
+//
+
 export default IconSearchDesktop;

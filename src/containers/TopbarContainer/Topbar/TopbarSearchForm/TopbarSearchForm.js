@@ -54,7 +54,7 @@ const LocationSearchField = props => {
       render={({ input, meta }) => {
         const { onChange, ...restInput } = input;
 
-        // Merge the standard onChange function with custom behaviur. A better solution would
+        //// Merge the standard onChange function with custom behaviur. A better solution would
         // be to use the FormSpy component from Final Form and pass this.onChange to the
         // onChange prop but that breaks due to insufficient subscription handling.
         // See: https://github.com/final-form/react-final-form/issues/159
